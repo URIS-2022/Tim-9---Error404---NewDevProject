@@ -1,0 +1,15 @@
+/Users/osx/Projects/AuctionLand_Error404/AuctionLand_Error404/bin/Debug/net7.0/AuctionLand_Error404
+/Users/osx/Projects/AuctionLand_Error404/AuctionLand_Error404/bin/Debug/net7.0/AuctionLand_Error404.deps.json
+/Users/osx/Projects/AuctionLand_Error404/AuctionLand_Error404/bin/Debug/net7.0/AuctionLand_Error404.runtimeconfig.json
+/Users/osx/Projects/AuctionLand_Error404/AuctionLand_Error404/bin/Debug/net7.0/AuctionLand_Error404.dll
+/Users/osx/Projects/AuctionLand_Error404/AuctionLand_Error404/bin/Debug/net7.0/AuctionLand_Error404.pdb
+/Users/osx/Projects/AuctionLand_Error404/AuctionLand_Error404/obj/Debug/net7.0/AuctionLand_Error404.csproj.AssemblyReference.cache
+/Users/osx/Projects/AuctionLand_Error404/AuctionLand_Error404/obj/Debug/net7.0/AuctionLand_Error404.GeneratedMSBuildEditorConfig.editorconfig
+/Users/osx/Projects/AuctionLand_Error404/AuctionLand_Error404/obj/Debug/net7.0/AuctionLand_Error404.AssemblyInfoInputs.cache
+/Users/osx/Projects/AuctionLand_Error404/AuctionLand_Error404/obj/Debug/net7.0/AuctionLand_Error404.AssemblyInfo.cs
+/Users/osx/Projects/AuctionLand_Error404/AuctionLand_Error404/obj/Debug/net7.0/AuctionLand_Error404.csproj.CoreCompileInputs.cache
+/Users/osx/Projects/AuctionLand_Error404/AuctionLand_Error404/obj/Debug/net7.0/AuctionLand_Error404.dll
+/Users/osx/Projects/AuctionLand_Error404/AuctionLand_Error404/obj/Debug/net7.0/refint/AuctionLand_Error404.dll
+/Users/osx/Projects/AuctionLand_Error404/AuctionLand_Error404/obj/Debug/net7.0/AuctionLand_Error404.pdb
+/Users/osx/Projects/AuctionLand_Error404/AuctionLand_Error404/obj/Debug/net7.0/AuctionLand_Error404.genruntimeconfig.cache
+/Users/osx/Projects/AuctionLand_Error404/AuctionLand_Error404/obj/Debug/net7.0/ref/AuctionLand_Error404.dll
