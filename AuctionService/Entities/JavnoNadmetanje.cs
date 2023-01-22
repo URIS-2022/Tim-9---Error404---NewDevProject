@@ -6,9 +6,7 @@ namespace AuctionService.Entities
 {
 	public class JavnoNadmetanje
 	{
-        public StatusNadmetanja statusNadmetanja { get; set; }
-		public TipJavnogNadmetanja tipJavnogNadmetanja { get; set; }
-
+        
         //primatrni kljuc javnog nadmetanja
         [Key]
 		public Guid javnoNadmetanjeID { get; set; }
@@ -48,11 +46,12 @@ namespace AuctionService.Entities
 		public List<Guid> parceleID { get; set; }
 
 		//status nadmetanja 
-		[ForeignKey("statusNadmetanjaID")]
+		[ForeignKey("statusNadmetanja")]
 		public Guid statusID { get; set; }
-		
-		//Ovlascena lica javnog nadmetanja (licitanti)
-		public Guid ovlascenoLiceID { get; set; }
+        public StatusNadmetanja statusNadmetanja { get; set; }
+
+        //Ovlascena lica javnog nadmetanja (licitanti)
+        public Guid ovlascenoLiceID { get; set; }
 
 		//Prijavljeni kupci na javno nadmetanje
 		[NotMapped]
@@ -65,9 +64,9 @@ namespace AuctionService.Entities
 		public Guid najboljiPonudjacID { get; set;}
 
 		//Tip nadmetanja
-		[ForeignKey("tipJavnogNadmetanjaID")]
+		[ForeignKey("tipJavnogNadmetanja")]
 		public Guid tipID { get; set; }
-
-	}
+        public TipJavnogNadmetanja tipJavnogNadmetanja { get; set; }
+    }
 }
 

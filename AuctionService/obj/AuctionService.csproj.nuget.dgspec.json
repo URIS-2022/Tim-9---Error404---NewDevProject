@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/osx/Projects/AuctionService/AuctionService/AuctionService.csproj": {}
+    "/Users/osx/Desktop/AuctionService/AuctionService/AuctionService.csproj": {}
   },
   "projects": {
-    "/Users/osx/Projects/AuctionService/AuctionService/AuctionService.csproj": {
+    "/Users/osx/Desktop/AuctionService/AuctionService/AuctionService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/osx/Projects/AuctionService/AuctionService/AuctionService.csproj",
+        "projectUniqueName": "/Users/osx/Desktop/AuctionService/AuctionService/AuctionService.csproj",
         "projectName": "AuctionService",
-        "projectPath": "/Users/osx/Projects/AuctionService/AuctionService/AuctionService.csproj",
+        "projectPath": "/Users/osx/Desktop/AuctionService/AuctionService/AuctionService.csproj",
         "packagesPath": "/Users/osx/.nuget/packages/",
-        "outputPath": "/Users/osx/Projects/AuctionService/AuctionService/obj/",
+        "outputPath": "/Users/osx/Desktop/AuctionService/AuctionService/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/osx/.nuget/NuGet/NuGet.Config"
@@ -37,6 +37,16 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
