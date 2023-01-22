@@ -1,16 +1,19 @@
 ﻿<Properties StartupConfiguration="{B5C19DE4-3E6C-4539-94F2-E2116D67EFAC}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.AuctionService FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AuctionService/Entities/JavnoNadmetanjeContext.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AuctionService/Services/TipNadmetanjaService.cs">
     <Files>
-      <File FileName="AuctionService/Services/JavnoNadmetanjeService.cs" Line="1" Column="1" />
+      <File FileName="AuctionService/Services/JavnoNadmetanjeService.cs" Line="12" Column="1" />
       <File FileName="AuctionService/Services/KupacService.cs" Line="1" Column="1" />
-      <File FileName="AuctionService/Entities/JavnoNadmetanjeContext.cs" Line="2" Column="37" />
+      <File FileName="AuctionService/Entities/JavnoNadmetanjeContext.cs" Line="16" Column="10" />
+      <File FileName="AuctionService/Entities/Licitacija.cs" Line="28" Column="31" />
+      <File FileName="AuctionService/Entities/JavnoNadmetanje.cs" Line="9" Column="9" />
+      <File FileName="AuctionService/Entities/Kupac.cs" Line="1" Column="1" />
+      <File FileName="AuctionService/Entities/StatusNadmetanja.cs" Line="1" Column="1" />
+      <File FileName="AuctionService/Entities/TipJavnogNadmetanja.cs" Line="1" Column="1" />
+      <File FileName="AuctionService/Repository/IJavnoNadmetanjeRepository.cs" Line="1" Column="1" />
+      <File FileName="AuctionService/Services/StatusNadmetanjaService.cs" Line="1" Column="1" />
+      <File FileName="AuctionService/Repository/IKupacRepository.cs" Line="1" Column="1" />
+      <File FileName="AuctionService/Services/TipNadmetanjaService.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -26,4 +29,10 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.AuctionService FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>
