@@ -9,20 +9,28 @@
 
   <ItemGroup>
     <None Remove="Entities\" />
-    <None Remove="Repository\" />
     <None Remove="DtoModels\" />
     <None Remove="Services\" />
     <None Remove="Microsoft.EntityFrameworkCore" />
     <None Remove="AutoMapper" />
+    <None Remove="Controllers\" />
+    <None Remove="MockRepositories\" />
+    <None Remove="Microsoft.AspNetCore.Mvc.Core" />
+    <None Remove="Microsoft.AspNetCore.Http" />
+    <None Remove="Microsoft.AspNetCore.Routing" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\" />
-    <Folder Include="Repository\" />
     <Folder Include="DtoModels\" />
     <Folder Include="Services\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="MockRepositories\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
     <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Routing" Version="2.2.2" />
   </ItemGroup>
 </Project>

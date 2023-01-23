@@ -6,10 +6,10 @@ namespace AuctionService.Repository
 	public interface ITipNadmetanjaRepository
 	{
 		//get all tipvi javnog nadmetanja
-		Entities.TipJavnogNadmetanja getAllTipoviJavnogNadmetanja();
+		List<Entities.TipJavnogNadmetanja> getAllTipoviJavnogNadmetanja();
 
 		//get tip javnog nadmetanja by id
-		Entities.TipJavnogNadmetanja GetTipJavnogNadmetanjaById(Guid id);
+		Entities.TipJavnogNadmetanja getTipJavnogNadmetanjaById(Guid id);
 
 		//crete tip javnog nadmetanja
 		TipJavnogNadmetanjaConformationDto postTipJavnogNadmetanja(Entities.TipJavnogNadmetanja tipJN);

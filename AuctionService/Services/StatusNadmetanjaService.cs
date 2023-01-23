@@ -2,38 +2,53 @@
 using AuctionService.DtoModels;
 using AuctionService.Entities;
 using AuctionService.Repository;
+using AutoMapper;
 
 namespace AuctionService.Services
 {
 	public class StatusNadmetanjaService : IStatusNadmetanjaRepository
 	{
-		public StatusNadmetanjaService() 
+        private readonly JavnoNadmetanjeContext context;
+        private readonly IMapper mapper;
+
+		public StatusNadmetanjaService(JavnoNadmetanjeContext context, IMapper mapper) 
 		{
+            this.mapper = mapper;
+            this.context = context;
 		}
 
+        //delete status jn
         public void deleteStatusNadmetanja(Guid id)
         {
-            throw new NotImplementedException();
+            Entities.StatusNadmetanja stausJN = getStatusNadmetanjaByID(id);
+            context.statusiNadmetanja.Remove(stausJN);
+
         }
 
+        //get all status jn
         public List<StatusNadmetanja> getAllStatusiNadmetanja()
         {
-            throw new NotImplementedException();
+            return context.statusiNadmetanja.ToList();
         }
 
+        //get status jn by id
         public StatusNadmetanja getStatusNadmetanjaByID(Guid id)
         {
-            throw new NotImplementedException();
+            return context.statusiNadmetanja.FirstOrDefault(statusJN => statusJN.statusNadmetanjaID == id);
         }
 
+        //post status jn
         public StatusNadmetanjaConformationDto postStatusNadmetanja(StatusNadmetanja status)
         {
-            throw new NotImplementedException();
+            status.statusNadmetanjaID = Guid.NewGuid();
+            var noviStatus = context.statusiNadmetanja.Add(status);
+            return mapper.Map<StatusNadmetanjaConformationDto>(noviStatus.Entity);
         }
 
+        //save changes
         public bool SaveChanges()
         {
-            throw new NotImplementedException();
+            return context.SaveChanges() > 0;
         }
 
         public StatusNadmetanjaConformationDto updateStatusNadmetanja(StatusNadmetanja status)

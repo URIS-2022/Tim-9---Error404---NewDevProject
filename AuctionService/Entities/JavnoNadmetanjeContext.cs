@@ -9,7 +9,7 @@ namespace AuctionService.Entities
 		{
 		}
 
-        public DbSet<JavnoNadmetanje> javnoaNadmetanja { get; set; }
+        public DbSet<JavnoNadmetanje> javnaNadmetanja { get; set; }
 		public DbSet<TipJavnogNadmetanja> tipoviNadmetanja { get; set; }
 		public DbSet<StatusNadmetanja> statusiNadmetanja { get; set; }
 		public DbSet<Kupac> kupci { get; set; }

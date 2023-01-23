@@ -19,17 +19,17 @@ namespace AuctionService.Services
         public void deleteJavnoNadmetanje(Guid id)
         {
             Entities.JavnoNadmetanje jn = getJavnoNadmetanjeByID(id);
-            javnoNadmetanjeContext.Remove(jn);
+            javnoNadmetanjeContext.javnaNadmetanja.Remove(jn);
         }
 
         public List<JavnoNadmetanje> getJavnaNadmetanja()
-        {
-            return javnoNadmetanjeContext.javnoaNadmetanja.ToList();
+        { 
+            return javnoNadmetanjeContext.javnaNadmetanja.ToList();
         }
 
         public JavnoNadmetanje getJavnoNadmetanjeByID(Guid id)
         {
-            return javnoNadmetanjeContext.javnoaNadmetanja.FirstOrDefault(jn => jn.javnoNadmetanjeID ==s id);
+            return javnoNadmetanjeContext.javnaNadmetanja.FirstOrDefault(jn => jn.javnoNadmetanjeID == id);
         }
 
         public JavnoNadmetanjeConformationDto postJavnoNadmetanje(JavnoNadmetanje jn)
@@ -37,7 +37,6 @@ namespace AuctionService.Services
             jn.javnoNadmetanjeID = Guid.NewGuid();
             var novoJN = javnoNadmetanjeContext.Add(jn);
             return mapper.Map<JavnoNadmetanjeConformationDto>(novoJN.Entity);
-
         }
 
         public bool saveChanges()
