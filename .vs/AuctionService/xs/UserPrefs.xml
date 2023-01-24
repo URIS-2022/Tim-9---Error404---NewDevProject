@@ -1,35 +1,27 @@
 ﻿<Properties StartupConfiguration="{B5C19DE4-3E6C-4539-94F2-E2116D67EFAC}|Default">
-  <MonoDevelop.Ide.ItemProperties.AuctionService FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AuctionService/Controllers/KupacController.cs">
-    <Files>
-      <File FileName="AuctionService/Services/JavnoNadmetanjeService.cs" Line="7" Column="2" />
-      <File FileName="AuctionService/MockRepositories/JavnoNadmetanjeMockRepository.cs" Line="1" Column="1" />
-      <File FileName="AuctionService/MockRepositories/TipNadmetanjaMockRepository.cs" Line="1" Column="1" />
-      <File FileName="AuctionService/MockRepositories/StatusNadmetanjaMockRepository.cs" Line="1" Column="1" />
-      <File FileName="AuctionService/MockRepositories/LicitacijaMockRepository.cs" Line="1" Column="1" />
-      <File FileName="AuctionService/Controllers/JavnoNadmetanjController.cs" Line="1" Column="1" />
-      <File FileName="AuctionService/Controllers/LicitacijaController.cs" Line="1" Column="1" />
-      <File FileName="AuctionService/Controllers/TipJavnogNadmetanjaController.cs" Line="1" Column="1" />
-      <File FileName="AuctionService/Controllers/StatusNadmetanjaController.cs" Line="1" Column="1" />
-      <File FileName="AuctionService/Controllers/KupacController.cs" Line="12" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="AuctionService" expanded="True">
             <Node name="AuctionService" expanded="True">
               <Node name="Controllers" expanded="True" />
+              <Node name="DtoModels" expanded="True" />
               <Node name="Entities" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="TipNadmetanjaService.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.AuctionService FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
