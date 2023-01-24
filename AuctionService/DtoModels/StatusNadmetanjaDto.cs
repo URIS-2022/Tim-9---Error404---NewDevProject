@@ -1,7 +1,7 @@
 ﻿using System;
 namespace AuctionService.DtoModels
 {
-	public class StatusNadmetanjeDto
+	public class StatusNadmetanjaDto
 	{
 		
 		public string nazivNadmetanja { get; set; }
