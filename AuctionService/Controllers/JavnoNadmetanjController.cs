@@ -112,9 +112,23 @@ namespace AuctionService.Controllers
 			}
 		}
 
-		public ActionResult<JavnoNadmetanjeConformationDto> postJavnoNadmetnanje([FromBody] JavnoNadmetanjeDto)
+		[HttpPost]
+		[Consumes("application/json")]
+		[ProducesResponseType(StatusCodes.Status201Created)]
+		[ProducesResponseType(StatusCodes.Status500InternalServerError)]
+		public ActionResult<JavnoNadmetanjeConformationDto> postJavnoNadmetnanje([FromBody] JavnoNadmetanjeCreationDto javnoNadmetanjeDto)
 		{
+			try
+			{
+				Entities.JavnoNadmetanje javnoNadmetanje = mapper.Map<Entities.JavnoNadmetanje>(javnoNadmetanjeDto);
+				javnoNadmetanjeService.postJavnoNadmetanje(javnoNadmetanje);
+				javnoNadmetanjeService.saveChanges();
+				return Created("uri", mapper.Map<JavnoNadmetanjeConformationDto>(javnoNadmetanje));
 
+			}catch(Exception ex)
+			{
+				return StatusCode(StatusCodes.Status500InternalServerError, "Post error");
+			}
 		}
 	}
 }

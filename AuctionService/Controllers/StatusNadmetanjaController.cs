@@ -109,6 +109,26 @@ namespace AuctionService.Controllers
 				return StatusCode(StatusCodes.Status500InternalServerError, "Update error");
 			}
 		}
+
+		[HttpPost]
+        [Consumes("application/json")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public ActionResult<StatusNadmetanjaConformationDto> postStatusNadmetanja([FromBody] StatusNadmetanjaCreationDto statusNadmetanjaDto)
+		{
+			try
+			{
+				Entities.StatusNadmetanja statusNadmetanja = mapper.Map<Entities.StatusNadmetanja>(statusNadmetanjaDto);
+				statusNadmetanjaService.postStatusNadmetanja(statusNadmetanja);
+				statusNadmetanjaService.SaveChanges();
+				return Created("uri", mapper.Map<StatusNadmetanjaConformationDto>(statusNadmetanja));
+
+			}
+			catch
+			{
+				return StatusCode(StatusCodes.Status500InternalServerError, "Post error");
+			}
+		}
 	}
 
 	

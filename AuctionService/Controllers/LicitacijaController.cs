@@ -49,6 +49,26 @@ namespace AuctionService.Controllers
 			}
 			
 		}
+
+		//post method
+		[HttpPost]
+		[Consumes("appplication/json")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public ActionResult<LicitacijaConformationDto> postLicitacija([FromBody] LicitacijaCreationDto licitacijaDto)
+		{
+			try
+			{
+				Entities.Licitacija licitacija = mapper.Map<Entities.Licitacija>(licitacijaDto);
+				licitacijaService.postLicitacija(licitacija);
+				licitacijaService.saveChanges();
+				return Created("uri", mapper.Map<LicitacijaConformationDto>(licitacija));
+			}
+			catch
+			{
+				return StatusCode(StatusCodes.Status500InternalServerError, "Post error");
+			}
+		}
 	}
 }
 
