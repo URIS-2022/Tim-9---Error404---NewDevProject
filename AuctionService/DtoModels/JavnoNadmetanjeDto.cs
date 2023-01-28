@@ -3,7 +3,6 @@ namespace AuctionService.DtoModels
 {
 	public class JavnoNadmetanjeDto
 	{
-		public Guid javnoNadmetanjeId {get; set;}
 
 		public DateTime datum { get; set; }
 

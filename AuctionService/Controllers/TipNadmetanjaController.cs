@@ -88,17 +88,25 @@ namespace AuctionService.Controllers
 		}
 
 		[HttpPut]
+		[Consumes("application/json")]
 		[ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult putTipJavnogNadmetanja(TipNadmetanjaDto tipNadmetanjaDto)
+		[ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<TipJavnogNadmetanjaConformationDto> putTipJavnogNadmetanja(TipJavnogNadmetanjaUpdateDto tipNadmetanjaDto)
 		{
 			try
 			{
-				Entities.TipJavnogNadmetanja tipJn = mapper.Map<Entities.TipJavnogNadmetanja>(tipNadmetanjaDto);
-				TipJavnogNadmetanjaConformationDto tip = tipNadmetanjaService.postTipJavnogNadmetanja(tipJn);
-				tipNadmetanjaService.SaveChanges();
+				Entities.TipJavnogNadmetanja oldTipJn = tipNadmetanjaService.getTipJavnogNadmetanjaById(tipNadmetanjaDto.tipNadmetanjaId);
 
-				return Ok(mapper.Map<TipJavnogNadmetanjaConformationDto>(tip));
+				if(oldTipJn == null)
+				{
+					return NotFound();
+				}
+
+				Entities.TipJavnogNadmetanja tipJavnogNadmetanja = mapper.Map<Entities.TipJavnogNadmetanja>(tipNadmetanjaDto);
+				mapper.Map(tipJavnogNadmetanja, oldTipJn);
+				tipNadmetanjaService.SaveChanges();
+				return Ok(mapper.Map<TipJavnogNadmetanjaConformationDto>(oldTipJn));
 			}
 			catch(Exception ex)
 			{

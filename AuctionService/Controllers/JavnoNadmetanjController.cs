@@ -84,11 +84,13 @@ namespace AuctionService.Controllers
 			
 		}
 
+		//put method
 		[HttpPut]
-		[ProducesResponseType(StatusCodes.Status404NotFound)]
+        [Consumes("application/json")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
 		[ProducesResponseType(StatusCodes.Status500InternalServerError)]
 		[ProducesResponseType(StatusCodes.Status200OK)]
-		public ActionResult putJavnoNadmetanje (JavnoNadmetanjeDto jnDto)
+		public ActionResult<JavnoNadmetanjeConformationDto> putJavnoNadmetanje (JavnoNadmetanjeUpdateDto jnDto)
 		{
 			try
 			{
@@ -110,6 +112,10 @@ namespace AuctionService.Controllers
 			}
 		}
 
+		public ActionResult<JavnoNadmetanjeConformationDto> postJavnoNadmetnanje([FromBody] JavnoNadmetanjeDto)
+		{
+
+		}
 	}
 }
 

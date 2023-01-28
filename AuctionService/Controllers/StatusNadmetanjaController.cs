@@ -84,11 +84,31 @@ namespace AuctionService.Controllers
 		}
 
 		[HttpPut("statusNadmetanjaDto")]
-		//public IActionResult putStatusNadmetanja(StatusNadmetanjaDto statusNadmetanjaDto)
-		//{
-		//	Entities.StatusNadmetanja statusNadmetanja = statusNadmetanjaService.getStatusNadmetanjaByID(stat)
+        [Consumes("application/json")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public ActionResult<StatusNadmetanjaConformationDto> updateStatusNadmetanja(StatusJavnogNadmetanjaUpdateDto statusNadmetanjaDto)
+		{
+			try
+			{
+				Entities.StatusNadmetanja oldStatusNadetanja = statusNadmetanjaService.getStatusNadmetanjaByID(statusNadmetanjaDto.statusNadmetanjaId);
 
-		//}
+				if(oldStatusNadetanja == null)
+				{
+					return NotFound();
+				}
+				Entities.StatusNadmetanja statusNadmetanja = mapper.Map<Entities.StatusNadmetanja>(statusNadmetanjaDto);
+				mapper.Map(statusNadmetanja, oldStatusNadetanja);
+				statusNadmetanjaService.SaveChanges();
+				return Ok(mapper.Map<StatusNadmetanjaConformationDto>(oldStatusNadetanja));
+
+			}
+			catch(Exception ex)
+			{
+				return StatusCode(StatusCodes.Status500InternalServerError, "Update error");
+			}
+		}
 	}
 
 	
