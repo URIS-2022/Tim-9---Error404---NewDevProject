@@ -5,8 +5,8 @@ namespace AuctionService.DtoModels
 {
 	public class StatusNadmetanjaCreationDto
 	{
-        [Required(ErrorMessage = "Requires field")]
-        public string statusNadmetanja { get; set; }
+        [Required(ErrorMessage = "Required field")]
+        public string naziv { get; set; }
 	}
 }
 

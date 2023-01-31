@@ -47,8 +47,8 @@ namespace AuctionService.Entities
 
 		//status nadmetanja 
 		[ForeignKey("statusNadmetanja")]
-		public Guid statusID { get; set; }
-        public StatusNadmetanja statusNadmetanja { get; set; }
+		public Guid statusNadmetanjaID { get; set; }
+        public StatusNadmetanja statusID { get; set; }
 
         //Ovlascena lica javnog nadmetanja (licitanti)
         public Guid ovlascenoLiceID { get; set; }

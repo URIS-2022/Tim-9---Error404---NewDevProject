@@ -15,7 +15,7 @@ namespace AuctionService.DtoModels
 
 		public Guid javnoNadmetanjeId { get; set; }
 
-		public DateTime rokPrijava { get; set; }
+		public DateTime rokZaDostavljanje { get; set; }
 
 	}
 }

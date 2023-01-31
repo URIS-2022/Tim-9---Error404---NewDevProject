@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using AuctionService.DtoModels;
+using AuctionService.Repository;
 using AuctionService.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
@@ -8,23 +9,23 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AuctionService.Controllers
 {
-    [ApiController]
+	[ApiController]
 	[Route("api/javnaNadmetanja")]
 	[Produces("application/json", "application/xml")]
-    public class JavnoNadmetanjController : ControllerBase
+	public class JavnoNadmetanjController : ControllerBase
 	{
-		private readonly JavnoNadmetanjeService javnoNadmetanjeService;
-		private readonly KupacService kupacService;
+		private readonly IJavnoNadmetanjeRepository javnoNadmetanjeRepository;
+		//private readonly KupacService kupacService;
 		private readonly IMapper mapper;
 		private readonly string name = "Javno_nadmetanje_service";
-		
 
-		public JavnoNadmetanjController(JavnoNadmetanjeService javnoNadmetanjeService, KupacService kupacService, IMapper mapper, string name)
+
+		public JavnoNadmetanjController(IJavnoNadmetanjeRepository javnoNadmetanjeService, IMapper mapper)
 		{
-			this.javnoNadmetanjeService = javnoNadmetanjeService;
-			this.kupacService = kupacService;
+			this.javnoNadmetanjeRepository = javnoNadmetanjeService;
+			//this.kupacService = kupacService;
 			this.mapper = mapper;
-			this.name = name;
+		
 		}
 		[HttpGet]
 		[HttpHead]
@@ -32,8 +33,8 @@ namespace AuctionService.Controllers
 		[ProducesResponseType(StatusCodes.Status204NoContent)]
 		public ActionResult<List<JavnoNadmetanjeDto>> getAllJavnaNadmetanja()
 		{
-			List<Entities.JavnoNadmetanje> javnaNadmetanja = javnoNadmetanjeService.getJavnaNadmetanja();
-			if(javnaNadmetanja == null || javnaNadmetanja.Count == 0)
+			List<Entities.JavnoNadmetanje> javnaNadmetanja = javnoNadmetanjeRepository.getJavnaNadmetanja();
+			if (javnaNadmetanja == null || javnaNadmetanja.Count == 0)
 			{
 				return NoContent();
 			}
@@ -43,14 +44,14 @@ namespace AuctionService.Controllers
 			return Ok(mapper.Map<List<JavnoNadmetanjeDto>>(javnoNadmetanjeDto));
 		}
 
-		[HttpGet]
+		[HttpGet("{javnoNadmetanjeId}")]
 		[HttpHead]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
-		public ActionResult<JavnoNadmetanjeDto> getJavnoNadmetanjeById(Guid id)
+		public ActionResult<JavnoNadmetanjeDto> getJavnoNadmetanjeById(Guid javnoNadmetanjeId)
 		{
-			Entities.JavnoNadmetanje jn = javnoNadmetanjeService.getJavnoNadmetanjeByID(id);
-			 if (jn == null)
+			Entities.JavnoNadmetanje jn = javnoNadmetanjeRepository.getJavnoNadmetanjeByID(javnoNadmetanjeId);
+			if (jn == null)
 			{
 				return NotFound();
 			}
@@ -59,51 +60,52 @@ namespace AuctionService.Controllers
 			return Ok(jnDto);
 		}
 
-		[HttpDelete("javnoNadmetanjeID")]
+		[HttpDelete("{javnoNadmetanjeId}")]
 		[ProducesResponseType(StatusCodes.Status204NoContent)]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult deleteJavnoNadmetanje (Guid javnoNadmetanjeID)
+		[ProducesResponseType(StatusCodes.Status500InternalServerError)]
+		public ActionResult deleteJavnoNadmetanje(Guid javnoNadmetanjeId)
 		{
 			try
 			{
-                Entities.JavnoNadmetanje jn = javnoNadmetanjeService.getJavnoNadmetanjeByID(javnoNadmetanjeID);
+				Entities.JavnoNadmetanje jn = javnoNadmetanjeRepository.getJavnoNadmetanjeByID(javnoNadmetanjeId);
 
-                if (jn == null)
-                {
-                    return NotFound();
-                }
+				if (jn == null)
+				{
+					return NotFound();
+				}
 
-                javnoNadmetanjeService.deleteJavnoNadmetanje(javnoNadmetanjeID);
-                javnoNadmetanjeService.saveChanges();
-                return NoContent();
-            }catch(Exception ex)
+				javnoNadmetanjeRepository.deleteJavnoNadmetanje(javnoNadmetanjeId);
+				javnoNadmetanjeRepository.saveChanges();
+				return NoContent();
+			}
+			catch (Exception ex)
 			{
 				return StatusCode(StatusCodes.Status500InternalServerError, "Delete error");
 			}
-			
+
 		}
 
 		//put method
 		[HttpPut]
-        [Consumes("application/json")]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+		[Consumes("application/json")]
+		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		[ProducesResponseType(StatusCodes.Status500InternalServerError)]
 		[ProducesResponseType(StatusCodes.Status200OK)]
-		public ActionResult<JavnoNadmetanjeConformationDto> putJavnoNadmetanje (JavnoNadmetanjeUpdateDto jnDto)
+		public ActionResult<JavnoNadmetanjeConformationDto> putJavnoNadmetanje(JavnoNadmetanjeUpdateDto jnDto)
 		{
 			try
 			{
-				Entities.JavnoNadmetanje oldJn = javnoNadmetanjeService.getJavnoNadmetanjeByID(jnDto.javnoNadmetanjeId);
+				Entities.JavnoNadmetanje oldJn = javnoNadmetanjeRepository.getJavnoNadmetanjeByID(jnDto.javnoNadmetanjeID);
 
-				if(oldJn == null)
+				if (oldJn == null)
 				{
 					return NotFound();
 				}
 
 				Entities.JavnoNadmetanje javnoNadmetanje = mapper.Map<Entities.JavnoNadmetanje>(jnDto);
 				mapper.Map(javnoNadmetanje, oldJn);
-				javnoNadmetanjeService.saveChanges();
+				javnoNadmetanjeRepository.saveChanges();
 				return Ok(mapper.Map<JavnoNadmetanjeConformationDto>(oldJn));
 			}
 			catch (Exception ex)
@@ -121,11 +123,12 @@ namespace AuctionService.Controllers
 			try
 			{
 				Entities.JavnoNadmetanje javnoNadmetanje = mapper.Map<Entities.JavnoNadmetanje>(javnoNadmetanjeDto);
-				javnoNadmetanjeService.postJavnoNadmetanje(javnoNadmetanje);
-				javnoNadmetanjeService.saveChanges();
+				javnoNadmetanjeRepository.postJavnoNadmetanje(javnoNadmetanje);
+				javnoNadmetanjeRepository.saveChanges();
 				return Created("uri", mapper.Map<JavnoNadmetanjeConformationDto>(javnoNadmetanje));
 
-			}catch(Exception ex)
+			}
+			catch (Exception ex)
 			{
 				return StatusCode(StatusCodes.Status500InternalServerError, "Post error");
 			}

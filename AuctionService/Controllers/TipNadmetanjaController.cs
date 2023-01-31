@@ -1,5 +1,6 @@
 ﻿using System;
 using AuctionService.DtoModels;
+using AuctionService.Repository;
 using AuctionService.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
@@ -9,16 +10,16 @@ namespace AuctionService.Controllers
 {
 	[ApiController]
 	[Route("api/tipoviNadmetanja")]
-	[Produces("application/json", "application/xml")]
-	public class TipJavnogNadmetanjaController : ControllerBase
+    [Produces("application/json", "application/xml")]
+    public class TipJavnogNadmetanjaController : ControllerBase
 	{
-		private readonly TipNadmetanjaService tipNadmetanjaService;
+		private readonly ITipNadmetanjaRepository tipNadmetanjaRepository;
 		private readonly IMapper mapper;
 		private readonly string naziv = "Tip_javnog_nadmetanja";
 
-		public TipJavnogNadmetanjaController(TipNadmetanjaService tipNadmetanjaService,IMapper mapper, string naziv )
+		public TipJavnogNadmetanjaController(ITipNadmetanjaRepository tipNadmetanjaService,IMapper mapper)
 		{
-			this.tipNadmetanjaService = tipNadmetanjaService;
+			this.tipNadmetanjaRepository = tipNadmetanjaService;
 			this.mapper = mapper;
 		}
 
@@ -28,12 +29,13 @@ namespace AuctionService.Controllers
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		public ActionResult<List<TipNadmetanjaDto>> getAllTipoviNadmetanja()
 		{
-			List<Entities.TipJavnogNadmetanja> tipoviNadmetanja = tipNadmetanjaService.getAllTipoviJavnogNadmetanja();
+			List<Entities.TipJavnogNadmetanja> tipoviNadmetanja = tipNadmetanjaRepository.getAllTipoviJavnogNadmetanja();
 
 			if(tipoviNadmetanja == null || tipoviNadmetanja.Count == 0)
 			{
 				return NoContent();
 			}
+			
 
 			//ovde samo ceo objekat namapirmao na dto objekat klase
 			List<TipNadmetanjaDto> tipoviNadmetanjaDto = mapper.Map<List<TipNadmetanjaDto>>(tipoviNadmetanja);
@@ -42,13 +44,13 @@ namespace AuctionService.Controllers
 			return Ok(mapper.Map<List<TipNadmetanjaDto>>(tipoviNadmetanjaDto));
 		}
 
-		[HttpGet("tipNadmetanjaId")]
+		[HttpGet("{tipNadmetanjaId}")]
 		[HttpHead]
 		[ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 		public ActionResult<TipNadmetanjaDto> geTipJavnogNadmetanjaById(Guid tipNadmetanjaId)
 		{
-			Entities.TipJavnogNadmetanja tipNadmetanja = tipNadmetanjaService.getTipJavnogNadmetanjaById(tipNadmetanjaId);
+			Entities.TipJavnogNadmetanja tipNadmetanja = tipNadmetanjaRepository.getTipJavnogNadmetanjaById(tipNadmetanjaId);
 
 			if(tipNadmetanja == null)
 			{
@@ -57,10 +59,11 @@ namespace AuctionService.Controllers
 
 			TipNadmetanjaDto tipJnDto = mapper.Map<TipNadmetanjaDto>(tipNadmetanja);
 
-			return Ok(tipJnDto);
+			return Ok(mapper.Map<TipNadmetanjaDto>(tipJnDto));
+
 		}
 
-		[HttpDelete("tipNadmetanjaId")]
+		[HttpDelete("{tipNadmetanjaId}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -68,20 +71,21 @@ namespace AuctionService.Controllers
 		{
 			try
 			{
-				Entities.TipJavnogNadmetanja tipNadmetanja = tipNadmetanjaService.getTipJavnogNadmetanjaById(tipNadmetanjaId);
+				Entities.TipJavnogNadmetanja tipNadmetanja = tipNadmetanjaRepository.getTipJavnogNadmetanjaById(tipNadmetanjaId);
 
 				if (tipNadmetanja == null)
 				{
 					return NotFound();
 				}
 
-				tipNadmetanjaService.deleteTipJavnogNadmetanja(tipNadmetanjaId);
-				tipNadmetanjaService.SaveChanges();
+				tipNadmetanjaRepository.deleteTipJavnogNadmetanja(tipNadmetanjaId);
+				tipNadmetanjaRepository.SaveChanges();
 				return NoContent();
 
 			}
 			catch(Exception ex)
 			{
+				Console.WriteLine(ex);
 				return StatusCode(StatusCodes.Status500InternalServerError, "Delete error");
 			}
 			
@@ -96,7 +100,7 @@ namespace AuctionService.Controllers
 		{
 			try
 			{
-				Entities.TipJavnogNadmetanja oldTipJn = tipNadmetanjaService.getTipJavnogNadmetanjaById(tipNadmetanjaDto.tipNadmetanjaId);
+				Entities.TipJavnogNadmetanja oldTipJn = tipNadmetanjaRepository.getTipJavnogNadmetanjaById(tipNadmetanjaDto.tipJavnogNadmetanjaID);
 
 				if(oldTipJn == null)
 				{
@@ -105,7 +109,7 @@ namespace AuctionService.Controllers
 
 				Entities.TipJavnogNadmetanja tipJavnogNadmetanja = mapper.Map<Entities.TipJavnogNadmetanja>(tipNadmetanjaDto);
 				mapper.Map(tipJavnogNadmetanja, oldTipJn);
-				tipNadmetanjaService.SaveChanges();
+				tipNadmetanjaRepository.SaveChanges();
 				return Ok(mapper.Map<TipJavnogNadmetanjaConformationDto>(oldTipJn));
 			}
 			catch(Exception ex)
@@ -124,13 +128,15 @@ namespace AuctionService.Controllers
             try
             {
                 Entities.TipJavnogNadmetanja tipNadmetanja = mapper.Map<Entities.TipJavnogNadmetanja>(tipNadmetanjaDto);
-				tipNadmetanjaService.postTipJavnogNadmetanja(tipNadmetanja);
-                tipNadmetanjaService.SaveChanges();
-                return Created("uri", mapper.Map<TipJavnogNadmetanjaConformationDto>(tipNadmetanja));
+				TipJavnogNadmetanjaConformationDto idtip = tipNadmetanjaRepository.postTipJavnogNadmetanja(tipNadmetanja);
+				//Entities.TipJavnogNadmetanja tip = tipNadmetanjaService.getTipJavnogNadmetanjaById(idtip.tipJavnogNadmetanjaID);
+                //tipNadmetanjaService.SaveChanges();
+                return Created("uri",mapper.Map<TipJavnogNadmetanjaConformationDto>(idtip));
 
             }
-            catch
+            catch(Exception ex)
             {
+				Console.WriteLine(ex);
                 return StatusCode(StatusCodes.Status500InternalServerError, "Post error");
             }
         }

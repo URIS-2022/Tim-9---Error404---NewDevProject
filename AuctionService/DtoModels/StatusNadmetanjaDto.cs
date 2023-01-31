@@ -4,7 +4,7 @@ namespace AuctionService.DtoModels
 	public class StatusNadmetanjaDto
 	{
 		
-		public string nazivNadmetanja { get; set; }
+		public string naziv { get; set; }
 		
 	}
 }

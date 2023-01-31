@@ -3,7 +3,7 @@ namespace AuctionService.DtoModels
 {
 	public class LicitacijaUpdateDto
 	{
-        public Guid licitacijaId { get; set; }
+        public Guid licitacijaID { get; set; }
 
         public int broj { get; set; }
 
@@ -17,7 +17,7 @@ namespace AuctionService.DtoModels
 
         public Guid javnoNadmetanjeId { get; set; }
 
-        public DateTime rokPrijava { get; set; }
+        public DateTime rokZaDostavljanje { get; set; }
     }
 }
 

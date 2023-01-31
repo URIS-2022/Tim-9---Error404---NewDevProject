@@ -9,13 +9,13 @@ namespace AuctionService.Services
 	public class TipNadmetanjaService : ITipNadmetanjaRepository 
 	{
         public static List<TipJavnogNadmetanja> tipJavnogNadmetanjas { get; set; } = new List<TipJavnogNadmetanja>();
-        private readonly JavnoNadmetanjeContext context;
+        //private readonly JavnoNadmetanjeContext context;
         private readonly IMapper mapper;
 
-		public TipNadmetanjaService(JavnoNadmetanjeContext context, IMapper mapper)
+		public TipNadmetanjaService(IMapper mapper)
 		{
             this.mapper = mapper;
-            this.context = context;
+          //  this.context = context;
             FillData();
 		}
 
@@ -40,7 +40,8 @@ namespace AuctionService.Services
         public void deleteTipJavnogNadmetanja(Guid id)
         {
             Entities.TipJavnogNadmetanja tipJn = getTipJavnogNadmetanjaById(id);
-            context.tipoviNadmetanja.Remove(tipJn);
+            // context.tipoviNadmetanja.Remove(tipJn);
+            tipJavnogNadmetanjas.Remove(tipJn);
         }
 
         public List<TipJavnogNadmetanja> getAllTipoviJavnogNadmetanja()
@@ -51,19 +52,26 @@ namespace AuctionService.Services
 
         public TipJavnogNadmetanja getTipJavnogNadmetanjaById(Guid id)
         {
-            return context.tipoviNadmetanja.FirstOrDefault(tipJn => tipJn.tipJavnogNadmetanjaID == id);
+            //return context.tipoviNadmetanja.FirstOrDefault(tipJn => tipJn.tipJavnogNadmetanjaID == id);
+            return tipJavnogNadmetanjas.FirstOrDefault(tipJn => tipJn.tipJavnogNadmetanjaID == id);
+            //return tipJavnogNadmetanjas[0];
+                   
         }
 
         public TipJavnogNadmetanjaConformationDto postTipJavnogNadmetanja(TipJavnogNadmetanja tipJN)
         {
             tipJN.tipJavnogNadmetanjaID = Guid.NewGuid();
-            var noviTip = context.tipoviNadmetanja.Add(tipJN);
-            return mapper.Map<TipJavnogNadmetanjaConformationDto>(noviTip.Entity);
-        }
+            //var noviTip = context.tipoviNadmetanja.Add(tipJN);
+            tipJavnogNadmetanjas.Add(tipJN);
+            return mapper.Map<TipJavnogNadmetanjaConformationDto>(tipJN);
+
+            //throw new NotImplementedException();
+       }
 
         public bool SaveChanges()
         {
-            return context.SaveChanges() > 0;
+            // return context.SaveChanges() > 0;
+            return true;
         }
 
         public TipJavnogNadmetanjaConformationDto updateTipJavnogNadmetanja(TipJavnogNadmetanja tipJN)

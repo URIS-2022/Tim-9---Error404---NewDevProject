@@ -1,34 +1,20 @@
 ﻿<Properties StartupConfiguration="{B5C19DE4-3E6C-4539-94F2-E2116D67EFAC}|Default">
-  <MonoDevelop.Ide.ItemProperties.AuctionService PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AuctionService/Startup.cs">
-    <Files>
-      <File FileName="AuctionService/Controllers/KupacController.cs" />
-      <File FileName="AuctionService/Controllers/JavnoNadmetanjController.cs" />
-      <File FileName="AuctionService/Controllers/StatusNadmetanjaController.cs" />
-      <File FileName="AuctionService/Repositories/ILicitacijaRepository.cs" />
-      <File FileName="AuctionService/Services/JavnoNadmetanjeService.cs" />
-      <File FileName="AuctionService/Services/TipNadmetanjaService.cs" />
-      <File FileName="AuctionService/Entities/TipJavnogNadmetanja.cs" />
-      <File FileName="AuctionService/Controllers/TipNadmetanjaController.cs" />
-      <File FileName="AuctionService/Startup.cs" Line="98" Column="77" />
-      <File FileName="AuctionService/Program.cs" />
-      <File FileName="AuctionService/AuctionService.csproj" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="AuctionService" expanded="True">
             <Node name="AuctionService" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="FrameworkReferences" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="TipNadmetanjaController.cs" selected="True" />
               </Node>
-              <Node name="Controllers" expanded="True" />
-              <Node name="Repositories" expanded="True" />
+              <Node name="DtoModels" expanded="True" />
+              <Node name="Entities" expanded="True" />
+              <Node name="Profiles" expanded="True" />
               <Node name="Services" expanded="True" />
             </Node>
           </Node>
@@ -36,5 +22,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.AuctionService PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

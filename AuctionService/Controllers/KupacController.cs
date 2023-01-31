@@ -1,10 +1,10 @@
-﻿using System;
-namespace AuctionService.Controllers
-{
+﻿//using System;
+//namespace AuctionService.Controllers
+//{
 
-	public class KupacController
-	{
+//	public class KupacController
+//	{
 		
-	}
-}
+//	}
+//}
 

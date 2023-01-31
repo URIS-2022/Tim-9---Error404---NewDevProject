@@ -14,7 +14,7 @@ namespace AuctionService.DtoModels
 
 		public bool izuzeto { get; set; }
 
-		public Guid tipJavnogNadmetanja { get; set; }
+		public Guid tipID { get; set; }
 
 		public int izlicitiranaCena { get; set; }
 
@@ -28,10 +28,10 @@ namespace AuctionService.DtoModels
 
         public int krug { get; set; }
 
-		public Guid statusNadmetanja { get; set; }
+		public Guid statusNadmetanjaID { get; set; }
 
 		//id kupca koji je najbolji ponudjac
-		public Guid kupacId { get; set; }
+		public Guid najboljiPonudjacID { get; set; }
 
 		
 	}

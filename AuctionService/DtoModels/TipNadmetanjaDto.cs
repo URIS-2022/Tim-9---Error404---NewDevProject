@@ -3,7 +3,7 @@ namespace AuctionService.DtoModels
 {
 	public class TipNadmetanjaDto
 	{
-		public string nazivTipaNadmetanja { get; set; }
+		public string nazivTipa { get; set; }
 	}
 }
 

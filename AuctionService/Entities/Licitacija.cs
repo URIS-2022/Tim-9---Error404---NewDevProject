@@ -26,7 +26,7 @@ namespace AuctionService.Entities
 		public List<string> listaDokumentacijePravnaLica { get; set; }
 
 		[ForeignKey("javnoNadmetanje")]
-		public JavnoNadmetanje javnoNadmetanjeId{ get; set; }
+		public Guid javnoNadmetanjeId{ get; set; }
 		public JavnoNadmetanje javnoNadmetanje { get; set; }
 
 		public DateTime rokZaDostavljanje { get; set; }

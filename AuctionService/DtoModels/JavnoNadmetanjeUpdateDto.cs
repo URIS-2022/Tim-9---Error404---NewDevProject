@@ -3,7 +3,7 @@ namespace AuctionService.DtoModels
 {
 	public class JavnoNadmetanjeUpdateDto
 	{
-        public Guid javnoNadmetanjeId { get; set; }
+        public Guid javnoNadmetanjeID { get; set; }
 
         public DateTime datum { get; set; }
 
@@ -15,7 +15,7 @@ namespace AuctionService.DtoModels
 
         public bool izuzeto { get; set; }
 
-        public Guid tipJavnogNadmetanja { get; set; }
+        public Guid tipJavnogNadmetanjaID { get; set; }
 
         public int izlicitiranaCena { get; set; }
 
@@ -25,15 +25,15 @@ namespace AuctionService.DtoModels
 
         public int visinaDopuneDepozita { get; set; }
 
-        public Guid kupac { get; set; }
+        public Guid kupacID { get; set; }
 
         public int krug { get; set; }
 
-        public Guid statusNadmetanja { get; set; }
+        public Guid statusNadmetanjaID { get; set; }
 
-        public Guid ovlascenoLiceId { get; set; }
+        public Guid ovlascenoLiceID { get; set; }
 
-        public Guid adresaId { get; set; }
+        public Guid adresaID { get; set; }
 
 
     }

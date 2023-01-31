@@ -3,9 +3,9 @@ namespace AuctionService.DtoModels
 {
 	public class StatusJavnogNadmetanjaUpdateDto
 	{
-		public Guid statusNadmetanjaId { get; set; }
+		public Guid statusNadmetanjaID { get; set; }
 
-		public string nazivStatusaNadmetanja {get; set;}
+		public string naziv {get; set;}
 	}
 }
 

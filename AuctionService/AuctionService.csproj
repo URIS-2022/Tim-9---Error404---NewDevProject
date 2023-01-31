@@ -13,7 +13,6 @@
     <None Remove="Microsoft.EntityFrameworkCore" />
     <None Remove="AutoMapper" />
     <None Remove="Controllers\" />
-    <None Remove="MockRepositories\" />
     <None Remove="Microsoft.AspNetCore.Mvc.Core" />
     <None Remove="Microsoft.AspNetCore.Http" />
     <None Remove="Microsoft.AspNetCore.Routing" />
@@ -28,13 +27,14 @@
     <None Remove="Microsoft.OpenApi" />
     <None Remove="Microsoft.AspNetCore.Http.Abstractions" />
     <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
+    <None Remove="Profiles\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\" />
     <Folder Include="DtoModels\" />
     <Folder Include="Services\" />
     <Folder Include="Controllers\" />
-    <Folder Include="MockRepositories\" />
+    <Folder Include="Profiles\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
