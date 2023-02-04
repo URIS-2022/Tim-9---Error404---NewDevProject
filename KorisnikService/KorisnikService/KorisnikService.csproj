@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <ItemGroup>
+    <None Remove="Entities.cs\" />
+    <None Remove="Repositories\" />
+    <None Remove="Service\" />
+    <None Remove="Controllers\" />
+    <None Remove="AutoMapper" />
+    <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
+    <None Remove="Microsoft.AspNetCore.Hosting" />
+    <None Remove="Microsoft.AspNetCore.Http" />
+    <None Remove="Microsoft.AspNetCore.Http.Features" />
+    <None Remove="Microsoft.AspNetCore.Authorization.Policy" />
+    <None Remove="Microsoft.EntityFrameworkCore" />
+    <None Remove="Microsoft.AspNetCore.Routing" />
+    <None Remove="Microsoft.Extensions.Configuration" />
+    <None Remove="Microsoft.Extensions.DependencyInjection" />
+    <None Remove="Microsoft.Extensions.Hosting" />
+    <None Remove="Microsoft.Extensions.Logging" />
+    <None Remove="Microsoft.OpenApi" />
+    <None Remove="Profiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities.cs\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Service\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Profiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+    <PackageReference Include="Microsoft.AspNetCore.Authorization.Policy" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Routing" Version="2.2.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
+    <PackageReference Include="Microsoft.OpenApi" Version="1.6.0" />
+  </ItemGroup>
+</Project>

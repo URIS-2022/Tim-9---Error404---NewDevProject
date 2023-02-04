@@ -1,28 +1,32 @@
 ﻿<Properties StartupConfiguration="{B5C19DE4-3E6C-4539-94F2-E2116D67EFAC}|Default">
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.AuctionService PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="AuctionService/Controllers/JavnoNadmetanjController.cs">
+    <Files>
+      <File FileName="AuctionService/Controllers/JavnoNadmetanjController.cs" Line="1" Column="1" />
+      <File FileName="AuctionService/Profiles/JavnoNadmetanjeProfile.cs" />
+      <File FileName="AuctionService/Startup.cs" />
+      <File FileName="AuctionService/Program.cs" />
+      <File FileName="AuctionService/Properties/launchSettings.json" />
+      <File FileName="AuctionService/appsettings.Development.json" />
+      <File FileName="AuctionService/application.json" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="AuctionService" expanded="True">
             <Node name="AuctionService" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="TipNadmetanjaController.cs" selected="True" />
-              </Node>
-              <Node name="DtoModels" expanded="True" />
-              <Node name="Entities" expanded="True" />
-              <Node name="Profiles" expanded="True" />
-              <Node name="Services" expanded="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="Properties" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.AuctionService PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
