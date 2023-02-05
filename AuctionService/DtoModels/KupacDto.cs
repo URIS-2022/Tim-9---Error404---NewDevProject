@@ -1,9 +1,12 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+
 namespace AuctionService.DtoModels
 {
 	public class KupacDto
 	{
-		public Guid KupacID { get; set; }
+		[Key]
+		public Guid kupacID { get; set; }
 
 		public bool fizickoPravnoLice { get; set; }
 
@@ -18,7 +21,7 @@ namespace AuctionService.DtoModels
 		public DateTime prestanakZabrane { get; set; }
 
 		public Guid? ovlascenoLiceId { get; set; } //moze biti i null ukoliko nema nikoga da ga zastupa
-
+		
 		public Guid	prioritetId { get; set; }
 
 		public string lice { get; set; }
@@ -27,7 +30,7 @@ namespace AuctionService.DtoModels
 
         public string brTel2 { get; set; }
 
-		public string adresaId { get; set; }
+		public Guid adresaId { get; set; }
 
 		public string uplataId { get; set; }
 

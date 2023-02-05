@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using AuctionService.DtoModels;
 using AuctionService.Repository;
+using AuctionService.ServiceCalls;
 using AuctionService.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AuctionService.Controllers
-{
+{   
 	[ApiController]
 	[Route("api/javnaNadmetanja")]
 	[Produces("application/json", "application/xml")]
@@ -18,13 +19,21 @@ namespace AuctionService.Controllers
 		//private readonly KupacService kupacService;
 		private readonly IMapper mapper;
 		private readonly string name = "Javno_nadmetanje_service";
+		private readonly IAdresaService adresaService;
+		private readonly IOvlascenoLiceService ovlascenoLiceService;
+		private readonly IKupacService kupacService;
+		private readonly IParcelaService parcelaService;
 
 
-		public JavnoNadmetanjController(IJavnoNadmetanjeRepository javnoNadmetanjeService, IMapper mapper)
+		public JavnoNadmetanjController(IJavnoNadmetanjeRepository javnoNadmetanjeRepository, IMapper mapper, IAdresaService adresaService, IOvlascenoLiceService ovlascenoLiceService, IKupacService kupacService, IParcelaService parcelaService)
 		{
-			this.javnoNadmetanjeRepository = javnoNadmetanjeService;
-			//this.kupacService = kupacService;
+			this.javnoNadmetanjeRepository = javnoNadmetanjeRepository;
 			this.mapper = mapper;
+			this.adresaService = adresaService;
+			this.ovlascenoLiceService = ovlascenoLiceService;
+			this.parcelaService = parcelaService;
+			this.kupacService = kupacService;
+			
 		
 		}
 		[HttpGet]
@@ -39,7 +48,24 @@ namespace AuctionService.Controllers
 				return NoContent();
 			}
 
+
 			List<JavnoNadmetanjeDto> javnoNadmetanjeDto = mapper.Map<List<JavnoNadmetanjeDto>>(javnaNadmetanja);
+
+			foreach(JavnoNadmetanjeDto jn in javnoNadmetanjeDto)
+			{
+                jn.adreasa = adresaService.getAdresa(jn.adresaID).Result;
+				jn.ovlascenoLice = ovlascenoLiceService.getOvlascenoLice(jn.ovlascenoLiceID).Result;
+				foreach(Guid parcela in jn.parceleID)
+				{
+					jn.parcele.Add(parcelaService.getParcela(parcela).Result);
+				}
+
+				foreach(Guid kupci in jn.prijavljeniKupciID)
+				{
+					jn.prijavljeniKupci.Add(kupacService.getKupci(kupci).Result);
+				}
+				
+			}
 
 			return Ok(mapper.Map<List<JavnoNadmetanjeDto>>(javnoNadmetanjeDto));
 		}
@@ -57,6 +83,17 @@ namespace AuctionService.Controllers
 			}
 
 			JavnoNadmetanjeDto jnDto = mapper.Map<JavnoNadmetanjeDto>(jn);
+			jnDto.adreasa = adresaService.getAdresa(jnDto.adresaID).Result;
+			jnDto.ovlascenoLice = ovlascenoLiceService.getOvlascenoLice(jnDto.ovlascenoLiceID).Result;
+			foreach(Guid p in jnDto.parceleID)
+			{
+				jnDto.parcele.Add(parcelaService.getParcela(p).Result);
+			}
+			foreach(Guid k in jnDto.prijavljeniKupciID)
+			{
+				jnDto.prijavljeniKupci.Add(kupacService.getKupci(k).Result);
+			}
+
 			return Ok(jnDto);
 		}
 

@@ -3,11 +3,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AuctionService.DtoModels
 {
-	public class StatusNadmetanjaConformationDto
+	public class ParcelaDto
 	{
-		//get status id
 		[Key]
-		public Guid statusNadmetanjaID { get; set; }
+		public Guid parcelaId { get; set; }
 	}
 }
 

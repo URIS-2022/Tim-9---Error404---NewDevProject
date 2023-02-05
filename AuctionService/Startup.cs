@@ -16,6 +16,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using AuctionService.ServiceCalls;
 
 namespace AuctionService
 {
@@ -88,6 +89,10 @@ namespace AuctionService
             services.AddScoped<IStatusNadmetanjaRepository, StatusNadmetanjaService>();
             services.AddScoped<IJavnoNadmetanjeRepository, JavnoNadmetanjeService>();
             services.AddScoped<ILicitacijaRepository, LicitacijaService>();
+            services.AddScoped<IAdresaService, AdresaService>();
+            services.AddScoped<IOvlascenoLiceService, OvlascenoLiceService>();
+            services.AddScoped<IKupacService, KupacService>();
+            services.AddScoped<IParcelaService, ParcelaService>();
             //services.AddScoped<IUserRepository, UserMockRepository>();
             //services.AddScoped<IAuthenticationHelper, AuthenticationHelper>();
             //services.AddScoped<ILoggerService, LoggerService>();

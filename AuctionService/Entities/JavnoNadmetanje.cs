@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using AuctionService.DtoModels;
 
 namespace AuctionService.Entities
 {
@@ -42,31 +43,51 @@ namespace AuctionService.Entities
 		public int krug { get; set; }
 
 		//Lista parcela koje se nalaze na tom javnom nadmetanju
-		[NotMapped]
-		public List<Guid> parceleID { get; set; }
-
+		
 		//status nadmetanja 
-		[ForeignKey("statusNadmetanja")]
+		[ForeignKey("StatusNadmetanja")]
 		public Guid statusNadmetanjaID { get; set; }
         public StatusNadmetanja statusID { get; set; }
 
+        [ForeignKey("TipJavnogNadmetanja")]
+        public Guid tipID { get; set; }
+        public TipJavnogNadmetanja tipJavnogNadmetanja { get; set; }
+
         //Ovlascena lica javnog nadmetanja (licitanti)
+        [ForeignKey("OvlascenoLice")]
         public Guid ovlascenoLiceID { get; set; }
 
 		//Prijavljeni kupci na javno nadmetanje
-		[NotMapped]
+		[ForeignKey("Kupac")]
 		public List<Guid> prijavljeniKupciID { get; set; }
 
 		//Adresa odrzavnja nadmetanja
+		[ForeignKey("Adresa")]
 		public Guid adresaID {get; set;}
+        //Najbolji ponudjac
 
-		//Najbolji ponudjac
-		public Guid najboljiPonudjacID { get; set;}
+        [ForeignKey("Kupac")]
+        public Guid najboljiPonudjacID { get; set;}
 
-		//Tip nadmetanja
-		[ForeignKey("tipJavnogNadmetanja")]
-		public Guid tipID { get; set; }
-        public TipJavnogNadmetanja tipJavnogNadmetanja { get; set; }
+		[ForeignKey("Parcela")]
+        public List<Guid> parceleID { get; set; }
+
+		[NotMapped]
+		public OvlascenoLiceDto ovlascenoLice { get; set; }
+
+		[NotMapped]
+		public List<ParcelaDto> parcele { get; set; }
+
+		[NotMapped]
+		public KupacDto najboljiPonudjac { get; set; }
+
+		[NotMapped]
+		public List<KupacDto> prijavljeniKupci { get; set; }
+
+		[NotMapped]
+		public AdresaDto adreasa { get; set; }
+
+
     }
 }
 

@@ -28,6 +28,7 @@
     <None Remove="Microsoft.AspNetCore.Http.Abstractions" />
     <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
     <None Remove="Profiles\" />
+    <None Remove="ServiceCalls\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\" />
@@ -35,6 +36,7 @@
     <Folder Include="Services\" />
     <Folder Include="Controllers\" />
     <Folder Include="Profiles\" />
+    <Folder Include="ServiceCalls\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AuctionService.DtoModels
 {
@@ -16,6 +17,7 @@ namespace AuctionService.DtoModels
 
         public int korakCene { get; set; }
 
+        [ForeignKey("JavnoNadmetanje")]
         public Guid javnoNadmetanjeId { get; set; }
 
         public DateTime rokZaDostavljanje { get; set; }
