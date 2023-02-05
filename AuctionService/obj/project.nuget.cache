@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DXGecGZDoDiApLMshm7+V1xgeJv3Ds3QRWNdZvoW+r47YcOqYRKtWhUUVdq9Dy9cs6bhqN8PNQVniDXCkxupww==",
+  "dgSpecHash": "piIwHdcKZZUbgRf1PD+LXBBlPHYoQoWCOyGsPGR+xqQcykMl1wGQ+L4HyGK+txI7U25vBjCCgoydU+qpa/Wx8Q==",
   "success": true,
   "projectFilePath": "/Users/osx/Desktop/AuctionService/AuctionService/AuctionService.csproj",
   "expectedPackageFiles": [
@@ -29,6 +29,7 @@
     "/Users/osx/.nuget/packages/microsoft.entityframeworkcore/7.0.2/microsoft.entityframeworkcore.7.0.2.nupkg.sha512",
     "/Users/osx/.nuget/packages/microsoft.entityframeworkcore.abstractions/7.0.2/microsoft.entityframeworkcore.abstractions.7.0.2.nupkg.sha512",
     "/Users/osx/.nuget/packages/microsoft.entityframeworkcore.analyzers/7.0.2/microsoft.entityframeworkcore.analyzers.7.0.2.nupkg.sha512",
+    "/Users/osx/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "/Users/osx/.nuget/packages/microsoft.extensions.caching.abstractions/7.0.0/microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "/Users/osx/.nuget/packages/microsoft.extensions.caching.memory/7.0.0/microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
     "/Users/osx/.nuget/packages/microsoft.extensions.configuration/7.0.0/microsoft.extensions.configuration.7.0.0.nupkg.sha512",
@@ -65,6 +66,10 @@
     "/Users/osx/.nuget/packages/microsoft.openapi/1.5.0/microsoft.openapi.1.5.0.nupkg.sha512",
     "/Users/osx/.nuget/packages/newtonsoft.json/9.0.1/newtonsoft.json.9.0.1.nupkg.sha512",
     "/Users/osx/.nuget/packages/runtime.native.system/4.0.0/runtime.native.system.4.0.0.nupkg.sha512",
+    "/Users/osx/.nuget/packages/swashbuckle.aspnetcore/6.5.0/swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "/Users/osx/.nuget/packages/swashbuckle.aspnetcore.swagger/6.5.0/swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "/Users/osx/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.5.0/swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "/Users/osx/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.5.0/swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
     "/Users/osx/.nuget/packages/system.appcontext/4.1.0/system.appcontext.4.1.0.nupkg.sha512",
     "/Users/osx/.nuget/packages/system.buffers/4.5.0/system.buffers.4.5.0.nupkg.sha512",
     "/Users/osx/.nuget/packages/system.collections/4.0.11/system.collections.4.0.11.nupkg.sha512",

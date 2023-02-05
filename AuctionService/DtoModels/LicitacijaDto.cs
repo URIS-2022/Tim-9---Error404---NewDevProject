@@ -6,22 +6,54 @@ namespace AuctionService.DtoModels
 {
 	public class LicitacijaDto
 	{
-		[Key]
+        /// <summary>
+        /// Id licitacije
+        /// </summary>
+        /// 
+        [Key]
 		public Guid licitacijaId {get; set; }
 
-		public int broj { get; set; }
+        /// <summary>
+        /// Broj licitacije
+        /// </summary>
+        /// 
+        public int broj { get; set; }
 
-		public int godina { get; set; }
+        /// <summary>
+        /// Godina licitacije
+        /// </summary>
+        /// 
+        public int godina { get; set; }
 
+        /// <summary>
+        /// Datum licitacije
+        /// </summary>
+        /// 
 		public DateTime datum { get; set; }
 
+        /// <summary>
+        /// Ograicenja licitacije
+        /// </summary>
+        /// 
 		public int ogranicenja { get; set; }
 
+        /// <summary>
+        /// Korak cene licitacije
+        /// </summary>
+        /// 
 		public int korakCene { get; set; }
 
+        /// <summary>
+        /// Id javnog nadmetanja
+        /// </summary>
+        /// 
 		[ForeignKey("JavnoNadmetanje")]
 		public Guid javnoNadmetanjeId { get; set; }
 
+        /// <summary>
+        /// Rok za dostavljanje prijave na licitaciju
+        /// </summary>
+        /// 
 		public DateTime rokZaDostavljanje { get; set; }
 
 	}

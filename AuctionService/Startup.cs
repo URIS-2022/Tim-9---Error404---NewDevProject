@@ -17,6 +17,8 @@ using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using AuctionService.ServiceCalls;
+using System.Reflection;
+using System.IO;
 
 namespace AuctionService
 {
@@ -100,6 +102,66 @@ namespace AuctionService
 
             //konfiguracije za automaper - pogledaj ceo domen gde se izvrsava servis i trazi konfiguracije za automapper.
             //te konfiguracije su profili, za svako mapiranje ce se definisati jedan profil i reci iz tog objekta mapitaj u taj objekat na takav nacin
+
+            services.AddSwaggerGen(setupAction =>
+            {
+                setupAction.SwaggerDoc("PublicBiddingOpenApiSpecification",
+                    new Microsoft.OpenApi.Models.OpenApiInfo()
+                    {
+                        Title = "Javno nadmetanje API",
+                        Version = "1",
+         
+                        Description = "Pomoću ovog API-ja može da se vrši kreiranje javnog nadmetanja kao i pregled i izmena javnog nadmetanja",
+                        Contact = new Microsoft.OpenApi.Models.OpenApiContact
+                        {
+                            Name = "Valentina Andric",
+                            Email = "andricvalentina00@gmail.com",
+                            Url = new Uri($"http://www.ftn.uns.ac.rs/")
+                        },
+                        License = new Microsoft.OpenApi.Models.OpenApiLicense
+                        {
+                            Name = "FTN licence",
+                            Url = new Uri($"http://www.ftn.uns.ac.rs/")
+                        },
+                        TermsOfService = new Uri($"http://www.ftn.uns.ac.rs/publicBiddingTermsOfService")
+                    });
+
+                setupAction.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    In = ParameterLocation.Header,
+                    Description = "Unesite token",
+                    Name = "Autorizacija korisnika",
+                    Type = SecuritySchemeType.Http,
+                    BearerFormat = "JWT",
+                    Scheme = "bearer"
+                });
+
+                setupAction.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                    new OpenApiSecurityScheme
+                    {
+                        Reference = new OpenApiReference
+                        {
+                            Type = ReferenceType.SecurityScheme,
+                            Id = "Bearer"
+                        }
+                    },
+                    Array.Empty<string>()
+                    }
+                });
+
+                //Pomocu refleksije dobijamo ime XML fajla sa komentarima (ovako smo ga nazvali u Project -> Properties)
+                var xmlComments = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+
+                //Pravimo putanju do XML fajla sa komentarima
+                var xmlCommentsPath = Path.Combine(AppContext.BaseDirectory, xmlComments);
+
+                //Govorimo swagger-u gde se nalazi dati xml fajl sa komentarima
+                setupAction.IncludeXmlComments(xmlCommentsPath);
+            });
+
+
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
             public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -120,7 +182,16 @@ namespace AuctionService
                     });
                 }
 
-                app.UseHttpsRedirection();
+            app.UseSwagger();
+            app.UseSwaggerUI(setupAction =>
+            {
+                //Podesavamo endpoint gde Swagger UI moze da pronadje OpenAPI specifikaciju
+                setupAction.SwaggerEndpoint("/swagger/PublicBiddingOpenApiSpecification/swagger.json", "Javno nadmetanje API");
+                setupAction.RoutePrefix = ""; //Dokumentacija ce sada biti dostupna na root-u (ne mora da se pise /swagger)
+            });
+
+
+            app.UseHttpsRedirection();
 
                 app.UseRouting();
 

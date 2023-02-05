@@ -5,9 +5,17 @@ namespace AuctionService.DtoModels
 {
 	public class StatusJavnogNadmetanjaUpdateDto
 	{
-		[Key]
+        /// <summary>
+        /// Id statusa nadmetanja
+        /// </summary>
+        /// 
+        [Key]
 		public Guid statusNadmetanjaID { get; set; }
 
+        /// <summary>
+        /// Naziv statusa nadmetanja
+        /// </summary>
+        /// 
 		public string naziv {get; set;}
 	}
 }

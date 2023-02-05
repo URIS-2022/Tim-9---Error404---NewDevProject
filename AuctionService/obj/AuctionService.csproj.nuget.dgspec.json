@@ -101,6 +101,14 @@
             "Microsoft.OpenApi": {
               "target": "Package",
               "version": "[1.5.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[6.5.0, )"
             }
           },
           "imports": [

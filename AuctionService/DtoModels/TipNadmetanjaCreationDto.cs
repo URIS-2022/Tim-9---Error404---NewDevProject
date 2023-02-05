@@ -5,7 +5,11 @@ namespace AuctionService.DtoModels
 {
 	public class TipNadmetanjaCreationDto
 	{
-		[Required(ErrorMessage = "Requires field")]
+        /// <summary>
+        /// Naziv tipa nadmetanja
+        /// </summary>
+        /// 
+        [Required(ErrorMessage = "Requires field")]
 		public string nazivTipa { get; set; }
 	}
 }

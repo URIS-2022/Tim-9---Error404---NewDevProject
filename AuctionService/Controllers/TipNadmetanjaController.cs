@@ -23,8 +23,13 @@ namespace AuctionService.Controllers
 			this.mapper = mapper;
 		}
 
-		[HttpGet]
-		[HttpHead]
+        /// <summary>
+        /// Vraca sve tipove nadmetanja.
+        /// </summary>
+        /// <returns>Lista tipova nadmetanja</returns>
+        /// <response code="200">Vraca listu tipova nadmetanja</response>
+        /// <response code="204">Nije pronadjen ni jedan tip nadmetanja</response>
+        [HttpGet]
 		[ProducesResponseType(StatusCodes.Status204NoContent)]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		public ActionResult<List<TipNadmetanjaDto>> getAllTipoviNadmetanja()
@@ -44,8 +49,14 @@ namespace AuctionService.Controllers
 			return Ok(mapper.Map<List<TipNadmetanjaDto>>(tipoviNadmetanjaDto));
 		}
 
-		[HttpGet("{tipNadmetanjaId}")]
-		[HttpHead]
+        /// <summary>
+        /// Vraca jednan tip nadmetanja na osnovu ID-ja.
+        /// </summary>
+        /// // <param name="tipNadmetanjaId">ID javnog nadmetanja</param>
+        /// <returns>Trazeni tip nadmetanja</returns>
+        /// <response code="200">Tazeni tip nadmetanja je uspesno pronadjen</response>
+        /// <response code="404">Trazeni tip nadmetanja nije pronadjen</response>
+        [HttpGet("{tipNadmetanjaId}")]
 		[ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 		public ActionResult<TipNadmetanjaDto> geTipJavnogNadmetanjaById(Guid tipNadmetanjaId)
@@ -63,7 +74,14 @@ namespace AuctionService.Controllers
 
 		}
 
-		[HttpDelete("{tipNadmetanjaId}")]
+        /// <summary>
+        /// Brise tip nadmetanja.
+        /// </summary>
+        /// <param name="tipNadmetanjaId">ID tipa nadmetanja</param>
+        /// <response code="204">Uspesno izvrseno brisanje</response>
+        /// <response code="404">Nije pronadjen tip nadmetanja sa datim id-jem</response>
+        /// <response code="500">Desila se greska prilikom brisanja tip nadmetanja</response>
+        [HttpDelete("{tipNadmetanjaId}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -91,7 +109,15 @@ namespace AuctionService.Controllers
 			
 		}
 
-		[HttpPut]
+        /// <summary>
+        /// Updatuje tip nadmetanja.
+        /// </summary>
+		/// <param name="tipNadmetanjaDto">Body koji sadzi podatke koji treba da se izmene</param>
+        /// <returns> Vraca izmenjen tip nadmetanja</returns>
+        /// <response code="200">Updatovanje je uspesno izvrseno</response>
+        /// <response code="404">Nije pronadjen tip nadmetanja sa prosledjenim id-jem</response>
+		/// <response code="500">Desila se greska prilikom updatovanja tipa nadmetanja</response>
+        [HttpPut]
 		[Consumes("application/json")]
 		[ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -119,6 +145,12 @@ namespace AuctionService.Controllers
 
 		}
 
+        /// <summary>
+        /// Kreira novi tip nadmetanja
+        /// </summary>
+        /// <param name="tipNadmetanjaDto">Body koji sadzi tip nadmetanja koji treba da se kreira</param>
+        /// <returns> Kreirani tip nadmetanja </returns>
+        /// <response code="201">Kreiranje tipa nadmetanja je uspesno izvrseno</response>
         [HttpPost]
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]

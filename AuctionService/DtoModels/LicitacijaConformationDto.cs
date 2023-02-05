@@ -3,7 +3,11 @@ namespace AuctionService.DtoModels
 {
 	public class LicitacijaConformationDto
 	{
-		public Guid licitacijaID { get; set; }
+        /// <summary>
+        /// Id licitacije
+        /// </summary>
+        /// 
+        public Guid licitacijaID { get; set; }
 	}
 }
 

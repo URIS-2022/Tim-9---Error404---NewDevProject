@@ -5,8 +5,11 @@ namespace AuctionService.DtoModels
 {
 	public class TipJavnogNadmetanjaConformationDto
 	{
-		[Key]
-		//id tipa javog nadmetanja
+        /// <summary>
+        /// Id tipa nadmetanja
+        /// </summary>
+        /// 
+        [Key]
 		public Guid tipJavnogNadmetanjaID { get; set; }
 	}
 }

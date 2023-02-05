@@ -5,7 +5,11 @@ namespace AuctionService.DtoModels
 {
 	public class ParcelaDto
 	{
-		[Key]
+        /// <summary>
+        /// Id parcele
+        /// </summary>
+        /// 
+        [Key]
 		public Guid parcelaId { get; set; }
 	}
 }

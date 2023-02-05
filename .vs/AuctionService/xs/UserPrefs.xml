@@ -1,27 +1,27 @@
 ﻿<Properties StartupConfiguration="{B5C19DE4-3E6C-4539-94F2-E2116D67EFAC}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AuctionService/Controllers/JavnoNadmetanjController.cs">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.AuctionService PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="AuctionService/Startup.cs">
     <Files>
-      <File FileName="AuctionService/Controllers/JavnoNadmetanjController.cs" Line="13" Column="17" />
-      <File FileName="AuctionService/DtoModels/JavnoNadmetanjeUpdateDto.cs" Line="1" Column="1" />
-      <File FileName="AuctionService/DtoModels/JavnoNadmetanjeCreationDto.cs" Line="1" Column="1" />
-      <File FileName="AuctionService/Controllers/LicitacijaController.cs" Line="1" Column="1" />
-      <File FileName="AuctionService/Entities/Licitacija.cs" Line="1" Column="1" />
+      <File FileName="AuctionService/Startup.cs" Line="113" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="AuctionService" expanded="True">
-            <Node name="AuctionService" expanded="True" />
+            <Node name="AuctionService" expanded="True">
+              <Node name="DtoModels" expanded="True" />
+              <Node name="Entities" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.AuctionService PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

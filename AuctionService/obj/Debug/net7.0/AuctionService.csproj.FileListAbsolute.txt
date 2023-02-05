@@ -33,3 +33,8 @@
 /Users/osx/Desktop/AuctionService/AuctionService/obj/Debug/net7.0/scopedcss/bundle/AuctionService.styles.css
 /Users/osx/Desktop/AuctionService/AuctionService/bin/Debug/net7.0/application.json
 /Users/osx/Desktop/AuctionService/AuctionService/bin/Debug/net7.0/appsettings.Development.json
+/Users/osx/Desktop/AuctionService/AuctionService/bin/Debug/net7.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/osx/Desktop/AuctionService/AuctionService/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/osx/Desktop/AuctionService/AuctionService/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/osx/Desktop/AuctionService/AuctionService/obj/Debug/net7.0/AuctionService.MvcApplicationPartsAssemblyInfo.cs
+/Users/osx/Desktop/AuctionService/AuctionService/bin/Debug/net7.0/AuctionService.xml

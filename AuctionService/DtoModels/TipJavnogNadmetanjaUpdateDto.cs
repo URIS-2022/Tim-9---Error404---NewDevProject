@@ -5,9 +5,17 @@ namespace AuctionService.DtoModels
 {
 	public class TipJavnogNadmetanjaUpdateDto
 	{
-		[Key]
+        /// <summary>
+        /// Id tipa nadmetanja
+        /// </summary>
+        /// 
+        [Key]
 		public Guid tipJavnogNadmetanjaID { get; set; }
 
+        /// <summary>
+        /// Naziv tipa nadmetanja
+        /// </summary>
+        /// 
 		public string nazivTipa { get; set; }
 	}
 }

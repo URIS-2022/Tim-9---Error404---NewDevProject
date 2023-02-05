@@ -7,83 +7,169 @@ namespace AuctionService.Entities
 {
 	public class JavnoNadmetanje
 	{
-        
+        /// <summary>
+        /// Id javnog nadmetanja
+        /// </summary>
+		/// 
         //primatrni kljuc javnog nadmetanja
         [Key]
 		public Guid javnoNadmetanjeID { get; set; }
 
-		//datum javnog nadmetanja
-		public DateTime datum { get; set; }
+        /// <summary>
+        /// Datum pocetka javnog nadmetanja
+        /// </summary>
+        /// 
+        public DateTime datum { get; set; }
 
-		//vreme pocetka javnog nadmetanja
-		public DateTime vremePocetka { get; set; }
+        /// <summary>
+        /// Vreme pocetka javnog nadmetanja
+        /// </summary>
+        /// 
+        //vreme pocetka javnog nadmetanja
+        public DateTime vremePocetka { get; set; }
 
-		//vreme kraja javnog nadmetanja
-		public DateTime vremeKraja { get; set; }
+        /// <summary>
+        /// Vreme kraja javnog nadmetanja
+        /// </summary>
+        /// 
+        //vreme kraja javnog nadmetanja
+        public DateTime vremeKraja { get; set; }
 
-		//pocetna cena po hekraru
-		public int pocetnaCenaPoHektaru { get; set; }
+        /// <summary>
+        /// Pocetna cena javnog nadmetanja po hektaru
+        /// </summary>
+        /// 
+      
+        public int pocetnaCenaPoHektaru { get; set; }
 
-		//Izuzeto sa javnog nadmetanja
-		public bool izuzeto { get; set; }
+        /// <summary>
+        /// Da li je javno nadmetanje izuzeto ili nije
+        /// </summary>
+        /// 
+     
+        public bool izuzeto { get; set; }
 
-		//izlicitirana cena
-		public int izlicitiranaCena { get; set; }
+        /// <summary>
+        /// Izlicitirana cena javnog nadmetanja
+        /// </summary>
+        /// 
+        
+        public int izlicitiranaCena { get; set; }
 
-		//period zakupa zemljista
-		public int periodZakupa { get; set; }
+        /// <summary>
+        /// Period zakupa parcele iz javnog nadmetanja
+        /// </summary>
+        /// 
+        //period zakupa zemljista
+        public int periodZakupa { get; set; }
 
-		//broj ucesnika u licitaciji
-		public int brojUcesnika { get; set; }
+        /// <summary>
+        /// Broj ucesnika u javnom nadmetanju
+        /// </summary>
+        /// 
+        
+        public int brojUcesnika { get; set; }
 
-		//visina dopune depozita
-		public int visinaDopuneDepozita { get; set; }
+        /// <summary>
+        /// Visina depozita javnog nadmetanja
+        /// </summary>
+        /// 
+        
+        public int visinaDopuneDepozita { get; set; }
 
-		//krug nadmetanja
-		public int krug { get; set; }
+        /// <summary>
+        /// Krug javnog nadmetanja
+        /// </summary>
+        /// 
+        
+        public int krug { get; set; }
 
-		//Lista parcela koje se nalaze na tom javnom nadmetanju
-		
-		//status nadmetanja 
-		[ForeignKey("StatusNadmetanja")]
+        //status nadmetanja
+        /// <summary>
+        /// Id statusa javnog nadmetanja
+        /// </summary>
+        /// 
+        [ForeignKey("StatusNadmetanja")]
 		public Guid statusNadmetanjaID { get; set; }
         public StatusNadmetanja statusID { get; set; }
 
+        /// <summary>
+        /// Id tipa javnog nadmetanja
+        /// </summary>
+        /// 
         [ForeignKey("TipJavnogNadmetanja")]
         public Guid tipID { get; set; }
         public TipJavnogNadmetanja tipJavnogNadmetanja { get; set; }
 
-        //Ovlascena lica javnog nadmetanja (licitanti)
+        /// <summary>
+        /// Id ovlascenog lica javnog nadmetanja
+        /// </summary>
+        /// 
+        
         [ForeignKey("OvlascenoLice")]
         public Guid ovlascenoLiceID { get; set; }
 
-		//Prijavljeni kupci na javno nadmetanje
-		[ForeignKey("Kupac")]
+        /// <summary>
+        /// Lista prijavljenih kupaca na javnom nadmetanju
+        /// </summary>
+        /// 
+        [ForeignKey("Kupac")]
 		public List<Guid> prijavljeniKupciID { get; set; }
 
-		//Adresa odrzavnja nadmetanja
-		[ForeignKey("Adresa")]
+        /// <summary>
+        /// Adresa javnog nadmetanja
+        /// </summary>
+        /// 
+        [ForeignKey("Adresa")]
 		public Guid adresaID {get; set;}
         //Najbolji ponudjac
 
+        /// <summary>
+        /// Id kupca koji je najbolji ponudjac na javnom nadmetanju
+        /// </summary>
+        /// 
         [ForeignKey("Kupac")]
         public Guid najboljiPonudjacID { get; set;}
 
+        /// <summary>
+        /// Lista parcela koje se nalaze na javnom nadmetanju
+        /// </summary>
+        /// 
 		[ForeignKey("Parcela")]
         public List<Guid> parceleID { get; set; }
 
+        /// <summary>
+        /// Ovlasceno lice 
+        /// </summary>
+        /// 
 		[NotMapped]
 		public OvlascenoLiceDto ovlascenoLice { get; set; }
 
+        /// <summary>
+        /// Parcele
+        /// </summary>
+        /// 
 		[NotMapped]
 		public List<ParcelaDto> parcele { get; set; }
 
+        /// <summary>
+        /// Najbolji ponudjac
+        /// </summary>
+        /// 
 		[NotMapped]
 		public KupacDto najboljiPonudjac { get; set; }
 
+        /// <summary>
+        /// Lista kupaca
+        /// </summary>
+        /// 
 		[NotMapped]
 		public List<KupacDto> prijavljeniKupci { get; set; }
 
+        /// <summary>
+        /// Adresa 
+        /// </summary>
+        /// 
 		[NotMapped]
 		public AdresaDto adreasa { get; set; }
 

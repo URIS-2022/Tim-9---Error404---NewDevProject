@@ -24,8 +24,13 @@ namespace AuctionService.Controllers
 			this.mapper = mapper;
 		}
 
-		[HttpGet]
-		[HttpHead]
+        /// <summary>
+        /// Vraca sve statuse nadmetanja.
+        /// </summary>
+        /// <returns>Lista statusa nadmetanja</returns>
+        /// <response code="200">Vraca listu statusa nadmetanja</response>
+        /// <response code="204">Nije pronadjen ni jedan status nadmetanja</response>
+        [HttpGet]
 		[ProducesResponseType(StatusCodes.Status204NoContent)]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		public ActionResult<List<StatusNadmetanjaDto>> getAllStatusiNadmetanja()
@@ -42,8 +47,14 @@ namespace AuctionService.Controllers
 			return Ok(mapper.Map<List<StatusNadmetanjaDto>>(statusiNadmetanjaDto));
 		}
 
-		[HttpGet("{statusNadmetanjaId}")]
-		[HttpHead]
+        /// <summary>
+        /// Vraca jednan status nadmetanja na osnovu ID-ja.
+        /// </summary>
+        /// // <param name="statusNadmetanjaId">ID javnog nadmetanja</param>
+        /// <returns>Trazeni status nadmetanja</returns>
+        /// <response code="200">Tazeni status nadmetanja je uspesno pronadjen</response>
+        /// <response code="404">Trazeni status nadmetanja nije pronadjen</response>
+        [HttpGet("{statusNadmetanjaId}")]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		public ActionResult<StatusNadmetanjaDto> getStatusNadmetanjaById(Guid statusNadmetanjaId)
@@ -60,7 +71,14 @@ namespace AuctionService.Controllers
 			return Ok(mapper.Map<StatusNadmetanjaDto>(statusNadmetanjaDto));
 		}
 
-		[HttpDelete("{statusNadmetanjaId}")]
+        /// <summary>
+        /// Brise status nadmetanja.
+        /// </summary>
+        /// <param name="statusNadmetanjaId">ID statusa nadmetanja</param>
+        /// <response code="204">Uspesno izvrseno brisanje</response>
+        /// <response code="404">Nije pronadjen status nadmetanja sa datim id-jem</response>
+        /// <response code="500">Desila se greska prilikom brisanja statusa nadmetanja</response>
+        [HttpDelete("{statusNadmetanjaId}")]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		[ProducesResponseType(StatusCodes.Status204NoContent)]
 		[ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -87,7 +105,15 @@ namespace AuctionService.Controllers
 
 		}
 
-		[HttpPut]
+        /// <summary>
+        /// Updatuje status nadmetanja.
+        /// </summary>
+		/// <param name="statusNadmetanjaDto">Body koji sadzi podatke koji treba da se izmene</param>
+        /// <returns> Vraca izmenjen status nadmetanja</returns>
+        /// <response code="200">Updatovanje je uspesno izvrseno</response>
+        /// <response code="404">Nije pronadjen status nadmetanja sa prosledjenim id-jem</response>
+		/// <response code="500">Desila se greska prilikom updatovanja statusa nadmetanja</response>
+        [HttpPut]
 		[Consumes("application/json")]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		[ProducesResponseType(StatusCodes.Status200OK)]
@@ -114,7 +140,13 @@ namespace AuctionService.Controllers
 			}
 		}
 
-		[HttpPost]
+        /// <summary>
+        /// Kreira novi status nadmetanja
+        /// </summary>
+		/// <param name="statusNadmetanjaDto">Body koji sadzi status nadmetanja koji treba da se kreira</param>
+        /// <returns> Kreirani status nadmetanja </returns>
+        /// <response code="201">Kreiranje statusa nadmetanja je uspesno izvrseno</response>
+        [HttpPost]
 		[Consumes("application/json")]
 		[ProducesResponseType(StatusCodes.Status201Created)]
 		[ProducesResponseType(StatusCodes.Status500InternalServerError)]

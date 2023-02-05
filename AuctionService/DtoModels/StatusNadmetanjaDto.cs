@@ -3,8 +3,11 @@ namespace AuctionService.DtoModels
 {
 	public class StatusNadmetanjaDto
 	{
-		
-		public string naziv { get; set; }
+        /// <summary>
+        /// Naziv statusa nadmetanja
+        /// </summary>
+        /// 
+        public string naziv { get; set; }
 		
 	}
 }

@@ -3,8 +3,11 @@ namespace AuctionService.DtoModels
 {
 	public class JavnoNadmetanjeConformationDto
 	{
-		//ID javnog nadmetanja
-		public Guid javnoNadmetanjeID { get; set; }
+        /// <summary>
+        /// Id javnog nadmetanja
+        /// </summary>
+        /// 
+        public Guid javnoNadmetanjeID { get; set; }
 		
 	}
 }

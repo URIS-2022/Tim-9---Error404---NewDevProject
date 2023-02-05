@@ -5,8 +5,12 @@ namespace AuctionService.DtoModels
 {
 	public class StatusNadmetanjaConformationDto
 	{
-		//get status id
-		[Key]
+        /// <summary>
+        /// Id statusa nadmetanja
+        /// </summary>
+        /// 
+        //get status id
+        [Key]
 		public Guid statusNadmetanjaID { get; set; }
 	}
 }

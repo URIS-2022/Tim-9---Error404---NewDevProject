@@ -24,8 +24,15 @@ namespace AuctionService.Controllers
 		}
 
 
-
-		[HttpPut]
+        /// <summary>
+        /// Updatuje licitaciju.
+        /// </summary>
+		/// <param name="licitacijaDto">Body koji sadzi podatke koji treba da se izmene</param>
+        /// <returns> Vraca izmenjenu licitaciju</returns>
+        /// <response code="200">Updatovanje je uspesno izvrseno</response>
+        /// <response code="404">Nije pronadjena licitacija sa prosledjenim id-jem</response>
+		/// <response code="500">Desila se greska prilikom updatovanja licitacije</response>
+        [HttpPut]
 		[Consumes("application/json")]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		[ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -53,8 +60,14 @@ namespace AuctionService.Controllers
 
 		}
 
-		//post method
-		[HttpPost]
+        /// <summary>
+        /// Kreira novu licitaciju
+        /// </summary>
+		/// <param name="licitacijaDto">Body koji sadzi licitaciju koja treba da se kreira</param>
+        /// <returns> Kreirana licitacija</returns>
+        /// <response code="201">Kreiranje licitacije je uspesno izvrseno</response>
+        /// <response code="500">Desila se greska prilikom kreiranja licitacije</response>
+        [HttpPost]
 		[Consumes("application/json")]
 		[ProducesResponseType(StatusCodes.Status201Created)]
 		[ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -73,8 +86,13 @@ namespace AuctionService.Controllers
 			}
 		}
 
-		[HttpGet]
-		[HttpHead]
+        /// <summary>
+        /// Vraca sve licitacije.
+        /// </summary>
+        /// <returns> Lista licitacija</returns>
+        /// <response code="200">Vraca listu licitacija</response>
+        /// <response code="204">Nije pronadjen ni jedna licitacija</response>
+        [HttpGet]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status204NoContent)]
 		public ActionResult<List<LicitacijaDto>> getAllLicitacije()
@@ -89,8 +107,14 @@ namespace AuctionService.Controllers
 			return Ok(mapper.Map<List<LicitacijaDto>>(licitacijeDto));
 		}
 
+        /// <summary>
+        /// Vraca jednu licitaciju na osnovu ID-ja.
+        /// </summary>
+        /// // <param name="licitacijaId">ID javnog nadmetanja</param>
+        /// <returns>Trazena licitacija</returns>
+        /// <response code="200">Tazena licitacija je uspesno pronadjena</response>
+        /// <response code="404">Trazena licitacija nije pronadjena</response>
         [HttpGet("{licitacijaId}")]
-        [HttpHead]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<LicitacijaDto> getLicitacijaById(Guid licitacijaId)
@@ -105,7 +129,13 @@ namespace AuctionService.Controllers
             return Ok(lDto);
         }
 
-
+        /// <summary>
+        /// Brise licitaciju.
+        /// </summary>
+		/// <param name="licitacijaId">ID licitacije</param>
+        /// <response code="204">Uspesno izvrseno brisanje</response>
+        /// <response code="404">Nije pronadjena licitacija sa datim id-jem</response>
+		/// <response code="500">Desila se greska prilikom brisanja licitacije</response>
         [HttpDelete("{licitacijaId}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

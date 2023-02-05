@@ -5,11 +5,19 @@ namespace AuctionService.Entities
 {
 	public class TipJavnogNadmetanja
 	{
-		[Key]
+        /// <summary>
+        /// Id tipa nadmetanja
+        /// </summary>
+        /// 
+        [Key]
 		public Guid tipJavnogNadmetanjaID;
 
-		//naziv tipa javnog nadmetanja
-		public string nazivTipa { get; set; }
+        /// <summary>
+        /// Naziv tipa nadmetanja
+        /// </summary>
+        /// 
+        //naziv tipa javnog nadmetanja
+        public string nazivTipa { get; set; }
 	}
 }
 

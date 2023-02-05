@@ -16,7 +16,6 @@ namespace AuctionService.Controllers
 	public class JavnoNadmetanjController : ControllerBase
 	{
 		private readonly IJavnoNadmetanjeRepository javnoNadmetanjeRepository;
-		//private readonly KupacService kupacService;
 		private readonly IMapper mapper;
 		private readonly string name = "Javno_nadmetanje_service";
 		private readonly IAdresaService adresaService;
@@ -36,8 +35,13 @@ namespace AuctionService.Controllers
 			
 		
 		}
-		[HttpGet]
-		[HttpHead]
+        /// <summary>
+        /// Vraca sva javna nadmetanja.
+        /// </summary>
+        /// <returns> Lista javnih nadmetanja</returns>
+        /// <response code="200">Vraca listu javnih nadmetanja</response>
+        /// <response code="204">Nije pronadjen ni jedno javno nadmetanje</response>
+        [HttpGet]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status204NoContent)]
 		public ActionResult<List<JavnoNadmetanjeDto>> getAllJavnaNadmetanja()
@@ -70,8 +74,14 @@ namespace AuctionService.Controllers
 			return Ok(mapper.Map<List<JavnoNadmetanjeDto>>(javnoNadmetanjeDto));
 		}
 
-		[HttpGet("{javnoNadmetanjeId}")]
-		[HttpHead]
+        /// <summary>
+        /// Vraca jedno javno nadmetanje na osnovu ID-ja.
+        /// </summary>
+        /// // <param name="javnoNadmetanjeId">ID javnog nadmetanja</param>
+        /// <returns>Trazeno javno nadmetanje</returns>
+        /// <response code="200">Trazeno javno nadmetanje je uspesno pronadjeno</response>
+        /// <response code="404">Trazeno javno nadmetanje nije pronadjeno</response>
+        [HttpGet("{javnoNadmetanjeId}")]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		public ActionResult<JavnoNadmetanjeDto> getJavnoNadmetanjeById(Guid javnoNadmetanjeId)
@@ -97,7 +107,14 @@ namespace AuctionService.Controllers
 			return Ok(jnDto);
 		}
 
-		[HttpDelete("{javnoNadmetanjeId}")]
+        /// <summary>
+        /// Brise javno nadmetanje.
+        /// </summary>
+		/// <param name="javnoNadmetanjeId">ID javnog nadmetanja</param>
+        /// <response code="204">Uspesno izvrseno brisanje</response>
+        /// <response code="404">Nije pronadjeno javno nadmetanje sa datim id-jem</response>
+		/// <response code="500">Desila se greska prilikom brisanja javnog nadmetanja</response>
+        [HttpDelete("{javnoNadmetanjeId}")]
 		[ProducesResponseType(StatusCodes.Status204NoContent)]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		[ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -123,8 +140,15 @@ namespace AuctionService.Controllers
 
 		}
 
-		//put method
-		[HttpPut]
+        /// <summary>
+        /// Updatuje javno nadmetanje.
+        /// </summary>
+		/// <param name="jnDto">Body koji sadzi podatke koji treba da se izmene</param>
+        /// <returns> Vraca izmenjeno javno nadmetanje</returns>
+        /// <response code="200">Updatovanje je uspesno izvrseno</response>
+        /// <response code="404">Nije pronadjeno javno nadmetanje sa prosledjenim id-jem</response>
+		/// <response code="500">Desila se greska prilikom updatovanja javnog nadmetanja</response>
+        [HttpPut]
 		[Consumes("application/json")]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		[ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -151,7 +175,14 @@ namespace AuctionService.Controllers
 			}
 		}
 
-		[HttpPost]
+        /// <summary>
+        /// Kreira novo javno nadmetanje
+        /// </summary>
+		/// <param name="javnoNadmetanjeDto">Body koji sadzi javno nadmetanje koje treba da se kreira</param>
+        /// <returns> Kreirano javno nadmetanje</returns>
+        /// <response code="201">Kreiranje jn je uspesno izvrseno</response>
+        /// <response code="500">Desila se greska prilikom kreiranja javnog nademtanja</response>
+        [HttpPost]
 		[Consumes("application/json")]
 		[ProducesResponseType(StatusCodes.Status201Created)]
 		[ProducesResponseType(StatusCodes.Status500InternalServerError)]
