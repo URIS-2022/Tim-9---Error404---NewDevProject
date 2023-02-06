@@ -12,7 +12,7 @@
   },*/
   "AllowedHosts": "*",
   "ConnectionStrings": {
-    "JavnoNadmetanjeDB": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=JavnoNadmetanjeDB;Integrated Security=True;Connect Timeout=30;"
+    "javnoNadmetanjeDB": "Server=sql_server_demo;Database=javnoNadmetanjeDB;User Id=SA;Password=reallyStrongPassword123Valentina00;MultipleActiveResultSets=true"
   },
   "Services": {
     "LoggerService": "http://localhost:55201/",

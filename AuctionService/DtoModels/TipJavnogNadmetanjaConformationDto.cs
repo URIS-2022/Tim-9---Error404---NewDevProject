@@ -9,7 +9,7 @@ namespace AuctionService.DtoModels
         /// Id tipa nadmetanja
         /// </summary>
         /// 
-        [Key]
+        
 		public Guid tipJavnogNadmetanjaID { get; set; }
 	}
 }

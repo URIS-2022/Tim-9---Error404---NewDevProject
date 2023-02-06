@@ -106,21 +106,21 @@ namespace AuctionService.Entities
         /// </summary>
         /// 
         
-        [ForeignKey("OvlascenoLice")]
+        
         public Guid ovlascenoLiceID { get; set; }
 
         /// <summary>
         /// Lista prijavljenih kupaca na javnom nadmetanju
         /// </summary>
         /// 
-        [ForeignKey("Kupac")]
+
 		public List<Guid> prijavljeniKupciID { get; set; }
 
         /// <summary>
         /// Adresa javnog nadmetanja
         /// </summary>
         /// 
-        [ForeignKey("Adresa")]
+        
 		public Guid adresaID {get; set;}
         //Najbolji ponudjac
 
@@ -128,14 +128,14 @@ namespace AuctionService.Entities
         /// Id kupca koji je najbolji ponudjac na javnom nadmetanju
         /// </summary>
         /// 
-        [ForeignKey("Kupac")]
+        
         public Guid najboljiPonudjacID { get; set;}
 
         /// <summary>
         /// Lista parcela koje se nalaze na javnom nadmetanju
         /// </summary>
         /// 
-		[ForeignKey("Parcela")]
+		
         public List<Guid> parceleID { get; set; }
 
         /// <summary>

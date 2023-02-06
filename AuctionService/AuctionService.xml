@@ -897,9 +897,9 @@
             
         </member>
         <member name="P:AuctionService.DtoModels.TipNadmetanjaCreationDto.nazivTipa">
-            <summary>
-            Naziv tipa nadmetanja
-            </summary>
+             <summary>
+             Naziv tipa nadmetanja
+             </summary>
             
         </member>
         <member name="P:AuctionService.DtoModels.TipNadmetanjaDto.nazivTipa">
@@ -1118,7 +1118,7 @@
             </summary>
             
         </member>
-        <member name="F:AuctionService.Entities.TipJavnogNadmetanja.tipJavnogNadmetanjaID">
+        <member name="F:AuctionService.Entities.TipJavnogNadmetanja.Id">
             <summary>
             Id tipa nadmetanja
             </summary>

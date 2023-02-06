@@ -9,7 +9,7 @@ namespace AuctionService.DtoModels
         /// Id parcele
         /// </summary>
         /// 
-        [Key]
+       
 		public Guid parcelaId { get; set; }
 	}
 }

@@ -10,7 +10,7 @@ namespace AuctionService.DtoModels
         /// Id licitacije
         /// </summary>
         /// 
-        [Key]
+        
 		public Guid licitacijaId {get; set; }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace AuctionService.DtoModels
         /// Id javnog nadmetanja
         /// </summary>
         /// 
-		[ForeignKey("JavnoNadmetanje")]
+		
 		public Guid javnoNadmetanjeId { get; set; }
 
         /// <summary>

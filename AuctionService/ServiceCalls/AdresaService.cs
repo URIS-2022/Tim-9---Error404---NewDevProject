@@ -1,6 +1,6 @@
 ﻿using System;
 using AuctionService.DtoModels;
-using Newtonsoft.Json;
+
 
 namespace AuctionService.ServiceCalls
 {

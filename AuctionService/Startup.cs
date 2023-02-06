@@ -151,6 +151,7 @@ namespace AuctionService
                     }
                 });
 
+                
                 //Pomocu refleksije dobijamo ime XML fajla sa komentarima (ovako smo ga nazvali u Project -> Properties)
                 var xmlComments = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
 
@@ -163,6 +164,9 @@ namespace AuctionService
 
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            //Dodajemo DbContext koji zelimo da koristimo
+            services.AddDbContextPool<JavnoNadmetanjeContext>(options => options.UseSqlServer(Configuration.GetConnectionString("javnoNadmetanjeDB")));
         }
             public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
             {
@@ -180,8 +184,13 @@ namespace AuctionService
                             await context.Response.WriteAsync("Doslo je do neocekivane greske. Molimo pokusajte kasnije.");
                         });
                     });
-                }
 
+               
+
+
+            }
+
+           
             app.UseSwagger();
             app.UseSwaggerUI(setupAction =>
             {

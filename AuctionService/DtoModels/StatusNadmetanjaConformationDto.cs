@@ -10,7 +10,7 @@ namespace AuctionService.DtoModels
         /// </summary>
         /// 
         //get status id
-        [Key]
+        
 		public Guid statusNadmetanjaID { get; set; }
 	}
 }

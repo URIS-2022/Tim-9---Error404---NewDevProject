@@ -8,12 +8,12 @@ namespace AuctionService.Services
     public class JavnoNadmetanjeService : IJavnoNadmetanjeRepository
     {
         public static List<Entities.JavnoNadmetanje> javnoNadmetanjes { get; set; } = new List<Entities.JavnoNadmetanje>();
-        //private readonly JavnoNadmetanjeContext javnoNadmetanjeContext;
+        private readonly JavnoNadmetanjeContext javnoNadmetanjeContext;
         private readonly IMapper mapper;
 
-        public JavnoNadmetanjeService(IMapper mapper)
+        public JavnoNadmetanjeService(IMapper mapper, JavnoNadmetanjeContext context)
         {
-            //this.javnoNadmetanjeContext = context;
+            this.javnoNadmetanjeContext = context;
             this.mapper = mapper;
             FillData();
         }
@@ -60,13 +60,13 @@ namespace AuctionService.Services
         public void deleteJavnoNadmetanje(Guid id)
         {
             Entities.JavnoNadmetanje jn = getJavnoNadmetanjeByID(id);
-            //javnoNadmetanjeContext.javnaNadmetanja.Remove(jn);
-            javnoNadmetanjes.Remove(jn);
+            javnoNadmetanjeContext.javnaNadmetanja.Remove(jn);
+            //javnoNadmetanjes.Remove(jn);
         }
 
         public List<Entities.JavnoNadmetanje> getJavnaNadmetanja()
         {
-            // return javnoNadmetanjeContext.javnaNadmetanja.ToList();
+            //return javnoNadmetanjeContext.javnaNadmetanja.ToList();
             return (from jn in javnoNadmetanjes select jn).ToList();
         }
 

@@ -3,14 +3,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AuctionService.Entities
 {
-	public class TipJavnogNadmetanja
-	{
+
+    public class TipJavnogNadmetanja
+    {
         /// <summary>
         /// Id tipa nadmetanja
         /// </summary>
         /// 
-        [Key]
-		public Guid tipJavnogNadmetanjaID;
+        
+        public Guid tipJavnogNadmetanjaID;
 
         /// <summary>
         /// Naziv tipa nadmetanja
@@ -18,6 +19,5 @@ namespace AuctionService.Entities
         /// 
         //naziv tipa javnog nadmetanja
         public string nazivTipa { get; set; }
-	}
+    }
 }
-

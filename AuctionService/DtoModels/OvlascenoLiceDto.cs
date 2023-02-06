@@ -9,7 +9,7 @@ namespace AuctionService.DtoModels
         /// Id ovlascenog lica
         /// </summary>
         /// 
-        [Key]
+        
 		public Guid ovlascenoLiceId { get; set; }
         /// <summary>
         /// Ime ovlascenog lica

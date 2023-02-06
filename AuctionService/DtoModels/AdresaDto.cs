@@ -9,7 +9,7 @@ namespace AuctionService.DtoModels
         /// Id adrese
         /// </summary>
         /// 
-           [Key]
+           
 			public Guid adresaId { get; set; }
         /// <summary>
         /// Ulica

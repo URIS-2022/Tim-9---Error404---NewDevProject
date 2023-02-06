@@ -8,38 +8,38 @@ namespace AuctionService.Services
 {
     public class StatusNadmetanjaService : IStatusNadmetanjaRepository
     {
-        //private readonly JavnoNadmetanjeContext context;
+        private readonly JavnoNadmetanjeContext context;
         private readonly IMapper mapper;
         public static List<StatusNadmetanja> statusNadmetanjas { get; set; } = new List<StatusNadmetanja>();
 
-        public StatusNadmetanjaService(IMapper mapper)
+        public StatusNadmetanjaService(IMapper mapper, JavnoNadmetanjeContext context)
         {
             this.mapper = mapper;
-            FillData();
-           // this.context = context;
+           // FillData();
+            this.context = context;
         }
 
-        private void FillData()
-        {
-            statusNadmetanjas.AddRange(new List<StatusNadmetanja>
-            {
-                new StatusNadmetanja
-                {
-                    statusNadmetanjaID = Guid.Parse("8aaa90c8-56f3-4a76-b07a-f895eded5a84"),
-                    naziv = "Prvi krug"
-                },
-                new StatusNadmetanja
-                {
-                    statusNadmetanjaID = Guid.Parse("b1ad846b-f76f-4485-8c89-08e2dfebd112"),
-                    naziv = "Drugi krug sa starim uslovima"
-                },
-                new StatusNadmetanja
-                {
-                    statusNadmetanjaID = Guid.Parse("d85b4a71-27e4-4626-9a3e-0412430e03d6"),
-                    naziv = "Drugi krug sa novim uslovima"
-                }
-            });
-        }
+        //private void FillData()
+        //{
+        //    statusNadmetanjas.AddRange(new List<StatusNadmetanja>
+        //    {
+        //        new StatusNadmetanja
+        //        {
+        //            statusNadmetanjaID = Guid.Parse("8aaa90c8-56f3-4a76-b07a-f895eded5a84"),
+        //            naziv = "Prvi krug"
+        //        },
+        //        new StatusNadmetanja
+        //        {
+        //            statusNadmetanjaID = Guid.Parse("b1ad846b-f76f-4485-8c89-08e2dfebd112"),
+        //            naziv = "Drugi krug sa starim uslovima"
+        //        },
+        //        new StatusNadmetanja
+        //        {
+        //            statusNadmetanjaID = Guid.Parse("d85b4a71-27e4-4626-9a3e-0412430e03d6"),
+        //            naziv = "Drugi krug sa novim uslovima"
+        //        }
+        //    });
+        //}
 
         //delete status jn
         public void deleteStatusNadmetanja(Guid id)
@@ -53,8 +53,8 @@ namespace AuctionService.Services
         //get all status jn
         public List<StatusNadmetanja> getAllStatusiNadmetanja()
         {
-            // return context.statusiNadmetanja.ToList();
-            return (from s in statusNadmetanjas select s).ToList();
+            return context.statusiNadmetanja.ToList();
+           // return (from s in statusNadmetanjas select s).ToList();
         }
 
         //get status jn by id

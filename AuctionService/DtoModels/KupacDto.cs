@@ -9,7 +9,7 @@ namespace AuctionService.DtoModels
         /// Id kupca
         /// </summary>
         /// 
-        [Key]
+        
 		public Guid kupacID { get; set; }
 
         /// <summary>

@@ -8,13 +8,13 @@ namespace AuctionService.Services
 {
     public class LicitacijaService : ILicitacijaRepository
     {
-        //private readonly JavnoNadmetanjeContext context;
+        private readonly JavnoNadmetanjeContext context;
         private readonly IMapper mapper;
         public static List<Licitacija> licitacijas { get; set; } = new List<Licitacija>();
 
-        public LicitacijaService(IMapper mapper)
+        public LicitacijaService(IMapper mapper, JavnoNadmetanjeContext context)
         {
-           // this.context = context;
+            this.context = context;
             this.mapper = mapper;
             FillData();
         }
@@ -62,14 +62,14 @@ namespace AuctionService.Services
 
         public List<Licitacija> getAllLicitacija()
         {
-            // return context.licitacije.ToList();
-            return (from l in licitacijas select l).ToList();
+            return context.licitacije.ToList();
+           // return (from l in licitacijas select l).ToList();
         }
 
         public Licitacija getLicitacijaById(Guid id)
         {
-            //return context.licitacije.FirstOrDefault(licitacija => licitacija.licitacijaID == id);
-            return licitacijas.FirstOrDefault(l => l.licitacijaID == id);
+            return context.licitacije.FirstOrDefault(licitacija => licitacija.licitacijaID == id);
+            //return licitacijas.FirstOrDefault(l => l.licitacijaID == id);
         }
 
         public LicitacijaConformationDto postLicitacija(Licitacija licitacija)

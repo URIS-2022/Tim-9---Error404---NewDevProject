@@ -85,24 +85,24 @@ namespace AuctionService.DtoModels
         /// </summary>
         /// 
         //status nadmetanja 
-        [ForeignKey("StatusNadmetanja")]
+        
         public Guid statusNadmetanjaID { get; set; }
-        public StatusNadmetanja statusID { get; set; }
+        
 
         /// <summary>
         /// Id tipa javnog nadmetanja
         /// </summary>
         /// 
-        [ForeignKey("TipJavnogNadmetanja")]
+        
         public Guid tipID { get; set; }
-        public TipJavnogNadmetanja tipJavnogNadmetanja { get; set; }
+      
 
         /// <summary>
         /// ID ovlascenog lica javnog nadmetanja
         /// </summary>
         /// 
         //Ovlascena lica javnog nadmetanja (licitanti)
-        [ForeignKey("OvlascenoLice")]
+        
         public Guid ovlascenoLiceID { get; set; }
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace AuctionService.DtoModels
         /// </summary>
         /// 
         //Prijavljeni kupci na javno nadmetanje
-        [ForeignKey("Kupac")]
+        
         public List<Guid> prijavljeniKupciID { get; set; }
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace AuctionService.DtoModels
         /// </summary>
         /// 
         
-        [ForeignKey("Adresa")]
+       
         public Guid adresaID { get; set; }
         //Najbolji ponudjac
 
@@ -126,14 +126,14 @@ namespace AuctionService.DtoModels
         /// Najbolji ponudjac na javnom nadmetanju
         /// </summary>
         /// 
-        [ForeignKey("Kupac")]
+        
         public Guid najboljiPonudjacID { get; set; }
 
         /// <summary>
         /// Lista parcela na javnom nadmetanju
         /// </summary>
         /// 
-        [ForeignKey("Parcela")]
+        
         public List<Guid> parceleID { get; set; }
 
 
