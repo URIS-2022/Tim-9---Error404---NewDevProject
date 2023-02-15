@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "U8aDllx/VprMGPmZr2jcsFLE0tz+PKMKRAx9SKEjIzD5LUufgXM+WP/wPKLxaVKWlaUtSrV/11yc5G701cHrEw==",
+  "dgSpecHash": "5TZed8K2ftiPfTRhBEse4N4EC9GrrtRWtOUk1zqnjXcjkqrRYEQe4fZE0M7k8/Qcmdr7Ydg1l3yXBU8VPKzOnA==",
   "success": true,
   "projectFilePath": "C:\\Users\\milan\\Tim-9---Error404---NewDevProject\\AuctionService\\AuctionService.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "C:\\Users\\milan\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\milan\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\milan\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
+    "C:\\Users\\milan\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.3\\microsoft.aspnetcore.authentication.jwtbearer.7.0.3.nupkg.sha512",
     "C:\\Users\\milan\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.2.0\\microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",
     "C:\\Users\\milan\\.nuget\\packages\\microsoft.aspnetcore.authorization.policy\\2.2.0\\microsoft.aspnetcore.authorization.policy.2.2.0.nupkg.sha512",
     "C:\\Users\\milan\\.nuget\\packages\\microsoft.aspnetcore.hosting\\2.2.7\\microsoft.aspnetcore.hosting.2.2.7.nupkg.sha512",

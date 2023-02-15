@@ -21,7 +21,7 @@ namespace AuctionService.Services
         public void deleteStatusNadmetanja(Guid id)
         {
             Entities.StatusNadmetanja statusJN = getStatusNadmetanjaByID(id);
-            context.statusiNadmetanja.Remove(stausJN);
+            context.statusiNadmetanja.Remove(statusJN);
 
         }
 

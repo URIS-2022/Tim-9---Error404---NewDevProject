@@ -16,8 +16,6 @@ namespace AuctionService.Services
             this.javnoNadmetanjeContext = context;
             this.mapper = mapper;
         }
-
-       
         public void deleteJavnoNadmetanje(Guid id)
         {
             Entities.JavnoNadmetanje jn = getJavnoNadmetanjeByID(id);
@@ -46,7 +44,7 @@ namespace AuctionService.Services
 
         public bool saveChanges()
         {
-            return context.SaveChanges() > 1;
+            return javnoNadmetanjeContext.SaveChanges() > 1;
         }
 
         public JavnoNadmetanjeConformationDto updateJavnoNadmetanje(Entities.JavnoNadmetanje jn)

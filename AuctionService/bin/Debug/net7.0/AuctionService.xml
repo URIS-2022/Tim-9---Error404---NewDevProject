@@ -4,6 +4,13 @@
         <name>AuctionService</name>
     </assembly>
     <members>
+        <member name="M:AuctionService.Controllers.AuthController.Authenticate(AuctionService.DtoModels.Principal)">
+            <summary>
+            Sluzi za autentifikaciju korisnika
+            </summary>
+            <param name="principal">Model sa podacima na osnovu kojih se vrši autentifikacija</param>
+            <returns></returns>
+        </member>
         <member name="M:AuctionService.Controllers.JavnoNadmetanjController.getAllJavnaNadmetanja">
             <summary>
             Vraca sva javna nadmetanja.
@@ -848,6 +855,16 @@
             </summary>
             
         </member>
+        <member name="P:AuctionService.DtoModels.Principal.Username">
+            <summary>
+            Korisnicko ime.
+            </summary>
+        </member>
+        <member name="P:AuctionService.DtoModels.Principal.Password">
+            <summary>
+            Lozinka korisnika.
+            </summary>
+        </member>
         <member name="P:AuctionService.DtoModels.StatusJavnogNadmetanjaUpdateDto.statusNadmetanjaID">
             <summary>
             Id statusa nadmetanja
@@ -907,6 +924,41 @@
             Naziv tipa nadmetanja
             </summary>
             
+        </member>
+        <member name="P:AuctionService.DtoModels.User.Id">
+            <summary>
+            ID korisnika.
+            </summary>
+        </member>
+        <member name="P:AuctionService.DtoModels.User.FirstName">
+            <summary>
+            Ime korisnika.
+            </summary>
+        </member>
+        <member name="P:AuctionService.DtoModels.User.LastName">
+            <summary>
+            Prezime korisnika.
+            </summary>
+        </member>
+        <member name="P:AuctionService.DtoModels.User.UserName">
+            <summary>
+            Korisnicko ime.
+            </summary>
+        </member>
+        <member name="P:AuctionService.DtoModels.User.Email">
+            <summary>
+            Email korisnika.
+            </summary>
+        </member>
+        <member name="P:AuctionService.DtoModels.User.Password">
+            <summary>
+            Hash-ovana sifra korisnika.
+            </summary>
+        </member>
+        <member name="P:AuctionService.DtoModels.User.Salt">
+            <summary>
+            Salt.
+            </summary>
         </member>
         <member name="P:AuctionService.Entities.JavnoNadmetanje.javnoNadmetanjeID">
             <summary>
@@ -1139,6 +1191,22 @@
         </member>
         <member name="M:AuctionService.Migrations.migrations.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
+        </member>
+        <member name="M:AuctionService.Services.UserService.HashPassword(System.String)">
+            <summary>
+            Vrši hash-ovanje korisnicke lozinke
+            </summary>
+            <param name="password">Korisnicka lozinka</param>
+            <returns>Generisan hash i salt</returns>
+        </member>
+        <member name="M:AuctionService.Services.UserService.VerifyPassword(System.String,System.String,System.String)">
+            <summary>
+            Proverava validnost prosleđene lozinke sa prosleđenim hash-om
+            </summary>
+            <param name="password">Korisnicka lozinka</param>
+            <param name="savedHash">Sacuvan hash</param>
+            <param name="savedSalt">Sacuvan salt</param>
+            <returns></returns>
         </member>
     </members>
 </doc>

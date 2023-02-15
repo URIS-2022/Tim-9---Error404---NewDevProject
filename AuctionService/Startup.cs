@@ -1,4 +1,5 @@
 ﻿using System;
+using AuctionService.Helper;
 using AuctionService.Entities;
 using AuctionService.Repository;
 using AuctionService.Services;
@@ -19,6 +20,7 @@ using Microsoft.Extensions.Configuration;
 using AuctionService.ServiceCalls;
 using System.Reflection;
 using System.IO;
+using AuctionService.Repositories;
 
 namespace AuctionService
 {
@@ -95,8 +97,8 @@ namespace AuctionService
             services.AddScoped<IOvlascenoLiceService, OvlascenoLiceService>();
             services.AddScoped<IKupacService, KupacService>();
             services.AddScoped<IParcelaService, ParcelaService>();
-            //services.AddScoped<IUserRepository, UserMockRepository>();
-            //services.AddScoped<IAuthenticationHelper, AuthenticationHelper>();
+            services.AddScoped<IUserRepository, UserService>();
+            services.AddScoped<IAuthHelper, AuthHelper>();
             //services.AddScoped<ILoggerService, LoggerService>();
             //services.AddScoped<IKupacService, KupacService>();
 
