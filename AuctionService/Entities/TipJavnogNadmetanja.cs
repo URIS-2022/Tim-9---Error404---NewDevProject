@@ -10,8 +10,8 @@ namespace AuctionService.Entities
         /// Id tipa nadmetanja
         /// </summary>
         /// 
-        
-        public Guid tipJavnogNadmetanjaID;
+        [Key]
+        public Guid tipJavnogNadmetanjaID { get; set; }
 
         /// <summary>
         /// Naziv tipa nadmetanja

@@ -53,7 +53,15 @@ namespace AuctionService.Entities
         /// Izlicitirana cena javnog nadmetanja
         /// </summary>
         /// 
-        
+
+        /// <summary>
+        /// Id tipa javnog nadmetanja
+        /// </summary>
+        /// 
+        [ForeignKey("TipJavnogNadmetanja")]
+        public Guid tipID { get; set; }
+        //public TipJavnogNadmetanja tipNadmetanja { get; set; }
+
         public int izlicitiranaCena { get; set; }
 
         /// <summary>
@@ -91,37 +99,30 @@ namespace AuctionService.Entities
         /// 
         [ForeignKey("StatusNadmetanja")]
 		public Guid statusNadmetanjaID { get; set; }
-        public StatusNadmetanja statusID { get; set; }
+       // public StatusNadmetanja statusID { get; set; }
 
         /// <summary>
-        /// Id tipa javnog nadmetanja
+        /// Adresa javnog nadmetanja
         /// </summary>
         /// 
-        [ForeignKey("TipJavnogNadmetanja")]
-        public Guid tipID { get; set; }
-        public TipJavnogNadmetanja tipJavnogNadmetanja { get; set; }
+        public Guid adresaID { get; set; }
+
 
         /// <summary>
         /// Id ovlascenog lica javnog nadmetanja
         /// </summary>
         /// 
-        
-        
+
         public Guid ovlascenoLiceID { get; set; }
 
         /// <summary>
         /// Lista prijavljenih kupaca na javnom nadmetanju
         /// </summary>
         /// 
-
+        [NotMapped]
 		public List<Guid> prijavljeniKupciID { get; set; }
 
-        /// <summary>
-        /// Adresa javnog nadmetanja
-        /// </summary>
-        /// 
         
-		public Guid adresaID {get; set;}
         //Najbolji ponudjac
 
         /// <summary>
@@ -135,7 +136,7 @@ namespace AuctionService.Entities
         /// Lista parcela koje se nalaze na javnom nadmetanju
         /// </summary>
         /// 
-		
+		[NotMapped]
         public List<Guid> parceleID { get; set; }
 
         /// <summary>

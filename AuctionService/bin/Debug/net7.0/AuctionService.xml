@@ -944,9 +944,13 @@
             </summary>
             
         </member>
-        <member name="P:AuctionService.Entities.JavnoNadmetanje.izlicitiranaCena">
+        <member name="P:AuctionService.Entities.JavnoNadmetanje.tipID">
             <summary>
             Izlicitirana cena javnog nadmetanja
+            </summary>
+            
+            <summary>
+            Id tipa javnog nadmetanja
             </summary>
             
         </member>
@@ -980,9 +984,9 @@
             </summary>
             
         </member>
-        <member name="P:AuctionService.Entities.JavnoNadmetanje.tipID">
+        <member name="P:AuctionService.Entities.JavnoNadmetanje.adresaID">
             <summary>
-            Id tipa javnog nadmetanja
+            Adresa javnog nadmetanja
             </summary>
             
         </member>
@@ -995,12 +999,6 @@
         <member name="P:AuctionService.Entities.JavnoNadmetanje.prijavljeniKupciID">
             <summary>
             Lista prijavljenih kupaca na javnom nadmetanju
-            </summary>
-            
-        </member>
-        <member name="P:AuctionService.Entities.JavnoNadmetanje.adresaID">
-            <summary>
-            Adresa javnog nadmetanja
             </summary>
             
         </member>
@@ -1118,7 +1116,7 @@
             </summary>
             
         </member>
-        <member name="F:AuctionService.Entities.TipJavnogNadmetanja.Id">
+        <member name="P:AuctionService.Entities.TipJavnogNadmetanja.tipJavnogNadmetanjaID">
             <summary>
             Id tipa nadmetanja
             </summary>
@@ -1129,6 +1127,18 @@
             Naziv tipa nadmetanja
             </summary>
             
+        </member>
+        <member name="T:AuctionService.Migrations.migrations">
+            <inheritdoc />
+        </member>
+        <member name="M:AuctionService.Migrations.migrations.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:AuctionService.Migrations.migrations.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:AuctionService.Migrations.migrations.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
         </member>
     </members>
 </doc>

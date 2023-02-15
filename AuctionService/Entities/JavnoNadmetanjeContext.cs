@@ -25,13 +25,13 @@ namespace AuctionService.Entities
             modelBuilder.Entity<TipJavnogNadmetanja>()
               .HasData(new
               {
-                  id = Guid.Parse("4246a611-7b2f-429d-a9ba-0e539c81b82f"),
+                  tipJavnogNadmetanjaID = Guid.Parse("4246a611-7b2f-429d-a9ba-0e539c81b82f"),
                   nazivTipa = "Javna licitacija"
               });
             modelBuilder.Entity<TipJavnogNadmetanja>()
               .HasData(new
               {
-                  id = Guid.Parse("99b6d6ec-4358-4898-936b-31b31d236324"),
+                  tipJavnogNadmetanjaID = Guid.Parse("99b6d6ec-4358-4898-936b-31b31d236324"),
                   nazivTipa = "Otvaranje zatvorenih ponuda"
               });
 
@@ -70,7 +70,7 @@ namespace AuctionService.Entities
                     visinaDopuneDepozita = 500,
                     krug = 1,
                     statusNadmetanjaID = Guid.Parse("8aaa90c8-56f3-4a76-b07a-f895eded5a84"),
-                    sdresaID = Guid.Parse("a06f99d2-0ba7-40ff-a241-304a03dfe4be"),
+                    adresaID = Guid.Parse("a06f99d2-0ba7-40ff-a241-304a03dfe4be"),
                     ovlascenoLiceID = Guid.Parse("5cfa282f-8324-4a8b-8c23-8d43502ca01e"),
                     najboljiPonudjacID = Guid.Parse("8b3b7775-4293-4b41-9ccc-19f9cf694d68"),
                     
@@ -109,7 +109,7 @@ namespace AuctionService.Entities
                     korakCene = 100,
                     listaDokumentacijeFizickaLica = new List<string>() { "dok1_fl", "dok2_fl" },
                     listaDokumentacijePravnaLica = new List<string>() { "dok1_pl", "dok1_pl" },
-                    javnoNadmetanjeID = Guid.Parse("208a48a5-371c-4f9d-ac23-18bb176ff8f3"),
+                    javnoNadmetanjeId = Guid.Parse("208a48a5-371c-4f9d-ac23-18bb176ff8f3"),
                     rokZaDostavljanje = DateTime.Parse("2022-2-15")
 
                 });
@@ -124,7 +124,7 @@ namespace AuctionService.Entities
                    korakCene = 200,
                    listaDokumentacijeFizickaLica = new List<string>() { "dok1_fl", "dok2_fl" },
                    listaDokumentacijePravnaLica = new List<string>() { "dok1_pl", "dok1_pl" },
-                   javnoNadmetanjeID = Guid.Parse("208a48a5-371c-4f9d-ac23-18bb176ff8f3"),
+                   javnoNadmetanjeId = Guid.Parse("208a48a5-371c-4f9d-ac23-18bb176ff8f3"),
                    rokZaDostavljanje = DateTime.Parse("2022-2-16")
                });
         }

@@ -24,12 +24,12 @@ namespace AuctionService
 {
     public class Startup
     {
-        public IConfiguration Configuration { get; }
+        
         public Startup(IConfiguration configuration)
         {
-            this.Configuration = configuration;
+            Configuration = configuration;
         }
-
+        public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
 
@@ -164,6 +164,7 @@ namespace AuctionService
 
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 
             //Dodajemo DbContext koji zelimo da koristimo
             services.AddDbContextPool<JavnoNadmetanjeContext>(options => options.UseSqlServer(Configuration.GetConnectionString("javnoNadmetanjeDB")));

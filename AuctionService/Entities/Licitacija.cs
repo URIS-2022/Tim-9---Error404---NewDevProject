@@ -64,7 +64,7 @@ namespace AuctionService.Entities
         /// 
 		[ForeignKey("javnoNadmetanje")]
 		public Guid javnoNadmetanjeId{ get; set; }
-		public JavnoNadmetanje javnoNadmetanje { get; set; }
+		//public JavnoNadmetanje javnoNadmetanje { get; set; }
 
         /// <summary>
         /// Rok za dostavljanje dokumentacije
