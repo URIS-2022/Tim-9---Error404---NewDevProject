@@ -1,6 +1,7 @@
 ﻿using System;
 using AuctionService.DtoModels;
 using AuctionService.Repository;
+using AuctionService.ServiceCalls;
 using AuctionService.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
@@ -16,12 +17,15 @@ namespace AuctionService.Controllers
 		private readonly IStatusNadmetanjaRepository statusNadmetanjaRepository;
 		private readonly IMapper mapper;
 		private readonly string name = "Status_nadmetanja";
+		private readonly ILogerService loggerService;
+		private readonly Message message = new Message();
 
-
-		public StatusNadmetanjaController(IStatusNadmetanjaRepository statusNadmetanjaService, IMapper mapper)
+		public StatusNadmetanjaController(IStatusNadmetanjaRepository statusNadmetanjaService, IMapper mapper, ILogerService loggerService)
 		{
 			this.statusNadmetanjaRepository = statusNadmetanjaService;
 			this.mapper = mapper;
+			this.loggerService = loggerService;
+
 		}
 
         /// <summary>
@@ -35,15 +39,20 @@ namespace AuctionService.Controllers
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		public ActionResult<List<StatusNadmetanjaDto>> getAllStatusiNadmetanja()
 		{
+			message.method = "GET";
+			message.serviceName = name;
 			List<Entities.StatusNadmetanja> statusiNadmetanja = statusNadmetanjaRepository.getAllStatusiNadmetanja();
 
 			if (statusiNadmetanja == null || statusiNadmetanja.Count == 0)
 			{
+				message.error = "No content";
+				loggerService.CreateMessage(message);
 				return NoContent();
 			}
 
 			List<StatusNadmetanjaDto> statusiNadmetanjaDto = mapper.Map<List<StatusNadmetanjaDto>>(statusiNadmetanja);
-
+			message.information = "Lista statusa nasmetanja";
+			loggerService.CreateMessage(message);
 			return Ok(mapper.Map<List<StatusNadmetanjaDto>>(statusiNadmetanjaDto));
 		}
 
@@ -59,15 +68,20 @@ namespace AuctionService.Controllers
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		public ActionResult<StatusNadmetanjaDto> getStatusNadmetanjaById(Guid statusNadmetanjaId)
 		{
+			message.method = "GET";
+			message.serviceName = name;
 			Entities.StatusNadmetanja statusNadmetanja = statusNadmetanjaRepository.getStatusNadmetanjaByID(statusNadmetanjaId);
 
 			if (statusNadmetanja == null)
 			{
+				message.error = "Not found";
+				loggerService.CreateMessage(message);
 				return NotFound();
 			}
 
 			StatusNadmetanjaDto statusNadmetanjaDto = mapper.Map<StatusNadmetanjaDto>(statusNadmetanja);
-
+			message.information = "Status nadmetanja sa prosledjenim id-jem je vracen";
+			loggerService.CreateMessage(message);
 			return Ok(mapper.Map<StatusNadmetanjaDto>(statusNadmetanjaDto));
 		}
 
@@ -84,17 +98,23 @@ namespace AuctionService.Controllers
 		[ProducesResponseType(StatusCodes.Status500InternalServerError)]
 		public IActionResult deleteStatusNadmetanja(Guid statusNadmetanjaId)
 		{
+			message.method = "DELETE";
+			message.serviceName = name;
 			try
 			{
 				Entities.StatusNadmetanja statusNadmetanja = statusNadmetanjaRepository.getStatusNadmetanjaByID(statusNadmetanjaId);
 
 				if (statusNadmetanja == null)
 				{
+					message.error = "Not found";
+					loggerService.CreateMessage(message);
 					return NotFound();
 				}
 
 				statusNadmetanjaRepository.deleteStatusNadmetanja(statusNadmetanjaId);
 				statusNadmetanjaRepository.SaveChanges();
+				message.information = "Status nadmetanja je obrisan";
+				loggerService.CreateMessage(message);
 				return NoContent();
 
 			}
@@ -119,18 +139,26 @@ namespace AuctionService.Controllers
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status500InternalServerError)]
 		public ActionResult<StatusNadmetanjaConformationDto> updateStatusNadmetanja(StatusJavnogNadmetanjaUpdateDto statusNadmetanjaDto)
-		{
+		{ 
+
+            message.method = "PUT";
+			message.serviceName = name;
 			try
 			{
 				Entities.StatusNadmetanja oldStatusNadetanja = statusNadmetanjaRepository.getStatusNadmetanjaByID(statusNadmetanjaDto.statusNadmetanjaID);
 
 				if (oldStatusNadetanja == null)
 				{
-					return NotFound();
+					message.error = "Not found";
+			        loggerService.CreateMessage(message);
+			         return NotFound();
 				}
 				Entities.StatusNadmetanja statusNadmetanja = mapper.Map<Entities.StatusNadmetanja>(statusNadmetanjaDto);
 				mapper.Map(statusNadmetanja, oldStatusNadetanja);
 				statusNadmetanjaRepository.SaveChanges();
+				message.information = "Status nadmetanja je izmenjen";
+				loggerService.CreateMessage(message);
+		
 				return Ok(mapper.Map<StatusNadmetanjaConformationDto>(oldStatusNadetanja));
 
 			}
@@ -152,11 +180,15 @@ namespace AuctionService.Controllers
 		[ProducesResponseType(StatusCodes.Status500InternalServerError)]
 		public ActionResult<StatusNadmetanjaConformationDto> postStatusNadmetanja([FromBody] StatusNadmetanjaCreationDto statusNadmetanjaDto)
 		{
-			try
+            message.method = "POST";
+            message.serviceName = name;
+            try
 			{
 				Entities.StatusNadmetanja statusNadmetanja = mapper.Map<Entities.StatusNadmetanja>(statusNadmetanjaDto);
 				statusNadmetanjaRepository.postStatusNadmetanja(statusNadmetanja);
 				statusNadmetanjaRepository.SaveChanges();
+				message.information = "Status nadmetanja je kreiran";
+				loggerService.CreateMessage(message);
 				return Created("uri", mapper.Map<StatusNadmetanjaConformationDto>(statusNadmetanja));
 
 			}

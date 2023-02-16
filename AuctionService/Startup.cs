@@ -21,6 +21,7 @@ using AuctionService.ServiceCalls;
 using System.Reflection;
 using System.IO;
 using AuctionService.Repositories;
+using AuctionService.ServiceCalls;
 
 namespace AuctionService
 {
@@ -99,7 +100,7 @@ namespace AuctionService
             services.AddScoped<IParcelaService, ParcelaService>();
             services.AddScoped<IUserRepository, UserService>();
             services.AddScoped<IAuthHelper, AuthHelper>();
-            //services.AddScoped<ILoggerService, LoggerService>();
+            services.AddScoped<ILogerService, LoggerService>();
             //services.AddScoped<IKupacService, KupacService>();
 
             //konfiguracije za automaper - pogledaj ceo domen gde se izvrsava servis i trazi konfiguracije za automapper.

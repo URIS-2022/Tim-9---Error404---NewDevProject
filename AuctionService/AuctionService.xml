@@ -819,6 +819,26 @@
             </summary>
             
         </member>
+        <member name="P:AuctionService.DtoModels.Message.serviceName">
+            <summary>
+            Naziv servisa
+            </summary>
+        </member>
+        <member name="P:AuctionService.DtoModels.Message.method">
+            <summary>
+            Metoda
+            </summary>
+        </member>
+        <member name="P:AuctionService.DtoModels.Message.information">
+            <summary>
+            Detalji
+            </summary>
+        </member>
+        <member name="P:AuctionService.DtoModels.Message.error">
+            <summary>
+            Greska
+            </summary>
+        </member>
         <member name="P:AuctionService.DtoModels.OvlascenoLiceDto.ovlascenoLiceId">
             <summary>
             Id ovlascenog lica
@@ -1191,6 +1211,24 @@
         </member>
         <member name="M:AuctionService.Migrations.migrations.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
+        </member>
+        <member name="M:AuctionService.ServiceCalls.ILogerService.CreateMessage(AuctionService.DtoModels.Message)">
+            <summary>
+            Metoda za kreiranje poruke logeru
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:AuctionService.ServiceCalls.LoggerService.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Konstruktor
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:AuctionService.ServiceCalls.LoggerService.CreateMessage(AuctionService.DtoModels.Message)">
+            <summary>
+            Kreiranje poruke - metoda
+            </summary>
+            <param name="message"></param>
         </member>
         <member name="M:AuctionService.Services.UserService.HashPassword(System.String)">
             <summary>

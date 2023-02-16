@@ -5,6 +5,8 @@ using AuctionService.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using AuctionService.ServiceCalls;
+
 
 namespace AuctionService.Controllers
 {
@@ -16,11 +18,15 @@ namespace AuctionService.Controllers
 		private readonly ITipNadmetanjaRepository tipNadmetanjaRepository;
 		private readonly IMapper mapper;
 		private readonly string naziv = "Tip_javnog_nadmetanja";
+        private readonly ILogerService loggerService;
+        private readonly Message message = new Message();
 
-		public TipJavnogNadmetanjaController(ITipNadmetanjaRepository tipNadmetanjaService,IMapper mapper)
+
+        public TipJavnogNadmetanjaController(ITipNadmetanjaRepository tipNadmetanjaService,IMapper mapper, ILogerService loggerService)
 		{
 			this.tipNadmetanjaRepository = tipNadmetanjaService;
 			this.mapper = mapper;
+			this.loggerService = loggerService;
 		}
 
         /// <summary>
@@ -36,11 +42,19 @@ namespace AuctionService.Controllers
 		{
 			List<Entities.TipJavnogNadmetanja> tipoviNadmetanja = tipNadmetanjaRepository.getAllTipoviJavnogNadmetanja();
 
+			message.serviceName = naziv;
+			message.method = "GET";
+
 			if(tipoviNadmetanja == null || tipoviNadmetanja.Count == 0)
 			{
+				message.information = "Nema tipova javnih nadmetanja";
+				message.error = "No content";
+				loggerService.CreateMessage(message);
 				return NoContent();
 			}
-			
+
+			message.information = "Lista tipova javnih nadmetanja";
+			loggerService.CreateMessage(message);
 
 			//ovde samo ceo objekat namapirmao na dto objekat klase
 			List<TipNadmetanjaDto> tipoviNadmetanjaDto = mapper.Map<List<TipNadmetanjaDto>>(tipoviNadmetanja);
@@ -61,15 +75,20 @@ namespace AuctionService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 		public ActionResult<TipNadmetanjaDto> geTipJavnogNadmetanjaById(Guid tipNadmetanjaId)
 		{
+			message.method = "GET";
+			message.serviceName = naziv;
 			Entities.TipJavnogNadmetanja tipNadmetanja = tipNadmetanjaRepository.getTipJavnogNadmetanjaById(tipNadmetanjaId);
 
 			if(tipNadmetanja == null)
 			{
+				message.error = "Not found";
+				loggerService.CreateMessage(message);
 				return NotFound();
 			}
 
 			TipNadmetanjaDto tipJnDto = mapper.Map<TipNadmetanjaDto>(tipNadmetanja);
-
+			message.information = "Tip nadmetanja je vracen";
+			loggerService.CreateMessage(message);
 			return Ok(mapper.Map<TipNadmetanjaDto>(tipJnDto));
 
 		}
@@ -87,17 +106,24 @@ namespace AuctionService.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult deleteTipNadmetanja(Guid tipNadmetanjaId)
 		{
-			try
+            message.method = "DELETE";
+            message.serviceName = naziv;
+            try
 			{
+				
 				Entities.TipJavnogNadmetanja tipNadmetanja = tipNadmetanjaRepository.getTipJavnogNadmetanjaById(tipNadmetanjaId);
 
 				if (tipNadmetanja == null)
 				{
+					message.error = "Not found";
+					loggerService.CreateMessage(message);
 					return NotFound();
 				}
 
 				tipNadmetanjaRepository.deleteTipJavnogNadmetanja(tipNadmetanjaId);
 				tipNadmetanjaRepository.SaveChanges();
+				message.information = "Tip nadmeranja je obrisan";
+				loggerService.CreateMessage(message);
 				return NoContent();
 
 			}
@@ -124,18 +150,24 @@ namespace AuctionService.Controllers
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<TipJavnogNadmetanjaConformationDto> putTipJavnogNadmetanja(TipJavnogNadmetanjaUpdateDto tipNadmetanjaDto)
 		{
-			try
+            message.method = "PUT";
+            message.serviceName = naziv;
+            try
 			{
 				Entities.TipJavnogNadmetanja oldTipJn = tipNadmetanjaRepository.getTipJavnogNadmetanjaById(tipNadmetanjaDto.tipJavnogNadmetanjaID);
 
 				if(oldTipJn == null)
 				{
+					message.error = "Not found";
+					loggerService.CreateMessage(message);
 					return NotFound();
 				}
 
 				Entities.TipJavnogNadmetanja tipJavnogNadmetanja = mapper.Map<Entities.TipJavnogNadmetanja>(tipNadmetanjaDto);
 				mapper.Map(tipJavnogNadmetanja, oldTipJn);
 				tipNadmetanjaRepository.SaveChanges();
+				message.information = "Tip nadmetanja je uspesno izmenjen";
+				loggerService.CreateMessage(message);
 				return Ok(mapper.Map<TipJavnogNadmetanjaConformationDto>(oldTipJn));
 			}
 			catch(Exception ex)
@@ -157,12 +189,16 @@ namespace AuctionService.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public ActionResult<TipJavnogNadmetanjaConformationDto> postStatusNadmetanja([FromBody] TipNadmetanjaCreationDto tipNadmetanjaDto)
         {
+            message.method = "POST";
+            message.serviceName = naziv;
             try
             {
                 Entities.TipJavnogNadmetanja tipNadmetanja = mapper.Map<Entities.TipJavnogNadmetanja>(tipNadmetanjaDto);
 				TipJavnogNadmetanjaConformationDto idtip = tipNadmetanjaRepository.postTipJavnogNadmetanja(tipNadmetanja);
 				//Entities.TipJavnogNadmetanja tip = tipNadmetanjaService.getTipJavnogNadmetanjaById(idtip.tipJavnogNadmetanjaID);
-                //tipNadmetanjaService.SaveChanges();
+				//tipNadmetanjaService.SaveChanges();
+				message.information = "Tip nadmetanja je uspesno izvrsen";
+				loggerService.CreateMessage(message);
                 return Created("uri",mapper.Map<TipJavnogNadmetanjaConformationDto>(idtip));
 
             }

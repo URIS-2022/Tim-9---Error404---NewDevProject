@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5TZed8K2ftiPfTRhBEse4N4EC9GrrtRWtOUk1zqnjXcjkqrRYEQe4fZE0M7k8/Qcmdr7Ydg1l3yXBU8VPKzOnA==",
+  "dgSpecHash": "r+LwzdUctZwvX05tfLPG4KesInwxDI+jkgmMmM04jYCOsLYuvjDvchuXuRatn5ZpB+mZGLEmw7tVxtGgXzQ+EA==",
   "success": true,
   "projectFilePath": "C:\\Users\\milan\\Tim-9---Error404---NewDevProject\\AuctionService\\AuctionService.csproj",
   "expectedPackageFiles": [
@@ -86,6 +86,7 @@
     "C:\\Users\\milan\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\milan\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
     "C:\\Users\\milan\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\milan\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
     "C:\\Users\\milan\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\milan\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\milan\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",

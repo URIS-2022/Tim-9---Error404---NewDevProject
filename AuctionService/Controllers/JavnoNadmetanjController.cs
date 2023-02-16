@@ -22,9 +22,10 @@ namespace AuctionService.Controllers
 		private readonly IOvlascenoLiceService ovlascenoLiceService;
 		private readonly IKupacService kupacService;
 		private readonly IParcelaService parcelaService;
+		private readonly ILoggerService loggerService;
+		private readonly Message message = new Message();
 
-
-		public JavnoNadmetanjController(IJavnoNadmetanjeRepository javnoNadmetanjeRepository, IMapper mapper, IAdresaService adresaService, IOvlascenoLiceService ovlascenoLiceService, IKupacService kupacService, IParcelaService parcelaService)
+		public JavnoNadmetanjController(IJavnoNadmetanjeRepository javnoNadmetanjeRepository, IMapper mapper, IAdresaService adresaService, IOvlascenoLiceService ovlascenoLiceService, IKupacService kupacService, IParcelaService parcelaService, ILogerService logerService)
 		{
 			this.javnoNadmetanjeRepository = javnoNadmetanjeRepository;
 			this.mapper = mapper;
@@ -32,6 +33,7 @@ namespace AuctionService.Controllers
 			this.ovlascenoLiceService = ovlascenoLiceService;
 			this.parcelaService = parcelaService;
 			this.kupacService = kupacService;
+			this.loggerService = logerService;
 			
 		
 		}
@@ -46,16 +48,24 @@ namespace AuctionService.Controllers
 		[ProducesResponseType(StatusCodes.Status204NoContent)]
 		public ActionResult<List<JavnoNadmetanjeDto>> getAllJavnaNadmetanja()
 		{
+			message.serviceName = name;
+			message.method ="GET"
 			List<Entities.JavnoNadmetanje> javnaNadmetanja = javnoNadmetanjeRepository.getJavnaNadmetanja();
 			if (javnaNadmetanja == null || javnaNadmetanja.Count == 0)
 			{
-				return NoContent();
-			}
+               
+                message.information = "Nema javnih nadmetanja";
+                message.error = "No content"
+                loggerService.CreateMessage(message);
+                return NoContent();
+            }
 
 
 			List<JavnoNadmetanjeDto> javnoNadmetanjeDto = mapper.Map<List<JavnoNadmetanjeDto>>(javnaNadmetanja);
+			message.information = "Lista javnih nadmetanja";
+            loggerService.CreateMessage(message);
 
-			foreach(JavnoNadmetanjeDto jn in javnoNadmetanjeDto)
+            foreach (JavnoNadmetanjeDto jn in javnoNadmetanjeDto)
 			{
                 jn.adreasa = adresaService.getAdresa(jn.adresaID).Result;
 				jn.ovlascenoLice = ovlascenoLiceService.getOvlascenoLice(jn.ovlascenoLiceID).Result;
@@ -70,7 +80,7 @@ namespace AuctionService.Controllers
 				}
 				
 			}
-
+			loggerService.createMessage(message);
 			return Ok(mapper.Map<List<JavnoNadmetanjeDto>>(javnoNadmetanjeDto));
 		}
 
@@ -86,11 +96,18 @@ namespace AuctionService.Controllers
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		public ActionResult<JavnoNadmetanjeDto> getJavnoNadmetanjeById(Guid javnoNadmetanjeId)
 		{
+			message.serviceName = name;
+			message.method = "GET";
+
 			Entities.JavnoNadmetanje jn = javnoNadmetanjeRepository.getJavnoNadmetanjeByID(javnoNadmetanjeId);
 			if (jn == null)
 			{
-				return NotFound();
-			}
+				
+				message.information = "Nema javnih nadmetanja";
+				message.error = "No content";
+                loggerService.CreateMessage(message);
+                return NotFound();
+            }
 
 			JavnoNadmetanjeDto jnDto = mapper.Map<JavnoNadmetanjeDto>(jn);
 			jnDto.adreasa = adresaService.getAdresa(jnDto.adresaID).Result;
@@ -103,35 +120,44 @@ namespace AuctionService.Controllers
 			{
 				jnDto.prijavljeniKupci.Add(kupacService.getKupci(k).Result);
 			}
-
-			return Ok(jnDto);
+			message.information = "Lista javnih nadmetanja";
+            loggerService.CreateMessage(message);
+            return Ok(jnDto);
 		}
 
-        /// <summary>
-        /// Brise javno nadmetanje.
-        /// </summary>
+		/// <summary>
+		/// Brise javno nadmetanje.
+		/// </summary>
 		/// <param name="javnoNadmetanjeId">ID javnog nadmetanja</param>
-        /// <response code="204">Uspesno izvrseno brisanje</response>
-        /// <response code="404">Nije pronadjeno javno nadmetanje sa datim id-jem</response>
+		/// <response code="204">Uspesno izvrseno brisanje</response>
+		/// <response code="404">Nije pronadjeno javno nadmetanje sa datim id-jem</response>
 		/// <response code="500">Desila se greska prilikom brisanja javnog nadmetanja</response>
-        [HttpDelete("{javnoNadmetanjeId}")]
+		[HttpDelete("{javnoNadmetanjeId}")]
 		[ProducesResponseType(StatusCodes.Status204NoContent)]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		[ProducesResponseType(StatusCodes.Status500InternalServerError)]
 		public ActionResult deleteJavnoNadmetanje(Guid javnoNadmetanjeId)
 		{
+			message.serviceName = name;
+			message.method = "DELETE";
+
 			try
 			{
 				Entities.JavnoNadmetanje jn = javnoNadmetanjeRepository.getJavnoNadmetanjeByID(javnoNadmetanjeId);
 
 				if (jn == null)
 				{
-					return NotFound();
-				}
+					
+					message.error = "Not found"
+                    loggerService.CreateMessage(message);
+                    return NotFound();
+                }
 
 				javnoNadmetanjeRepository.deleteJavnoNadmetanje(javnoNadmetanjeId);
 				javnoNadmetanjeRepository.saveChanges();
-				return NoContent();
+				message.information = "Javno nadmetanje je obrisano";
+                loggerService.CreateMessage(message);
+                return NoContent();
 			}
 			catch (Exception ex)
 			{
@@ -155,19 +181,25 @@ namespace AuctionService.Controllers
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		public ActionResult<JavnoNadmetanjeConformationDto> putJavnoNadmetanje(JavnoNadmetanjeUpdateDto jnDto)
 		{
+			message.serviceName = name;
+			message.method = "PUT";
 			try
 			{
 				Entities.JavnoNadmetanje oldJn = javnoNadmetanjeRepository.getJavnoNadmetanjeByID(jnDto.javnoNadmetanjeID);
 
 				if (oldJn == null)
-				{
-					return NotFound();
-				}
+				{            
+                    message.error = "Not found";
+                    loggerService.CreateMessage(message);
+                    return NotFound();
+                }
 
 				Entities.JavnoNadmetanje javnoNadmetanje = mapper.Map<Entities.JavnoNadmetanje>(jnDto);
 				mapper.Map(javnoNadmetanje, oldJn);
 				javnoNadmetanjeRepository.saveChanges();
-				return Ok(mapper.Map<JavnoNadmetanjeConformationDto>(oldJn));
+				message.information = "Javno nadmetanje je izmenjeno";
+                loggerService.CreateMessage(message);
+                return Ok(mapper.Map<JavnoNadmetanjeConformationDto>(oldJn));
 			}
 			catch (Exception ex)
 			{
@@ -175,30 +207,35 @@ namespace AuctionService.Controllers
 			}
 		}
 
-        /// <summary>
-        /// Kreira novo javno nadmetanje
-        /// </summary>
+		/// <summary>
+		/// Kreira novo javno nadmetanje
+		/// </summary>
 		/// <param name="javnoNadmetanjeDto">Body koji sadzi javno nadmetanje koje treba da se kreira</param>
-        /// <returns> Kreirano javno nadmetanje</returns>
-        /// <response code="201">Kreiranje jn je uspesno izvrseno</response>
-        /// <response code="500">Desila se greska prilikom kreiranja javnog nademtanja</response>
-        [HttpPost]
+		/// <returns> Kreirano javno nadmetanje</returns>
+		/// <response code="201">Kreiranje jn je uspesno izvrseno</response>
+		/// <response code="500">Desila se greska prilikom kreiranja javnog nademtanja</response>
+		[HttpPost]
 		[Consumes("application/json")]
 		[ProducesResponseType(StatusCodes.Status201Created)]
 		[ProducesResponseType(StatusCodes.Status500InternalServerError)]
 		public ActionResult<JavnoNadmetanjeConformationDto> postJavnoNadmetnanje([FromBody] JavnoNadmetanjeCreationDto javnoNadmetanjeDto)
 		{
+			message.method = "POST";
+			message.serviceName = name;
 			try
 			{
 				Entities.JavnoNadmetanje javnoNadmetanje = mapper.Map<Entities.JavnoNadmetanje>(javnoNadmetanjeDto);
 				javnoNadmetanjeRepository.postJavnoNadmetanje(javnoNadmetanje);
 				javnoNadmetanjeRepository.saveChanges();
-				return Created("uri", mapper.Map<JavnoNadmetanjeConformationDto>(javnoNadmetanje));
+				message.information = "Javno nadmetanje je kreirano";
+                loggerService.CreateMessage(message);
+                return Created("uri", mapper.Map<JavnoNadmetanjeConformationDto>(javnoNadmetanje));
 
 			}
 			catch (Exception ex)
 			{
 				return StatusCode(StatusCodes.Status500InternalServerError, "Post error");
+				message.error = "Post error";
 			}
 		}
 	}

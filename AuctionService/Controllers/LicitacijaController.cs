@@ -1,6 +1,7 @@
 ﻿using System;
 using AuctionService.DtoModels;
 using AuctionService.Repository;
+using AuctionService.ServiceCalls;
 using AuctionService.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
@@ -16,11 +17,13 @@ namespace AuctionService.Controllers
 		private readonly IMapper mapper;
 		private readonly ILicitacijaRepository licitacijaRepository;
 		private readonly string name = "Licitacija_service";
-
-		public LicitacijaController(IMapper mapper, ILicitacijaRepository licitacijaService)
+		private readonly ILogerService loggerService;
+		private readonly Message message = new Message();
+		public LicitacijaController(IMapper mapper, ILicitacijaRepository licitacijaService, ILogerService logerService)
 		{
 			this.mapper = mapper;
 			this.licitacijaRepository = licitacijaService;
+			this.loggerService = logerService;
 		}
 
 
@@ -39,18 +42,26 @@ namespace AuctionService.Controllers
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		public ActionResult<LicitacijaConformationDto> updateLicitacija(LicitacijaUpdateDto licitacijaDto)
 		{
+			message.serviceName = name;
+			message.method = "PUT";
+			
 			try
 			{
 				Entities.Licitacija oldLicitacija = licitacijaRepository.getLicitacijaById(licitacijaDto.licitacijaID);
 
 				if (oldLicitacija == null)
 				{
+					message.error = "Nema licitacije sa prosledjenim id-jem";
+					loggerService.CreateMessage(message);
 					return NotFound();
+
 				}
 
 				Entities.Licitacija licitacija = mapper.Map<Entities.Licitacija>(licitacijaDto);
 				mapper.Map(licitacija, oldLicitacija);
 				licitacijaRepository.saveChanges();
+				message.information = "Licitacija je uspesno izmenjena";
+				loggerService.CreateMessage(message);
 				return Ok(mapper.Map<LicitacijaConformationDto>(oldLicitacija));
 			}
 			catch
@@ -73,11 +84,15 @@ namespace AuctionService.Controllers
 		[ProducesResponseType(StatusCodes.Status500InternalServerError)]
 		public ActionResult<LicitacijaConformationDto> postLicitacija([FromBody] LicitacijaCreationDto licitacijaDto)
 		{
+			message.serviceName = name;
+			message.method = "POST";
 			try
 			{
 				Entities.Licitacija licitacija = mapper.Map<Entities.Licitacija>(licitacijaDto);
 				licitacijaRepository.postLicitacija(licitacija);
 				licitacijaRepository.saveChanges();
+				message.information = "Licitacija je uspesno kreirana";
+				loggerService.CreateMessage(message);
 				return Created("uri", mapper.Map<LicitacijaConformationDto>(licitacija));
 			}
 			catch
@@ -97,13 +112,20 @@ namespace AuctionService.Controllers
 		[ProducesResponseType(StatusCodes.Status204NoContent)]
 		public ActionResult<List<LicitacijaDto>> getAllLicitacije()
 		{
+			message.serviceName = name;
+			message.method = "GET";
+			
 			List<Entities.Licitacija> licitacije = licitacijaRepository.getAllLicitacija();
 			if (licitacije == null || licitacije.Count == 0)
 			{
+				message.error = "No content";
+				loggerService.CreateMessage(message);
 				return NoContent();
 			}
 
 			List<LicitacijaDto> licitacijeDto = mapper.Map<List<LicitacijaDto>>(licitacije);
+			message.information = "Lista licitacija";
+			loggerService.CreateMessage(message);
 			return Ok(mapper.Map<List<LicitacijaDto>>(licitacijeDto));
 		}
 
@@ -119,12 +141,19 @@ namespace AuctionService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<LicitacijaDto> getLicitacijaById(Guid licitacijaId)
         {
+			message.serviceName = name;
+			message.method = "GET";
+
             Entities.Licitacija l = licitacijaRepository.getLicitacijaById(licitacijaId);
             if (l == null)
             {
+				message.error = "Not found";
+				loggerService.CreateMessage(message);
                 return NotFound();
             }
 
+			message.information = "Licitacija sa prosledjenim id-jem je vracena";
+			loggerService.CreateMessage(message);
             LicitacijaDto lDto = mapper.Map<LicitacijaDto>(l);
             return Ok(lDto);
         }
@@ -142,17 +171,25 @@ namespace AuctionService.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public ActionResult deleteLicitacija(Guid licitacijaId)
         {
+			message.serviceName = name;
+			message.method = "DELETE";
             try
             {
+				
                 Entities.Licitacija l = licitacijaRepository.getLicitacijaById(licitacijaId);
 
                 if (l == null)
                 {
+					message.error = "Not found";
+					loggerService.CreateMessage(message);
                     return NotFound();
                 }
 
+				
                 licitacijaRepository.deleteLicitacija(licitacijaId);
                 licitacijaRepository.saveChanges();
+				message.information = "Licitacija je obrisana";
+				loggerService.CreateMessage(message);
                 return NoContent();
             }
             catch (Exception ex)

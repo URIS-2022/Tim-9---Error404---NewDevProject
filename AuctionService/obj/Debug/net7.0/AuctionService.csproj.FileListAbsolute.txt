@@ -157,3 +157,4 @@ C:\Users\milan\Tim-9---Error404---NewDevProject\AuctionService\bin\Debug\net7.0\
 C:\Users\milan\Tim-9---Error404---NewDevProject\AuctionService\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\milan\Tim-9---Error404---NewDevProject\AuctionService\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 C:\Users\milan\Tim-9---Error404---NewDevProject\AuctionService\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\milan\Tim-9---Error404---NewDevProject\AuctionService\bin\Debug\net7.0\Newtonsoft.Json.dll
