@@ -1,10 +1,16 @@
 ﻿using System;
-namespace KorisnikService.Entities.cs
+namespace KorisnikService.Entities
 {
 	public class TipKorisnika
 	{
-		public Guid tipKorisnikaId { get; set; }
-		public string uloga { get; set; }
+        /// <summary>
+        /// Korisnik id
+        /// </summary>
+        public Guid tipKorisnikaId { get; set; }
+        /// <summary>
+        /// Uloga korisnika
+        /// </summary>
+        public string uloga { get; set; }
 	}
 }
 

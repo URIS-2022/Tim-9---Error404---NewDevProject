@@ -1,19 +1,34 @@
-﻿using System;
-using KorisnikService.Entities.cs;
+﻿
+using System;
 using KorisnikService.Repositories;
 using KorisnikService.Service;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Internal;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using System.Reflection;
+using System.IO;
+using KorisnikService.Entities;
+
 
 namespace KorisnikService
 {
     public class Startup
     {
-        public IConfiguration configuration { get; }
+        public IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration)
         {
-            this.configuration = configuration;
+            this.Configuration = configuration;
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -75,7 +90,70 @@ namespace KorisnikService
             services.AddScoped<ITipKorisnikaRepository, TipKorisnikaService>();
             services.AddScoped<IKorisnikRepository, KorisnikService.Service.KorisnikService>();
 
+
+            services.AddSwaggerGen(setupAction =>
+            {
+                setupAction.SwaggerDoc("KorisnikOpenApiSpecification",
+                    new Microsoft.OpenApi.Models.OpenApiInfo()
+                    {
+                        Title = "Korisnik API",
+                        Version = "1",
+
+                        Description = "Pomoću ovog API-ja može da se vrši kreiranje korisnika kao i pregled i izmena korisnika",
+                        Contact = new Microsoft.OpenApi.Models.OpenApiContact
+                        {
+                            Name = "Valentina Andric",
+                            Email = "andricvalentina00@gmail.com",
+                            Url = new Uri($"http://www.ftn.uns.ac.rs/")
+                        },
+                        License = new Microsoft.OpenApi.Models.OpenApiLicense
+                        {
+                            Name = "FTN licence",
+                            Url = new Uri($"http://www.ftn.uns.ac.rs/")
+                        },
+                        TermsOfService = new Uri($"http://www.ftn.uns.ac.rs/publicBiddingTermsOfService")
+                    });
+
+                setupAction.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    In = ParameterLocation.Header,
+                    Description = "Unesite token",
+                    Name = "Autorizacija korisnika",
+                    Type = SecuritySchemeType.Http,
+                    BearerFormat = "JWT",
+                    Scheme = "bearer"
+                });
+
+                setupAction.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                    new OpenApiSecurityScheme
+                    {
+                        Reference = new OpenApiReference
+                        {
+                            Type = ReferenceType.SecurityScheme,
+                            Id = "Bearer"
+                        }
+                    },
+                    Array.Empty<string>()
+                    }
+                });
+
+
+                //Pomocu refleksije dobijamo ime XML fajla sa komentarima (ovako smo ga nazvali u Project -> Properties)
+                var xmlComments = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+
+                //Pravimo putanju do XML fajla sa komentarima
+                var xmlCommentsPath = Path.Combine(AppContext.BaseDirectory, xmlComments);
+
+                //Govorimo swagger-u gde se nalazi dati xml fajl sa komentarima
+                setupAction.IncludeXmlComments(xmlCommentsPath);
+            });
+
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            //Dodajemo DbContext koji zelimo da koristimo
+            services.AddDbContextPool<Entities.KorisnikContext>(options => options.UseSqlServer(Configuration.GetConnectionString("korisnikDB")));
         }
 
 
@@ -97,6 +175,14 @@ namespace KorisnikService
                     });
                 });
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(setupAction =>
+            {
+                //Podesavamo endpoint gde Swagger UI moze da pronadje OpenAPI specifikaciju
+                setupAction.SwaggerEndpoint("/swagger/KorisnikOpenApiSpecification/swagger.json", "Javno nadmetanje API");
+                setupAction.RoutePrefix = ""; //Dokumentacija ce sada biti dostupna na root-u (ne mora da se pise /swagger)
+            });
 
             app.UseHttpsRedirection();
 

@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/osx/Projects/KorisnikService/KorisnikService/KorisnikService.csproj": {}
+    "C:\\Users\\milan\\Tim-9---Error404---NewDevProject\\KorisnikService\\KorisnikService\\KorisnikService.csproj": {}
   },
   "projects": {
-    "/Users/osx/Projects/KorisnikService/KorisnikService/KorisnikService.csproj": {
+    "C:\\Users\\milan\\Tim-9---Error404---NewDevProject\\KorisnikService\\KorisnikService\\KorisnikService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/osx/Projects/KorisnikService/KorisnikService/KorisnikService.csproj",
+        "projectUniqueName": "C:\\Users\\milan\\Tim-9---Error404---NewDevProject\\KorisnikService\\KorisnikService\\KorisnikService.csproj",
         "projectName": "KorisnikService",
-        "projectPath": "/Users/osx/Projects/KorisnikService/KorisnikService/KorisnikService.csproj",
-        "packagesPath": "/Users/osx/.nuget/packages/",
-        "outputPath": "/Users/osx/Projects/KorisnikService/KorisnikService/obj/",
+        "projectPath": "C:\\Users\\milan\\Tim-9---Error404---NewDevProject\\KorisnikService\\KorisnikService\\KorisnikService.csproj",
+        "packagesPath": "C:\\Users\\milan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\milan\\Tim-9---Error404---NewDevProject\\KorisnikService\\KorisnikService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/osx/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\milan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -46,6 +48,10 @@
               "target": "Package",
               "version": "[12.0.0, )"
             },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
             "Microsoft.AspNetCore.Authorization.Policy": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -62,13 +68,33 @@
               "target": "Package",
               "version": "[5.0.17, )"
             },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
             "Microsoft.AspNetCore.Routing": {
               "target": "Package",
               "version": "[2.2.2, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.2, )"
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.3, )"
             },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
@@ -80,7 +106,7 @@
             },
             "Microsoft.Extensions.Hosting": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[7.0.1, )"
             },
             "Microsoft.Extensions.Logging": {
               "target": "Package",
@@ -88,7 +114,15 @@
             },
             "Microsoft.OpenApi": {
               "target": "Package",
-              "version": "[1.6.0, )"
+              "version": "[1.6.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
+              "target": "Package",
+              "version": "[6.5.0, )"
             }
           },
           "imports": [
@@ -110,7 +144,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.102/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

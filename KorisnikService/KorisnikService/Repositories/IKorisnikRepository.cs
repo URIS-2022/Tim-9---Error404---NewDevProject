@@ -1,5 +1,5 @@
 ﻿using System;
-using KorisnikService.Entities.cs;
+using KorisnikService.Entities;
 
 namespace KorisnikService.Repositories
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using AutoMapper;
 using KorisnikService.DtoModels;
-using KorisnikService.Entities.cs;
+using KorisnikService.Entities;
 using KorisnikService.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,6 +20,12 @@ namespace KorisnikService.Controllers
             this.mapper = mapper;
 		}
 
+        /// <summary>
+        /// Vraca sve korisnike.
+        /// </summary>
+        /// <returns> Lista korisnika</returns>
+        /// <response code="200">Lista korisnika</response>
+        /// <response code="404">Nije pronadjen ni jedan korisnik</response>
         [HttpGet]
         [HttpHead]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -36,6 +42,13 @@ namespace KorisnikService.Controllers
             return Ok(mapper.Map<List<KorisnikDto>>(korisnici));
         }
 
+        /// <summary>
+        /// Vraca samojednog korisnika.
+        /// </summary>
+        /// <returns> Jedan korisnik</returns>
+        /// <response code="200">Korisni je uspesno pronadjen</response>
+        /// <response code="404">Korisnik nije pronadjen</response>
+
         [HttpGet("{korisnikId}")]
         [HttpHead]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -51,6 +64,12 @@ namespace KorisnikService.Controllers
             return Ok(mapper.Map<KorisnikDto>(k));
         }
 
+        /// <summary>
+        /// Brise korisnika.
+        /// </summary>
+        /// <response code="204">Korisnik je uspesno obrisan</response>
+        /// <response code="404">Nema korisnika sa prosledjenim id-jem</response>
+        /// <response code="500">Greska prilikom brisanja korisnika</response>
         [HttpDelete("{korisnikId}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -77,6 +96,13 @@ namespace KorisnikService.Controllers
 
         }
 
+        /// <summary>
+        /// Kreiranje korisnika.
+        /// </summary>
+        /// <returns>Krreirani korisnik</returns>
+        /// <response code="201">Korisnik je uspesno kreiran</response>
+        /// <response code="500">Greska prilikom kreiranja korisnika</response>
+
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -98,6 +124,13 @@ namespace KorisnikService.Controllers
 
 
         }
+
+        /// <summary>
+        /// Izmena korisnika.
+        /// </summary>
+        /// <response code="200">Korisnik je uspesno izmenjen</response>
+        /// <response code="404">Nema korisnika sa prosledjenim id-jem</response>
+        /// <response code="500">Greska prilikom izmene korisnika</response>
 
         [HttpPut]
         [Produces("application/json")]

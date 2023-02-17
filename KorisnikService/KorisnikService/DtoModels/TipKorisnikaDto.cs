@@ -3,7 +3,10 @@ namespace KorisnikService.DtoModels
 {
 	public class TipKorisnikaDto
 	{
-		public string uloga { get; set; }
+        /// <summary>
+        /// Uloga
+        /// </summary>
+        public string uloga { get; set; }
 	}
 }
 

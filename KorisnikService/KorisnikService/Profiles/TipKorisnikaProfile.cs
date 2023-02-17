@@ -1,7 +1,7 @@
 ﻿using System;
 using AutoMapper;
 using KorisnikService.DtoModels;
-using KorisnikService.Entities.cs;
+using KorisnikService.Entities;
 
 namespace KorisnikService.Profiles
 {
