@@ -11,70 +11,66 @@ namespace PaymentService1.Data
 
         public KursnaListaRepository(IMapper mapper, UplataContext context)
         {
-          //  FillData();
+          
             this.mapper = mapper;
             this.context = context;
         }
-        /*
-        private void FillData()
-        {
-            kursnaListas.AddRange(new List<KursnaLista>
-            {
-                new KursnaLista
-                {
-                    KursnaListaID= Guid.Parse("a215e4cb-a427-40cf-88b2-8488d140a939"),
-                    datum= DateTime.Parse("2022-2-25"),
-                    valuta= "Dolar",
-                    vrednost= 100
-                    
-                },
-                new KursnaLista
-                {
-                    KursnaListaID= Guid.Parse("1de13266-85e8-4120-8b1f-daacc32c5811"),
-                    datum= DateTime.Parse("2022-2-25"),
-                    valuta= "Evro",
-                    vrednost= 117
-                }
-            });
-        }*/
-
+        
+        /// <summary>
+        /// Metoda brise kurs
+        /// </summary>
+        /// <param name="id">Id kursa</param>
         public void deleteKurs(Guid id)
         {
             Entities.KursnaLista kursnaLista = getKursById(id);
             context.kursneListe.Remove(kursnaLista);
         }
 
+        /// <summary>
+        /// Metoda vraca sve kurseve
+        /// </summary>
+        /// <returns>Vraca listu kurseva</returns>
         public List<KursnaLista> getAllKurs()
         {
             return context.kursneListe.ToList();
         }
+        /// <summary>
+        /// Metoda vraca kurs sa zeljenim id-jem
+        /// </summary>
+        /// <param name="id">Id kursa</param>
+        /// <returns>Vraca jedan id</returns>
 
         public KursnaLista getKursById(Guid id)
         {
             return context.kursneListe.FirstOrDefault(kl => kl.KursnaListaID == id);
         }
+        /// <summary>
+        /// Metoda kreira novi kurs
+        /// </summary>
+        /// <param name="kurs">Model kursa</param>
+        /// <returns>Potvrda o kreiranom kursu</returns>
 
         public KursnaListaConfirmation postKurs(KursnaLista kurs)
         {
             kurs.KursnaListaID = Guid.NewGuid();
             var novaKL = context.kursneListe.Add(kurs);
             return mapper.Map<KursnaListaConfirmation>(kurs);
-            /* kurs.KursnaListaID = Guid.NewGuid();
-             kursnaListas.Add(kurs);
-             KursnaLista kl = getKursById(kurs.KursnaListaID);
-             return new KursnaListaConfirmation
-             {
-                 KursnaListaID = kl.KursnaListaID,
-                 valuta = kl.valuta
-
-             };*/
+            
         }
 
+        /// <summary>
+        /// Metoda cuva promene
+        /// </summary>
+        /// <returns></returns>
         public bool SaveChanges()
         {
             return context.SaveChanges() > 0;
         }
-
+        /// <summary>
+        /// Metoda modifikuje kurs
+        /// </summary>
+        /// <param name="kurs">Model kursa</param>
+        /// <returns>Potvrda o modifikovanom kursu</returns>
         public KursnaListaConfirmation updateKurs(KursnaLista kurs)
         {
             KursnaLista kl = getKursById(kurs.KursnaListaID);

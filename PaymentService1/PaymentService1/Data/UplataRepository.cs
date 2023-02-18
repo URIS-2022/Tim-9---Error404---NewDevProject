@@ -11,79 +11,62 @@ namespace PaymentService1.Data
 
         public UplataRepository(IMapper mapper, UplataContext context)
         {
-           // FillData();
+           
             this.mapper = mapper;
             this.context = context;
         }
-        /*
-        private void FillData()
-        {
-            uplatas.AddRange(new List<Uplata>
-            {
-                new Uplata
-                {
-                    UplataID= Guid.Parse("a215e4cb-a427-40cf-88b2-8488d140a939"),
-                    brojRacuna= "111111",
-                    pozivNaBroj= "56562654",
-                    iznos= 9999,
-                    uplatilac= Guid.Parse("dd03a193-323c-4db3-a472-813af4f37559"),
-                    svrhaUplate= "svrha",
-                    datum= DateTime.Parse("2022-2-25"),
-                    javnoNadmetanje= Guid.Parse("4920c355-23ca-41b2-8eee-b34f4b7f9e5a")
-                },
-                new Uplata
-                {
-                    UplataID= Guid.Parse("0713e837-4be6-4d49-b749-5ec2d87c3301"),
-                    brojRacuna= "22222",
-                    pozivNaBroj= "1223361235",
-                    iznos= 8888,
-                    uplatilac= Guid.Parse("b274e9ac-ec75-4f23-8b68-ad42373f7fb8"),
-                    svrhaUplate= "svrha2",
-                    datum= DateTime.Parse("2022-2-20"),
-                    javnoNadmetanje= Guid.Parse("58976698-c453-493e-b01e-687f862ba76a")
-                }
-            }) ;
-        }*/
-
+        
+        /// <summary>
+        /// Metoda brise uplatu
+        /// </summary>
+        /// <param name="id">Id uplate</param>
         public void deleteUplata(Guid id)
         {
             Entities.Uplata uplata = getUplataById(id);
             context.uplate.Remove(uplata);
         }
-
+        /// <summary>
+        /// Metoda vraca sve uplate
+        /// </summary>
+        /// <returns>Lista uplata</returns>
         public List<Uplata> getAllUplate()
         {
             return context.uplate.ToList();
         }
-
+        /// <summary>
+        /// Metoda vraca uplatu sa zeljenim id-jem
+        /// </summary>
+        /// <param name="id">Id uplate</param>
+        /// <returns>Vraca jednu uplatu</returns>
         public Uplata getUplataById(Guid id)
         {
             return context.uplate.FirstOrDefault(u => u.UplataID == id);
         }
-
+        /// <summary>
+        /// Metoda kreira novu uplatu
+        /// </summary>
+        /// <param name="uplata">Model uplate</param>
+        /// <returns>Potvrda o kreiranoj uplati</returns>
         public UplataConfirmation postUplata(Uplata uplata)
         {
             uplata.UplataID = Guid.NewGuid();
             var novaU = context.uplate.Add(uplata);
             return mapper.Map<UplataConfirmation>(uplata);
-            /*uplata.UplataID = Guid.NewGuid();
-            uplatas.Add(uplata);
-            Uplata u = getUplataById(uplata.UplataID);
-            return new UplataConfirmation
-            {
-                UplataID = u.UplataID,
-                brojRacuna = u.brojRacuna,
-                iznos = u.iznos,
-                uplatilac= u.uplatilac,
-                datum= u.datum
-            };*/
+            
         }
-
+        /// <summary>
+        /// Metoda cuva promene
+        /// </summary>
+        /// <returns></returns>
         public bool SaveChanges()
         {
             return context.SaveChanges() > 0;
         }
-
+        /// <summary>
+        /// Metoda modifikuje uplatu
+        /// </summary>
+        /// <param name="uplata">Model uplate</param>
+        /// <returns>Potvrda o modifikovanoj uplati</returns>
         public UplataConfirmation updateUplata(Uplata uplata)
         {
             Uplata u = getUplataById(uplata.UplataID);

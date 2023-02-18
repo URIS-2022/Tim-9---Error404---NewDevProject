@@ -12,6 +12,6 @@
         /// <summary>
         /// Valuta
         /// </summary>
-        public string valuta { get; set; }
+        public string? valuta { get; set; }
     }
 }

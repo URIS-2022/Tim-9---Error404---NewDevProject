@@ -7,6 +7,11 @@ namespace CustomerService1.ServiceCalls
         public AdresaService() 
         {
         }
+        /// <summary>
+        /// Metoda vraca adresu
+        /// </summary>
+        /// <param name="adresaId">Id adrese</param>
+        /// <returns>Adresa</returns>
         public Task<AdresaDto> getAdresa(Guid adresaId)
         {
             AdresaDto adresa = new AdresaDto();
