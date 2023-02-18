@@ -17,7 +17,7 @@ namespace AuctionService.ServiceCalls
             using (HttpClient client = new HttpClient())
             {
 
-                Uri url = new Uri($"{Configuration["Services:Parcela"]}api/parcele/{parcelaId}");
+                Uri url = new Uri($"{Configuration["Services:Parcela"]}api/parcela/{parcelaId}");
 
                 HttpContent content = new StringContent(JsonConvert.SerializeObject(parcelaId));
                 content.Headers.ContentType.MediaType = "application/json";

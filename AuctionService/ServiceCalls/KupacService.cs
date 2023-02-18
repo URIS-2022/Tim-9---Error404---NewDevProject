@@ -4,20 +4,20 @@ using Newtonsoft.Json;
 
 namespace AuctionService.ServiceCalls
 {
-	public class KupacService : IKupacService
-	{
+    public class KupacService : IKupacService
+    {
         private readonly IConfiguration Configuration;
-		public KupacService(IConfiguration configuration)
-		{
+        public KupacService(IConfiguration configuration)
+        {
             this.Configuration = configuration;
-		}
+        }
 
         public async Task<KupacDto> getKupci(Guid kupacId)
         {
             using (HttpClient client = new HttpClient())
             {
 
-                Uri url = new Uri($"{Configuration["Services:Kupac"]}api/kupac/{kupacId}");
+                Uri url = new Uri($"{Configuration["Services:Kupac"]}api/kupci/{kupacId}");
 
                 HttpContent content = new StringContent(JsonConvert.SerializeObject(kupacId));
                 content.Headers.ContentType.MediaType = "application/json";
@@ -28,6 +28,6 @@ namespace AuctionService.ServiceCalls
 
                 return k;
             }
+        }
     }
 }
-
