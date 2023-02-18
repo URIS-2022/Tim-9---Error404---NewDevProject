@@ -1,7 +1,10 @@
 ﻿using System;
 namespace KorisnikService.DtoModels
 {
-	public class KorisnikDto
+    /// <summary>
+    /// Korisnik DTO
+    /// </summary>
+    public class KorisnikDto
 	{
         /// <summary>
         /// id korisnika

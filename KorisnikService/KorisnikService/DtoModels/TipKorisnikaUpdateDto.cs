@@ -1,7 +1,10 @@
 ﻿using System;
 namespace KorisnikService.DtoModels
 {
-	public class TipKorisnikaUpdateDto
+    /// <summary>
+    /// Tip korisnika update dto
+    /// </summary>
+    public class TipKorisnikaUpdateDto
 	{
         /// <summary>
         /// Tip korisnika id 
@@ -10,7 +13,7 @@ namespace KorisnikService.DtoModels
         /// <summary>
         /// Uloga
         /// </summary>
-        public string uloga { get; set; }
+        public string? uloga { get; set; }
     }
 }
 

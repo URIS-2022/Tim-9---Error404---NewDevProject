@@ -4,7 +4,10 @@ using Newtonsoft.Json;
 
 namespace AuctionService.ServiceCalls
 {
-	public class AdresaService : IAdresaService
+    /// <summary>
+    /// Klasa adresa
+    /// </summary>
+    public class AdresaService : IAdresaService
 	{
         /// <summary>
         /// Dependency injection for configuration
