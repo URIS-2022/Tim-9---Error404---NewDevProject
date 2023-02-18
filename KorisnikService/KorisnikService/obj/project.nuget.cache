@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Fd6ooMmz6lZMXCVoKxrMm+GlAaLQP0Tfpb/dT6kxWN0v27Qmv01Ae7LDRn8dBxQ+x9csjoc38+MbtIRV2LeRmw==",
+  "dgSpecHash": "Xb0Bt6ntoBysNy5f8TBKJ2rII4tN6bxyfg0BRaV8vdFE6bIMA6t5WMOt7usf4aE2lEoPJLOZJyZLREy2CMH76A==",
   "success": true,
   "projectFilePath": "C:\\Users\\milan\\Tim-9---Error404---NewDevProject\\KorisnikService\\KorisnikService\\KorisnikService.csproj",
   "expectedPackageFiles": [
@@ -82,7 +82,7 @@
     "C:\\Users\\milan\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\milan\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\milan\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
-    "C:\\Users\\milan\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\milan\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
     "C:\\Users\\milan\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\milan\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\milan\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",

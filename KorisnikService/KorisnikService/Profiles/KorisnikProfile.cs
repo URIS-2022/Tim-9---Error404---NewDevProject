@@ -14,6 +14,7 @@ namespace KorisnikService.Profiles
 			CreateMap<KorisnikUpdateDto, Korisnik>();
             CreateMap<KorisnikCreateDto, Korisnik>();
             CreateMap<KorisnikUpdateDto, KorisnikDto>();
+			CreateMap<Korisnik, Korisnik>();
 
         }
 	}

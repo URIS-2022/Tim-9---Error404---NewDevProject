@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using KorisnikService.Repositories;
 using KorisnikService.Service;
 using Microsoft.AspNetCore.Builder;
@@ -20,6 +19,7 @@ using System.Reflection;
 using System.IO;
 using KorisnikService.Entities;
 using KorisnikService.Helpers;
+using KorisnikService.ServiceCalls;
 
 namespace KorisnikService
 {
@@ -91,6 +91,8 @@ namespace KorisnikService
             services.AddScoped<IKorisnikRepository, KorisnikService.Service.KorisnikService>();
             services.AddScoped<IAuthHelper, AuthHelper>();
             services.AddScoped<IUserRepository, UserService>();
+            services.AddScoped<ILoggerService, LoggerService>();
+
 
             services.AddSwaggerGen(setupAction =>
             {
@@ -181,7 +183,7 @@ namespace KorisnikService
             app.UseSwaggerUI(setupAction =>
             {
                 //Podesavamo endpoint gde Swagger UI moze da pronadje OpenAPI specifikaciju
-                setupAction.SwaggerEndpoint("/swagger/KorisnikOpenApiSpecification/swagger.json", "Javno nadmetanje API");
+                setupAction.SwaggerEndpoint("/swagger/KorisnikOpenApiSpecification/swagger.json", "Korisnik API");
                 setupAction.RoutePrefix = ""; //Dokumentacija ce sada biti dostupna na root-u (ne mora da se pise /swagger)
             });
 

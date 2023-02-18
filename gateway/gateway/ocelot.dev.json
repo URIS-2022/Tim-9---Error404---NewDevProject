@@ -7,7 +7,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 55201
+          "Port": 5001
         }
       ],
       "UpstreamPathTemplate": "/logger",

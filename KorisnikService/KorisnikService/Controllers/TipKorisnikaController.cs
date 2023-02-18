@@ -6,6 +6,7 @@ using KorisnikService.Repositories;
 using KorisnikService.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using KorisnikService.ServiceCalls;
 
 namespace KorisnikService.Controllers
 {
@@ -16,11 +17,15 @@ namespace KorisnikService.Controllers
     {
 		private readonly ITipKorisnikaRepository tipKorisnikaRepository;
 		private readonly IMapper mapper;
+		private readonly ILoggerService loggerService;
+		private readonly Message message = new Message();
+		private readonly string name = "Tip_korisnika";
 
-		public TipKorisnikaController(ITipKorisnikaRepository tipKorisnikaRepository, IMapper mapper)
+		public TipKorisnikaController(ITipKorisnikaRepository tipKorisnikaRepository, IMapper mapper, ILoggerService loggerService)
 		{
 			this.mapper = mapper;
 			this.tipKorisnikaRepository = tipKorisnikaRepository;
+			this.loggerService = loggerService;
 		}
         /// <summary>
         /// Vraca sve tipove korisnika.
@@ -29,19 +34,23 @@ namespace KorisnikService.Controllers
         /// <response code="204">Nema tipova korisnika</response>
         /// <response code="200">Lista tipova korisnika</response>
         [HttpGet]
-		[HttpHead]
 		[ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<List<TipKorisnikaDto>> getAllTipoviKorisnika()
 		{
+			message.Method = "GET";
+			message.ServiceName = name;
 			List<TipKorisnika> tipoviKorisnika = tipKorisnikaRepository.getAllTipoviKorisnika();
 
 			if(tipoviKorisnika == null || tipoviKorisnika.Count == 0)
 			{
+				message.Error = "No content";
+				loggerService.CreateMessage(message);
 				return NoContent();
 			}
-
-			return Ok(mapper.Map<List<TipKorisnikaDto>>(tipoviKorisnika));
+			message.Information = "Lista tipova korisnika";
+            loggerService.CreateMessage(message);
+            return Ok(mapper.Map<List<TipKorisnikaDto>>(tipoviKorisnika));
 		}
 
         /// <summary>
@@ -51,18 +60,23 @@ namespace KorisnikService.Controllers
         /// <response code="200">Tip korisnika sa prosledjenim id-jem</response>
 		/// <response code="404">Korisnik sa prosledjenim id-jem nije prosnadjen</response>
         [HttpGet("{korisnikId}")]
-        [HttpHead]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<TipKorisnikaDto> getTipKorisnikaById (Guid korisnikId)
 		{
-			TipKorisnika tk = tipKorisnikaRepository.getTipKorisnikaById(korisnikId);
+            message.Method = "GET";
+            message.ServiceName = name;
+            TipKorisnika tk = tipKorisnikaRepository.getTipKorisnikaById(korisnikId);
 			if(tk == null)
 			{
-				return NotFound();
+                message.Error = "Not found";
+                loggerService.CreateMessage(message);
+                return NotFound();
 			}
 
-			return Ok(mapper.Map<TipKorisnikaDto>(tk));
+            message.Error = "Tip korisnika sa prosledjenim id-jem";
+            loggerService.CreateMessage(message);
+            return Ok(mapper.Map<TipKorisnikaDto>(tk));
 		}
 
         /// <summary>
@@ -76,14 +90,20 @@ namespace KorisnikService.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult deleteTipKorisnika (Guid tipKorisnikaId)
 		{
+			message.Method = "DELETE";
+			message.ServiceName = name;
 			try
 			{
                 TipKorisnika tk = tipKorisnikaRepository.getTipKorisnikaById(tipKorisnikaId);
                 if (tk == null)
                 {
+					message.Error = "Not found";
+					loggerService.CreateMessage(message);
                     return NotFound();
                 }
 
+				message.Information = "Brisanje tipa korisnika";
+				loggerService.CreateMessage(message);	
                 tipKorisnikaRepository.deleteTipKorisnika(tipKorisnikaId);
                 tipKorisnikaRepository.SaveChanges();
                 return NoContent();
@@ -107,11 +127,15 @@ namespace KorisnikService.Controllers
 		[Produces("application/json")]
         public ActionResult<TipKorisnikaDto> postTipKorisnika([FromBody] TipKorisnikaDto korisnik)
 		{
+			message.Method = "POST";
+			message.ServiceName = name;
 			try
 			{
 				TipKorisnika tipK = mapper.Map<TipKorisnika>(korisnik);
                 TipKorisnika tipKorisnika = tipKorisnikaRepository.postTipKorisnika(tipK);
 				tipKorisnikaRepository.SaveChanges();
+				message.Information = "Tip korinika je kreiran";
+				loggerService.CreateMessage(message);
 				return Created("uri",mapper.Map<TipKorisnikaDto>(tipK));
 
             }catch(Exception ex)
@@ -136,6 +160,9 @@ namespace KorisnikService.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult putTipKorisnika(TipKorisnikaUpdateDto korisnik)
 		{
+			message.Method = "PUT";
+			message.ServiceName = name;
+
 			try
 			{
 				TipKorisnika tipKorisnika = mapper.Map<TipKorisnika>(korisnik);
@@ -143,13 +170,17 @@ namespace KorisnikService.Controllers
 
 				if (tk == null)
 				{
-					return NotFound();
+                    message.Error = "Not found";
+                    loggerService.CreateMessage(message);
+                    return NotFound();
 				}
 
 				TipKorisnika tipKor = mapper.Map<TipKorisnika>(korisnik);
 				mapper.Map(tipKor, tk);
 				tipKorisnikaRepository.SaveChanges();
-				return Ok(mapper.Map<TipKorisnikaDto>(tk));
+                message.Information = "Izmena tipa korisnika";
+                loggerService.CreateMessage(message);
+                return Ok(mapper.Map<TipKorisnikaDto>(tk));
 
 			}catch(Exception ex)
 			{

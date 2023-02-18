@@ -116,7 +116,6 @@
             Lozinka
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:KorisnikService.DtoModels.KorisnikDto.korisnikId" -->
         <member name="P:KorisnikService.DtoModels.KorisnikDto.tipKorisnikaId">
             <summary>
             Tip korisnika id
@@ -172,26 +171,6 @@
             Lozinka
             </summary>
         </member>
-        <member name="P:KorisnikService.DtoModels.Message.ServiceName">
-            <summary>
-            Naziv servisa
-            </summary>
-        </member>
-        <member name="P:KorisnikService.DtoModels.Message.Method">
-            <summary>
-            Metoda
-            </summary>
-        </member>
-        <member name="P:KorisnikService.DtoModels.Message.Information">
-            <summary>
-            Detalji
-            </summary>
-        </member>
-        <member name="P:KorisnikService.DtoModels.Message.Error">
-            <summary>
-            Greska
-            </summary>
-        </member>
         <member name="P:KorisnikService.DtoModels.Principal.Username">
             <summary>
             Korisnicko ime.
@@ -200,11 +179,6 @@
         <member name="P:KorisnikService.DtoModels.Principal.Password">
             <summary>
             Lozinka korisnika.
-            </summary>
-        </member>
-        <member name="P:KorisnikService.DtoModels.TipKorisnikaDto.tipKorisnikaId">
-            <summary>
-            Korisnik id
             </summary>
         </member>
         <member name="P:KorisnikService.DtoModels.TipKorisnikaDto.uloga">
@@ -308,18 +282,6 @@
         </member>
         <member name="M:KorisnikService.Migrations.migracije.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
-        </member>
-        <member name="M:KorisnikService.ServiceCalls.LoggerService.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
-            <summary>
-            Konstruktor
-            </summary>
-            <param name="configuration"></param>
-        </member>
-        <member name="M:KorisnikService.ServiceCalls.LoggerService.CreateMessage(KorisnikService.DtoModels.Message)">
-            <summary>
-            Kreiranje poruke - metoda
-            </summary>
-            <param name="message"></param>
         </member>
         <member name="M:KorisnikService.Service.UserService.HashPassword(System.String)">
             <summary>

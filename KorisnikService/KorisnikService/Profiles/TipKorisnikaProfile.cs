@@ -13,6 +13,7 @@ namespace KorisnikService.Profiles
             CreateMap<TipKorisnikaDto, TipKorisnika>();
             CreateMap<TipKorisnikaUpdateDto, TipKorisnika>();
             CreateMap<TipKorisnikaUpdateDto, TipKorisnika>();
+            CreateMap<TipKorisnika, TipKorisnika>();
         }
 	}
 }

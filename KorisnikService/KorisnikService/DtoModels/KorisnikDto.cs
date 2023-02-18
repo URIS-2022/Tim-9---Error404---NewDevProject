@@ -4,6 +4,10 @@ namespace KorisnikService.DtoModels
 	public class KorisnikDto
 	{
         /// <summary>
+        /// id korisnika
+        /// </summary
+        public Guid korisnikId { get; set; }
+        /// <summary>
         /// Tip korisnika id
         /// </summary>
         public Guid tipKorisnikaId { get; set; }

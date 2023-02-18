@@ -3,6 +3,7 @@ using AutoMapper;
 using KorisnikService.DtoModels;
 using KorisnikService.Entities;
 using KorisnikService.Repositories;
+using KorisnikService.ServiceCalls;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KorisnikService.Controllers 
@@ -14,10 +15,14 @@ namespace KorisnikService.Controllers
     {
         private readonly IKorisnikRepository korisnikRepository;
         private readonly IMapper mapper;
-        public KorisnikController(IKorisnikRepository korisnikRepository, IMapper mapper)
+        private readonly ILoggerService loggerService;
+        private readonly Message message = new Message();
+        private readonly string name = "Korisnik service";
+        public KorisnikController(IKorisnikRepository korisnikRepository, IMapper mapper, ILoggerService loggerService)
 		{
             this.korisnikRepository = korisnikRepository;
             this.mapper = mapper;
+            this.loggerService = loggerService;
 		}
 
         /// <summary>
@@ -27,18 +32,23 @@ namespace KorisnikService.Controllers
         /// <response code="200">Lista korisnika</response>
         /// <response code="404">Nije pronadjen ni jedan korisnik</response>
         [HttpGet]
-        [HttpHead]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<List<KorisnikDto>> getAllKorisnici()
         {
+            message.Method = "GET";
+            message.ServiceName = name;
             List<Korisnik> korisnici = korisnikRepository.getAllKorisnici();
 
             if (korisnici == null || korisnici.Count == 0)
             {
+                message.Error = "No content";
+                loggerService.CreateMessage(message);
                 return NoContent();
             }
 
+            message.Information = "Lista korisnika vracena";
+            loggerService.CreateMessage(message);
             return Ok(mapper.Map<List<KorisnikDto>>(korisnici));
         }
 
@@ -50,17 +60,22 @@ namespace KorisnikService.Controllers
         /// <response code="404">Korisnik nije pronadjen</response>
 
         [HttpGet("{korisnikId}")]
-        [HttpHead]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<KorisnikDto> getKorisnikById(Guid korisnikId)
         {
+            message.Method = "GET";
+            message.ServiceName = name;
             Korisnik k = korisnikRepository.getKorisnikById(korisnikId);
             if (k == null)
             {
+                message.Error = "Not found";
+                loggerService.CreateMessage(message);
                 return NotFound();
             }
 
+            message.Information = "Korisnik sa prosledjenim id-jem vracen";
+            loggerService.CreateMessage(message);
             return Ok(mapper.Map<KorisnikDto>(k));
         }
 
@@ -76,16 +91,22 @@ namespace KorisnikService.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult deleteKorisnik(Guid korisnikId)
         {
+            message.Method = "DELETE";
+            message.ServiceName = name;
             try
             {
                 Korisnik k = korisnikRepository.getKorisnikById(korisnikId);
                 if (k == null)
                 {
+                    message.Error = "Not found";
+                    loggerService.CreateMessage(message);
                     return NotFound();
                 }
 
                 korisnikRepository.deleteKorisnik(korisnikId);
                 korisnikRepository.SaveChanges();
+                message.Information = "Brisanje korisnika";
+                loggerService.CreateMessage(message);
                 return NoContent();
 
             }
@@ -109,11 +130,15 @@ namespace KorisnikService.Controllers
         [Produces("application/json")]
         public ActionResult<KorisnikDto> postKorisnik([FromBody] KorisnikCreateDto korisnik)
         {
+            message.ServiceName = name;
+            message.Method = "POST";
             try
             {
                 Korisnik K = mapper.Map<Korisnik>(korisnik);
                 Korisnik kor = korisnikRepository.postKorisnik(K);
                 korisnikRepository.SaveChanges();
+                message.Information = "Korisnik je kreiran";
+                loggerService.CreateMessage(message);
                 return Created("uri", mapper.Map<KorisnikDto>(kor));
 
             }
@@ -139,6 +164,8 @@ namespace KorisnikService.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult putKorisnik(KorisnikUpdateDto korisnik)
         {
+            message.Method = "PUT";
+            message.ServiceName = name;
             try
             {
                 Korisnik Korisnik = mapper.Map<Korisnik>(korisnik);
@@ -146,12 +173,16 @@ namespace KorisnikService.Controllers
 
                 if (k == null)
                 {
+                    message.Error = "Not found";
+                    loggerService.CreateMessage(message);
                     return NotFound();
                 }
 
 
                 KorisnikDto korisnikDto = mapper.Map<KorisnikDto>(korisnik);
                 mapper.Map(korisnikDto, k);
+                message.Information = "Korisnik je uspesno izmenjen";
+                loggerService.CreateMessage(message);
                 return Ok(mapper.Map<KorisnikDto>(k));
 
             }
