@@ -24,7 +24,6 @@ namespace UgovorZakupService.ServiceCalls
             kupac.pocetakZabrane = DateTime.Parse("2022-12-12");
             kupac.duzinaZabrane = 1;
             kupac.prestanakZabrane = DateTime.Parse("2022-12-22");
-            //kupac.ovlascenoLiceID = Guid.Parse("215e4cb-a427-40cf-88b2-8488d140a939");
             kupac.prioritetID = Guid.Parse("{4E2DD160-0012-4C16-A692-462E59938B06}");
             kupac.lice = "test lice";
             kupac.brTel1 = "061111111";

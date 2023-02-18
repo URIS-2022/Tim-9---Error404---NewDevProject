@@ -18,7 +18,6 @@ namespace UgovorZakupService.Controllers
     {
         private readonly IMapper mapper;
         private readonly ITipGarancijeRepository tipGarancijeRepository;
-        private readonly string name = "Tip_garancije_service";
 
         public TipGarancijeController(IMapper mapper, ITipGarancijeRepository tipGarancijeService)
         {
@@ -157,7 +156,7 @@ namespace UgovorZakupService.Controllers
                 tipGarancijeRepository.SaveChanges();
                 return NoContent();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Delete error");
             }

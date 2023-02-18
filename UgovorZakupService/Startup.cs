@@ -75,7 +75,7 @@ namespace UgovorZakupService
                             {
                                 ContentTypes = { "application/problem+json" }
                             };
-                        };
+                        }
 
                         //ukoliko postoji nesto što nije moglo da se parsira hocemo da vracamo status 400 kao i do sada
                         problemDetails.Status = StatusCodes.Status400BadRequest;
@@ -86,7 +86,6 @@ namespace UgovorZakupService
                         };
                     };
                 });
-            //services.AddSingleton<ITipJavnogNadmetanjaRepository, TipJavnogNadmetanjaRepository>();
             services.AddScoped<ITipGarancijeRepository, TipGarancijeService>();
             services.AddScoped<IUgovorOZakupuRepository, UgovorOZakupuService>();
             services.AddScoped<IJavnoNadmetanjeService, JavnoNadmetanjeService>();
@@ -95,8 +94,7 @@ namespace UgovorZakupService
             services.AddScoped<IKupacService, KupacService>();
             services.AddScoped<IUserRepository, UserService>();
             services.AddScoped<IAuthHelper, AuthHelper>();
-            //services.AddScoped<ILoggerService, LoggerService>();
-            //services.AddScoped<IKupacService, KupacService>();
+
 
             //konfiguracije za automaper - pogledaj ceo domen gde se izvrsava servis i trazi konfiguracije za automapper.
             //te konfiguracije su profili, za svako mapiranje ce se definisati jedan profil i reci iz tog objekta mapitaj u taj objekat na takav nacin
@@ -154,17 +152,14 @@ namespace UgovorZakupService
                 var xmlComments = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
 
                 //Pravimo putanju do XML fajla sa komentarima
-                var xmlCommentsPath = Path.Combine(AppContext.BaseDirectory, xmlComments);
 
                 //Govorimo swagger-u gde se nalazi dati xml fajl sa komentarima
-                //setupAction.IncludeXmlComments(xmlCommentsPath);
             });
 
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             //Dodajemo DbContext koji zelimo da koristimo
-            //services.AddDbContextPool<UgovorOZakupuContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ugovorOZakupuDB")));
             services.AddDbContext<UgovorOZakupuContext>();
 
         }

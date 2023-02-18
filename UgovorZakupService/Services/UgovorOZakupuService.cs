@@ -24,7 +24,7 @@ namespace UgovorZakupService.Services
             FillData();
         }
 
-        private void FillData()
+        private static void FillData()
         {
             ugovoriOZakupu.AddRange(new List<Entities.UgovorOZakupu>
             {
@@ -81,7 +81,9 @@ namespace UgovorZakupService.Services
 
         public UgovorOZakupu GetUgovorOZakupuById(Guid id)
         {
+#pragma warning disable CS8603 // Possible null reference return.
             return ugovoriOZakupu.FirstOrDefault(uz => uz.ugovorOZakupuID == id);
+#pragma warning restore CS8603 // Possible null reference return.
         }
 
         public bool SaveChanges()

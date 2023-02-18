@@ -13,7 +13,7 @@ namespace UgovorZakupService.Services
             FillData();
         }
 
-        private void FillData()
+        private static void FillData()
         {
             var user1 = HashPassword("testpassword");
 
@@ -35,7 +35,7 @@ namespace UgovorZakupService.Services
         public bool checkIfUserExists(string username, string password)
         {
             //Ukoliko je username jedinstveno ovo je uredu
-            User user = Users.FirstOrDefault(u => u.UserName == username);
+            User? user = Users.FirstOrDefault(u => u.UserName == username);
 
             if (user == null)
             {
@@ -58,10 +58,14 @@ namespace UgovorZakupService.Services
         private static Tuple<string, string> HashPassword(string password)
         {
             var sBytes = new byte[password.Length];
+#pragma warning disable SYSLIB0023 // Type or member is obsolete
             new RNGCryptoServiceProvider().GetNonZeroBytes(sBytes);
+#pragma warning restore SYSLIB0023 // Type or member is obsolete
             var salt = Convert.ToBase64String(sBytes);
 
+#pragma warning disable SYSLIB0041 // Type or member is obsolete
             var derivedBytes = new Rfc2898DeriveBytes(password, sBytes, iterations);
+#pragma warning restore SYSLIB0041 // Type or member is obsolete
 
             return new Tuple<string, string>
             (
@@ -80,7 +84,9 @@ namespace UgovorZakupService.Services
         public bool VerifyPassword(string password, string savedHash, string savedSalt)
         {
             var saltBytes = Convert.FromBase64String(savedSalt);
+#pragma warning disable SYSLIB0041 // Type or member is obsolete
             var rfc2898DeriveBytes = new Rfc2898DeriveBytes(password, saltBytes, iterations);
+#pragma warning restore SYSLIB0041 // Type or member is obsolete
             if (Convert.ToBase64String(rfc2898DeriveBytes.GetBytes(256)) == savedHash)
             {
                 return true;

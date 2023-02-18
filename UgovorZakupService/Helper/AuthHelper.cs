@@ -29,7 +29,9 @@ namespace UgovorZakupService.Helper
 
         public string generateJWT(Principal principal)
         {
+#pragma warning disable CS8604 // Possible null reference argument.
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]));
+#pragma warning restore CS8604 // Possible null reference argument.
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(configuration["Jwt:Issuer"],

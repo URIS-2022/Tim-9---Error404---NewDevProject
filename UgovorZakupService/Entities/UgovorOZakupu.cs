@@ -17,35 +17,35 @@ namespace UgovorZakupService.Entities
         [ForeignKey("JavnoNadmetanje")]
         public Guid javnoNadmetanjeID { get; set; }
         [NotMapped]
-        public JavnoNadmetanjeDto javnoNadmetanje { get; set; }
+        public JavnoNadmetanjeDto? javnoNadmetanje { get; set; }
 
         [ForeignKey("Dokument")]
         public Guid dokumentID { get; set; }
         [NotMapped]
-        public DokumentDto odluka { get; set; }
+        public DokumentDto? odluka { get; set; }
 
         [ForeignKey("TipGarancije")]
         public Guid tipGarancijeID { get; set; }
         [NotMapped]
-        public TipGarancije tipGarancije { get; set; }
+        public TipGarancije? tipGarancije { get; set; }
 
         [ForeignKey("Kupac")]
         public Guid kupacID { get; set; }
         [NotMapped]
-        public KupacDto lice { get; set; }
+        public KupacDto? lice { get; set; }
 
         [NotMapped]
-        public int[] rokoviDospeca { get; set; }
-        public string zavodniBroj { get; set; }
+        public int[]? rokoviDospeca { get; set; }
+        public string? zavodniBroj { get; set; }
         public DateTime datumZavodjenja { get; set; }
 
         [ForeignKey("Licnost")]
         public Guid licnostID { get; set; }
         [NotMapped]
-        public LicnostDto ministar { get; set; }
+        public LicnostDto? ministar { get; set; }
 
         public DateTime rokVracanjeZemljista { get; set; }
-        public string mestoPotpisivanja { get; set; }
+        public string? mestoPotpisivanja { get; set; }
         public DateTime datumPotpisa { get; set; }
     }
 }

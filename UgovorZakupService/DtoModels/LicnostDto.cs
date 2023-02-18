@@ -11,9 +11,9 @@ namespace UgovorZakupService.DtoModels
     {
         [Key]
         public Guid licnostID { get; set; }
-        public string ime { get; set; }
-        public string prezime { get; set; }
-        public string funkcija { get; set; }
+        public string? ime { get; set; }
+        public string? prezime { get; set; }
+        public string? funkcija { get; set; }
 
     }
 }

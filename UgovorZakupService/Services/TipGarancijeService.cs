@@ -12,17 +12,15 @@ namespace UgovorZakupService.Services
 {
     public class TipGarancijeService : ITipGarancijeRepository
     {
-        private readonly UgovorOZakupuContext context;
         private readonly IMapper mapper;
         public static List<TipGarancije> tipoviGarancije { get; set; } = new List<TipGarancije>();
-        public TipGarancijeService(IMapper mapper, UgovorOZakupuContext context) 
+        public TipGarancijeService(IMapper mapper) 
         {
-            this.context = context;
             this.mapper = mapper;
             FillData();
         }
 
-        private void FillData()
+        private static void FillData()
         {
             tipoviGarancije.AddRange(new List<TipGarancije>
             {
@@ -56,12 +54,13 @@ namespace UgovorZakupService.Services
         public List<TipGarancije> GetAllTipGarancije()
         {
             return (from tg in tipoviGarancije select tg).ToList();
-            //return context.tipoviGarancije.ToList();
         }
 
         public TipGarancije GetTipGarancijeById(Guid id)
         {
+#pragma warning disable CS8603 // Possible null reference return.
             return tipoviGarancije.FirstOrDefault(tipGarancije => tipGarancije.tipGarancijeID == id);
+#pragma warning restore CS8603 // Possible null reference return.
         }
 
         public bool SaveChanges()

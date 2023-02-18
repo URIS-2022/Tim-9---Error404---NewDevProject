@@ -17,10 +17,12 @@ namespace UgovorZakupService.ServiceCalls
             using (HttpClient client = new HttpClient())
             {
 
-                Uri url = new Uri($"{configuration["Services:LoggerService"]}api/logger");
+                new Uri($"{configuration["Services:LoggerService"]}api/logger");
 
                 HttpContent content = new StringContent(JsonConvert.SerializeObject(message));
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 content.Headers.ContentType.MediaType = "application/json";
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
             }
         }

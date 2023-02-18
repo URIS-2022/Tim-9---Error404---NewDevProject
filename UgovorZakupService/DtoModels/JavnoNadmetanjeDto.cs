@@ -26,10 +26,10 @@ namespace UgovorZakupService.DtoModels
         public Guid tipID { get; set; }                                             
         public Guid ovlascenoLiceID { get; set; }
         [NotMapped]
-        public List<Guid> prijavljeniKupciID { get; set; }
+        public List<Guid>? prijavljeniKupciID { get; set; }
         public Guid adresaID { get; set; }                              
         public Guid najboljiPonudjacID { get; set; }                       
         [NotMapped]
-        public List<Guid> parceleID { get; set; }
+        public List<Guid>? parceleID { get; set; }
     }
 }

@@ -14,7 +14,6 @@ namespace UgovorZakupService.Controllers
     {
         private readonly IUgovorOZakupuRepository UgovorOZakupuRepository;
         private readonly IMapper mapper;
-        private readonly string name = "Ugovor_o_zakupu_service";
         private readonly IDokumentService dokumentService;
         private readonly IJavnoNadmetanjeService javnoNadmetanjeService;
         private readonly IKupacService kupacService;
@@ -118,7 +117,7 @@ namespace UgovorZakupService.Controllers
                 UgovorOZakupuRepository.SaveChanges();
                 return NoContent();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Delete error");
             }
@@ -154,7 +153,7 @@ namespace UgovorZakupService.Controllers
                 UgovorOZakupuRepository.SaveChanges();
                 return Ok(mapper.Map<UgovorOZakupuConfirmationDto>(oldUz));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Update error");
             }
@@ -181,7 +180,7 @@ namespace UgovorZakupService.Controllers
                 return Created("uri", mapper.Map<UgovorOZakupuConfirmationDto>(UgovorOZakupu));
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Post error");
             }

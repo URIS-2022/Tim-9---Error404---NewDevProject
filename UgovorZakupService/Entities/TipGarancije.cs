@@ -6,6 +6,6 @@ namespace UgovorZakupService.Entities
     {
         [Key]
         public Guid tipGarancijeID { get; set; }
-        public string nazivTipaGarancije { get; set; }
+        public string? nazivTipaGarancije { get; set; }
     }
 }

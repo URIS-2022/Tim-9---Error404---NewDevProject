@@ -11,10 +11,10 @@ namespace UgovorZakupService.DtoModels
     {
         [Key]
         public Guid dokumentID { get; set; }
-        public string zavodniBroj { get; set; }
+        public string? zavodniBroj { get; set; }
         public DateTime datum { get; set; }
         public DateTime datumDonosenjaDokumenta { get; set; }
-        public string sablon { get; set; }
+        public string? sablon { get; set; }
 
     }
 }
