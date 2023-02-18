@@ -1,7 +1,10 @@
 ﻿using System;
 namespace KorisnikService.DtoModels
 {
-	public class KorisnikUpdateDto
+    /// <summary>
+    /// Klasa korisnik update dto
+    /// </summary>
+    public class KorisnikUpdateDto
 	{
         /// <summary>
         /// Korisnik id
@@ -14,19 +17,19 @@ namespace KorisnikService.DtoModels
         /// <summary>
         /// Ime 
         /// </summary>
-        public string ime { get; set; }
+        public string? ime { get; set; }
         /// <summary>
         /// Prezime
         /// </summary>
-        public string prezime { get; set; }
+        public string? prezime { get; set; }
         /// <summary>
         /// Korisnicko ime
         /// </summary>
-        public string korisnickoIme { get; set; }
+        public string? korisnickoIme { get; set; }
         /// <summary>
         /// Lozinka
         /// </summary>
-        public string lozinka { get; set; }
+        public string? lozinka { get; set; }
     }
 }
 

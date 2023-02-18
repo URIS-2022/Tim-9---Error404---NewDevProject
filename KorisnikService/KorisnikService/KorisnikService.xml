@@ -142,6 +142,11 @@
             Lozinka
             </summary>
         </member>
+        <member name="T:KorisnikService.DtoModels.KorisnikUpdateDto">
+            <summary>
+            Klasa korisnik update dto
+            </summary>
+        </member>
         <member name="P:KorisnikService.DtoModels.KorisnikUpdateDto.korisnikId">
             <summary>
             Korisnik id
@@ -172,6 +177,11 @@
             Lozinka
             </summary>
         </member>
+        <member name="T:KorisnikService.DtoModels.Message">
+            <summary>
+            Naziv servisa
+            </summary>
+        </member>
         <member name="P:KorisnikService.DtoModels.Message.ServiceName">
             <summary>
             Naziv servisa
@@ -192,6 +202,11 @@
             Greska
             </summary>
         </member>
+        <member name="T:KorisnikService.DtoModels.Principal">
+            <summary>
+            Principal
+            </summary>
+        </member>
         <member name="P:KorisnikService.DtoModels.Principal.Username">
             <summary>
             Korisnicko ime.
@@ -200,6 +215,11 @@
         <member name="P:KorisnikService.DtoModels.Principal.Password">
             <summary>
             Lozinka korisnika.
+            </summary>
+        </member>
+        <member name="T:KorisnikService.DtoModels.TipKorisnikaDto">
+            <summary>
+            Naziv dto klase
             </summary>
         </member>
         <member name="P:KorisnikService.DtoModels.TipKorisnikaDto.tipKorisnikaId">
@@ -220,6 +240,11 @@
         <member name="P:KorisnikService.DtoModels.TipKorisnikaUpdateDto.uloga">
             <summary>
             Uloga
+            </summary>
+        </member>
+        <member name="T:KorisnikService.DtoModels.User">
+            <summary>
+            Klasa user
             </summary>
         </member>
         <member name="P:KorisnikService.DtoModels.User.Id">

@@ -10,19 +10,19 @@ namespace KorisnikService.DtoModels
         /// <summary>
         /// Ime korisnika
         /// </summary>
-        public string ime { get; set; }
+        public string? ime { get; set; }
         /// <summary>
         /// Prezime korisnika
         /// </summary>
-        public string prezime { get; set; }
+        public string? prezime { get; set; }
         /// <summary>
         /// Korisnisko ime
         /// </summary>
-        public string korisnickoIme { get; set; }
+        public string? korisnickoIme { get; set; }
         /// <summary>
         /// Lozinka
         /// </summary>
-        public string lozinka { get; set; }
+        public string? lozinka { get; set; }
 	}
 }
 

@@ -21,14 +21,14 @@ namespace AuctionService.ServiceCalls
         /// <summary>
         /// Metoda za komunikaciju sa ovlascenim licem
         /// </summary>
-        public async Task<OvlascenoLiceDto> getOvlascenoLice(Guid ovlascenoLiceId)
+        public async Task<OvlascenoLiceDto> getOvlascenoLice(Guid ovlascenoLice)
         {
             using (HttpClient client = new HttpClient())
             {
 
-                Uri url = new Uri($"{Configuration["Services:Ovlasceno_lice"]}api/ovlascenaLica/{ovlascenoLiceId}");
+                Uri url = new Uri($"{Configuration["Services:Ovlasceno_lice"]}api/ovlascenaLica/{ovlascenoLice}");
 
-                HttpContent content = new StringContent(JsonConvert.SerializeObject(ovlascenoLiceId));
+                HttpContent content = new StringContent(JsonConvert.SerializeObject(ovlascenoLice));
                 content.Headers.ContentType.MediaType = "application/json";
 
                 HttpResponseMessage response = client.GetAsync(url).Result;
