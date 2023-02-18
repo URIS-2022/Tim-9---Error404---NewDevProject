@@ -4,7 +4,10 @@ using Newtonsoft.Json;
 
 namespace AuctionService.ServiceCalls
 {
-	public class ParcelaService : IParcelaService
+    /// <summary>
+    /// Klasa parcela
+    /// </summary>
+    public class ParcelaService : IParcelaService
 	{
         /// <summary>
         /// IConfiguration
