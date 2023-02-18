@@ -44,9 +44,4 @@ jobs:
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"URIS-2022_Tim-9---Error404---NewDevProject" /o:"uris-2022" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           dotnet publish AuctionService.sln -c Debug -o out
-          dotnet publish AdresaService/AdresaService.sln -c Debug -o out
-          dotnet publish CustomerService1/CustomerService1.sln -c Debug -o out
-          dotnet publish KorisnikService/KorisnikService.sln -c Debug -o out
-          dotnet publish LoggerService/LoggerService.sln -c Debug -o out
-          dotnet publish ServiceParcela/ServiceParcela.sln -c Debug -o out
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
