@@ -6,12 +6,22 @@ namespace AuctionService.ServiceCalls
 {
 	public class ParcelaService : IParcelaService
 	{
+        /// <summary>
+        /// IConfiguration
+        /// </summary>
         private readonly IConfiguration Configuration;
-		public ParcelaService(IConfiguration Configuration)
+
+        /// <summary>
+        /// DI za parcela service
+        /// </summary>
+        public ParcelaService(IConfiguration Configuration)
 		{
             this.Configuration = Configuration;
 		}
 
+        /// <summary>
+        /// Metoda za komunikaciju sa parcelom
+        /// </summary>
         public async Task<ParcelaDto> getParcela(Guid parcelaId)
         {
             using (HttpClient client = new HttpClient())

@@ -6,13 +6,22 @@ namespace AuctionService.ServiceCalls
 {
 	public class AdresaService : IAdresaService
 	{
+        /// <summary>
+        /// Dependency injection for configuration
+        /// </summary>
         private readonly IConfiguration Configuration;
 
+        /// <summary>
+        /// DI za konfiguraciju
+        /// </summary>
         public AdresaService(IConfiguration configuration)
         {
             this.Configuration = configuration;
         }
 
+        /// <summary>
+        /// Metoda za komunikaciju sa adresa servisom
+        /// </summary>
         public async Task<AdresaDto> getAdresa(Guid adresaId)
         {
             using (HttpClient client = new HttpClient())

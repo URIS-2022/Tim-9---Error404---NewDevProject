@@ -1236,11 +1236,66 @@
         <member name="M:AuctionService.Migrations.migrations.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="F:AuctionService.ServiceCalls.AdresaService.Configuration">
+            <summary>
+            Dependency injection for configuration
+            </summary>
+        </member>
+        <member name="M:AuctionService.ServiceCalls.AdresaService.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            DI za konfiguraciju
+            </summary>
+        </member>
+        <member name="M:AuctionService.ServiceCalls.AdresaService.getAdresa(System.Guid)">
+            <summary>
+            Metoda za komunikaciju sa adresa servisom
+            </summary>
+        </member>
+        <member name="M:AuctionService.ServiceCalls.IAdresaService.getAdresa(System.Guid)">
+            <summary>
+            Metoda za komunikaciju sa adresa servisom
+            </summary>
+        </member>
+        <member name="M:AuctionService.ServiceCalls.IKupacService.getKupci(System.Guid)">
+            <summary>
+            Metoda za komunikaciju sa kupac servisom
+            </summary>
+        </member>
         <member name="M:AuctionService.ServiceCalls.ILogerService.CreateMessage(AuctionService.DtoModels.Message)">
             <summary>
             Metoda za kreiranje poruke logeru
             </summary>
             <param name="message"></param>
+        </member>
+        <member name="M:AuctionService.ServiceCalls.IOvlascenoLiceService.getOvlascenoLice(System.Guid)">
+            <summary>
+            Metoda za komunikaciju sa ovlascenim licem 
+            </summary>
+        </member>
+        <member name="M:AuctionService.ServiceCalls.IParcelaService.getParcela(System.Guid)">
+            <summary>
+            Metoda za preuzimanje podataka o parceli
+            </summary>
+        </member>
+        <member name="F:AuctionService.ServiceCalls.KupacService.Configuration">
+            <summary>
+            DI za konfiguraciju
+            </summary>
+        </member>
+        <member name="M:AuctionService.ServiceCalls.KupacService.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Konstruktor kupac servisa
+            </summary>
+        </member>
+        <member name="M:AuctionService.ServiceCalls.KupacService.getKupci(System.Guid)">
+            <summary>
+            metoda za get svih kupaca
+            </summary>
+        </member>
+        <member name="F:AuctionService.ServiceCalls.LoggerService.configuration">
+            <summary>
+            DI za konfiguraciju
+            </summary>
         </member>
         <member name="M:AuctionService.ServiceCalls.LoggerService.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
@@ -1253,6 +1308,36 @@
             Kreiranje poruke - metoda
             </summary>
             <param name="message"></param>
+        </member>
+        <member name="F:AuctionService.ServiceCalls.OvlascenoLiceService.Configuration">
+            <summary>
+            Iconfig
+            </summary>
+        </member>
+        <member name="M:AuctionService.ServiceCalls.OvlascenoLiceService.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            DI za konfiguraciju
+            </summary>
+        </member>
+        <member name="M:AuctionService.ServiceCalls.OvlascenoLiceService.getOvlascenoLice(System.Guid)">
+            <summary>
+            Metoda za komunikaciju sa ovlascenim licem
+            </summary>
+        </member>
+        <member name="F:AuctionService.ServiceCalls.ParcelaService.Configuration">
+            <summary>
+            IConfiguration
+            </summary>
+        </member>
+        <member name="M:AuctionService.ServiceCalls.ParcelaService.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            DI za parcela service
+            </summary>
+        </member>
+        <member name="M:AuctionService.ServiceCalls.ParcelaService.getParcela(System.Guid)">
+            <summary>
+            Metoda za komunikaciju sa parcelom
+            </summary>
         </member>
         <member name="M:AuctionService.Services.UserService.HashPassword(System.String)">
             <summary>

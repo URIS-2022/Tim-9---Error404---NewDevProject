@@ -5,7 +5,10 @@ namespace AuctionService.ServiceCalls
 {
 	public interface IOvlascenoLiceService
 	{
-		Task<OvlascenoLiceDto> getOvlascenoLice(Guid ovlascenoLice);
+        /// <summary>
+        /// Metoda za komunikaciju sa ovlascenim licem 
+        /// </summary>
+        Task<OvlascenoLiceDto> getOvlascenoLice(Guid ovlascenoLice);
 	}
 }
 

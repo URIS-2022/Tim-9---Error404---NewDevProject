@@ -5,7 +5,10 @@ namespace AuctionService.ServiceCalls
 {
 	public interface IAdresaService
 	{
-		Task<AdresaDto> getAdresa(Guid adresaId);
+        /// <summary>
+        /// Metoda za komunikaciju sa adresa servisom
+        /// </summary>
+        Task<AdresaDto> getAdresa(Guid adresaId);
 	}
 }
 

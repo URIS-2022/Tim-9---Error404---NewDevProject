@@ -11,7 +11,9 @@ namespace AuctionService.ServiceCalls
 {
 	public class LoggerService : ILogerService
 	{
-
+        /// <summary>
+        /// DI za konfiguraciju
+        /// </summary>
         private readonly IConfiguration configuration;
 
 

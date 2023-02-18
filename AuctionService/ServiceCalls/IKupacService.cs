@@ -5,7 +5,10 @@ namespace AuctionService.ServiceCalls
 {
 	public interface IKupacService
 	{
-		Task<KupacDto> getKupci(Guid kupacId);
+        /// <summary>
+        /// Metoda za komunikaciju sa kupac servisom
+        /// </summary>
+        Task<KupacDto> getKupci(Guid kupacId);
 	}
 }
 

@@ -5,7 +5,10 @@ namespace AuctionService.ServiceCalls
 {
 	public interface IParcelaService
 	{
-		Task<ParcelaDto> getParcela(Guid parcelaId);
+        /// <summary>
+        /// Metoda za preuzimanje podataka o parceli
+        /// </summary>
+        Task<ParcelaDto> getParcela(Guid parcelaId);
 	}
 }
 

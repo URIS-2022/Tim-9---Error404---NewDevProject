@@ -6,12 +6,21 @@ namespace AuctionService.ServiceCalls
 {
 	public class OvlascenoLiceService : IOvlascenoLiceService
 	{
+        /// <summary>
+        /// Iconfig
+        /// </summary>
         private readonly IConfiguration Configuration;
-		public OvlascenoLiceService(IConfiguration Configuration)
+        /// <summary>
+        /// DI za konfiguraciju
+        /// </summary>
+        public OvlascenoLiceService(IConfiguration Configuration)
 		{
             this.Configuration = Configuration;
 		}
 
+        /// <summary>
+        /// Metoda za komunikaciju sa ovlascenim licem
+        /// </summary>
         public async Task<OvlascenoLiceDto> getOvlascenoLice(Guid ovlascenoLiceId)
         {
             using (HttpClient client = new HttpClient())
