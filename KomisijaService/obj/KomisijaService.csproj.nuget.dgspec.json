@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Thinkpad\\source\\repos\\KomisijaService\\KomisijaService.csproj": {}
+    "C:\\Users\\Thinkpad\\Tim-9---Error404---NewDevProject\\KomisijaService\\KomisijaService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Thinkpad\\source\\repos\\KomisijaService\\KomisijaService.csproj": {
+    "C:\\Users\\Thinkpad\\Tim-9---Error404---NewDevProject\\KomisijaService\\KomisijaService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Thinkpad\\source\\repos\\KomisijaService\\KomisijaService.csproj",
+        "projectUniqueName": "C:\\Users\\Thinkpad\\Tim-9---Error404---NewDevProject\\KomisijaService\\KomisijaService.csproj",
         "projectName": "KomisijaService",
-        "projectPath": "C:\\Users\\Thinkpad\\source\\repos\\KomisijaService\\KomisijaService.csproj",
+        "projectPath": "C:\\Users\\Thinkpad\\Tim-9---Error404---NewDevProject\\KomisijaService\\KomisijaService.csproj",
         "packagesPath": "C:\\Users\\Thinkpad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Thinkpad\\source\\repos\\KomisijaService\\obj\\",
+        "outputPath": "C:\\Users\\Thinkpad\\Tim-9---Error404---NewDevProject\\KomisijaService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Thinkpad\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "W52Iklvy8fFB45svBDVOeEZkWGvbqTEhluCAQ6M4JthMB+Jg3fv/ReH89klIyDwb3mNgVvXJIYm/PTgmCjJ/gA==",
+  "dgSpecHash": "5YILUgyxyCJc1H5G1wxOiIkb7vGSdtoZOzkB3aobFNIW2U96kxSGKQeIrVgpPWOi9tEsaxLfNz6WAa+C03VlZA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Thinkpad\\source\\repos\\KomisijaService\\KomisijaService.csproj",
+  "projectFilePath": "C:\\Users\\Thinkpad\\Tim-9---Error404---NewDevProject\\KomisijaService\\KomisijaService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Thinkpad\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Thinkpad\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

@@ -72,7 +72,7 @@ namespace KomisijaService
                             {
                                 ContentTypes = { "application/problem+json" }
                             };
-                        };
+                        }
 
                         //ukoliko postoji nesto što nije moglo da se parsira hocemo da vracamo status 400 kao i do sada
                         problemDetails.Status = StatusCodes.Status400BadRequest;
@@ -95,6 +95,7 @@ namespace KomisijaService
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
+#pragma warning disable CS8604 // Possible null reference argument.
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = true,
@@ -105,6 +106,7 @@ namespace KomisijaService
                     ValidAudience = Configuration["Jwt:Issuer"],
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                 };
+#pragma warning restore CS8604 // Possible null reference argument.
             });
             services.AddSwaggerGen(setupAction =>
             {
@@ -136,13 +138,8 @@ namespace KomisijaService
                     Array.Empty<string>()
                 }
                 });
-                var xmlComments = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-
-                var xmlCommentsPath = Path.Combine(AppContext.BaseDirectory, xmlComments);
-
-                //setupAction.IncludeXmlComments(xmlCommentsPath);
+                var xmlComments = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";           
             });
-            //services.AddDbContextPool<KomisijaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("komisijaDB")));
             services.AddDbContext<KomisijaContext>();
         }
 

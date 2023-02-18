@@ -115,10 +115,12 @@ namespace KomisijaService.Controllers
                 KomisijaConfirmationDto confirmation = komisijaRepository.CreateKomisija(_komisija);
                 komisijaRepository.SaveChanges();
 
-                string lokacija = linkGenerator.GetPathByAction("GetKomisija", "Komisija", new { komisijaId = confirmation.komisijaID });
+                string? lokacija = linkGenerator.GetPathByAction("GetKomisija", "Komisija", new { komisijaId = confirmation.komisijaID });
                 message.Information = komisija.ToString() + " | Komisija location: " + lokacija;
                 loggerService.CreateMessage(message);
+#pragma warning disable CS8604 // Possible null reference argument.
                 return Created(lokacija, mapper.Map<KomisijaConfirmationDto>(confirmation));
+#pragma warning restore CS8604 // Possible null reference argument.
             }
             catch (Exception ex)
             {

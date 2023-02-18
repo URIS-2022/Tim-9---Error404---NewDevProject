@@ -40,7 +40,9 @@ namespace KomisijaService.Services
 
         public Clanovi GetClanoviById(Guid clanoviId)
         {
+#pragma warning disable CS8603 // Possible null reference return.
             return context.Clanovi.FirstOrDefault(r => r.clanoviID == clanoviId);
+#pragma warning restore CS8603 // Possible null reference return.
         }
 
         public bool SaveChanges()

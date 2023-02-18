@@ -10,6 +10,11 @@ namespace KomisijaService.Entities
         [ForeignKey("Komisija")]
         public Guid? komisijaID { get; set; }
         [NotMapped]
-        public Komisija Komisija { get; set; }
+        public Komisija? Komisija { get; set; }
+
+       public override string ToString()
+        {
+            return "Clanovi: { ClanId: " + this.clanoviID + ", KomisijaId: " + this.komisijaID + " }";
+        }
     }
 }

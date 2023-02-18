@@ -9,7 +9,6 @@ namespace KomisijaService.DtoModels
     {
         public Guid clanoviID { get; set; }
         public Guid komisijaID { get; set; }
-
-        public LicnostDto Licnost { get; set; }
+        public LicnostDto? Licnost { get; set; }
     }
 }

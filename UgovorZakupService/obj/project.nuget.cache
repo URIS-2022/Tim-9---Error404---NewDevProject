@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "78eiIdRctxXXInA+Zni6sh7wmvGAUvrkNs7OCAr5ek58jDMBrHzXRLKikC6qEqIeNHb98+59TAILxKX1KnQiRA==",
+  "dgSpecHash": "e4h3/GAPssaL1biLCg7I5w/oAk1vyR3YGaxM8iU5FPCwCcBpoButrYBOYFqnn0SEaE3zuFFPelO/QpWhPVuMoA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Thinkpad\\source\\repos\\UgovorZakupService\\UgovorZakupService.csproj",
+  "projectFilePath": "C:\\Users\\Thinkpad\\Tim-9---Error404---NewDevProject\\UgovorZakupService\\UgovorZakupService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Thinkpad\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Thinkpad\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

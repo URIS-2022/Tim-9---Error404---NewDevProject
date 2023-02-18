@@ -9,7 +9,7 @@ namespace KomisijaService.DtoModels
     {
         public Guid predsednikID { get; set; }
         
-        public LicnostDto licnost { get; set; }
+        public LicnostDto? licnost { get; set; }
         
     }
 }

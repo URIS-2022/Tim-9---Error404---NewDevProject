@@ -11,5 +11,10 @@ namespace KomisijaService.Entities
     {
         [Key]
         public Guid predsednikID { get; set; }
+
+        public override string ToString()
+        {
+            return "Predsednik: { PredsednikId: " + this.predsednikID + " }";
+        }
     }
 }

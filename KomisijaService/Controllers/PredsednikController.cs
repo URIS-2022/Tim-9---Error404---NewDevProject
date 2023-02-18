@@ -129,11 +129,13 @@ namespace KomisijaService.Controllers
                 PredsednikConfirmationDto confirmation = predsednikRepository.CreatePredsednik(_predsednik);
                 predsednikRepository.SaveChanges();
 
-                string lokacija = linkGenerator.GetPathByAction("GetPredsednik", "Predsednik", new { predsednikId = confirmation.predsednikID });
+                string? lokacija = linkGenerator.GetPathByAction("GetPredsednik", "Predsednik", new { predsednikId = confirmation.predsednikID });
                 message.Information = predsednik.ToString() + " | Predsednik location: " + lokacija;
                 loggerService.CreateMessage(message);
-          
+
+#pragma warning disable CS8604 // Possible null reference argument.
                 return Created(lokacija, mapper.Map<PredsednikConfirmationDto>(confirmation));
+#pragma warning restore CS8604 // Possible null reference argument.
             }
             catch (Exception ex)
             {

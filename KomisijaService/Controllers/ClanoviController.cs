@@ -131,10 +131,12 @@ namespace KomisijaService.Controllers
                 ClanoviConfirmationDto confirmation = clanoviRepository.CreateClanovi(_clanovi);
                 clanoviRepository.SaveChanges();
 
-                string lokacija = linkGenerator.GetPathByAction("GetClanovi", "Clanovi", new { clanoviId = confirmation.clanoviID });
+                string? lokacija = linkGenerator.GetPathByAction("GetClanovi", "Clanovi", new { clanoviId = confirmation.clanoviID });
                 message.Information = clanovi.ToString() + " | Clan location: " + lokacija;
                 loggerService.CreateMessage(message);
-                return Created(lokacija, mapper.Map<ClanoviConfirmationDto>(confirmation));
+#pragma warning disable CS8604 // Possible null reference argument.
+                return Created(lokacija, value: mapper.Map<ClanoviConfirmationDto>(confirmation));
+#pragma warning restore CS8604 // Possible null reference argument.
             }
             catch (Exception ex)
             {

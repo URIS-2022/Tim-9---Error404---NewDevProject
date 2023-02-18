@@ -9,9 +9,9 @@ namespace KomisijaService.DtoModels
     {
         public Guid licnostID { get; set; }
 
-        public string imeLicnosti { get; set; }
+        public string? imeLicnosti { get; set; }
 
-        public string funkcija { get; set; }
+        public string? funkcija { get; set; }
 
     }
 }

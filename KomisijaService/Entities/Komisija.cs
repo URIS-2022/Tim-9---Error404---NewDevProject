@@ -15,6 +15,11 @@ namespace KomisijaService.Entities
         [ForeignKey("Predsednik")]
         public Guid predsednikID { get; set; }
         [NotMapped]
-        public Predsednik predsednik { get; set; }
+        public Predsednik? predsednik { get; set; }
+
+        public override string ToString()
+        {
+            return "Komisija: { KomisijaId: " + this.komisijaID + ", PredsednikId: " + this.predsednikID + " }";
+        }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Thinkpad\\source\\repos\\UgovorZakupService\\UgovorZakupService.csproj": {}
+    "C:\\Users\\Thinkpad\\Tim-9---Error404---NewDevProject\\UgovorZakupService\\UgovorZakupService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Thinkpad\\source\\repos\\UgovorZakupService\\UgovorZakupService.csproj": {
+    "C:\\Users\\Thinkpad\\Tim-9---Error404---NewDevProject\\UgovorZakupService\\UgovorZakupService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Thinkpad\\source\\repos\\UgovorZakupService\\UgovorZakupService.csproj",
+        "projectUniqueName": "C:\\Users\\Thinkpad\\Tim-9---Error404---NewDevProject\\UgovorZakupService\\UgovorZakupService.csproj",
         "projectName": "UgovorZakupService",
-        "projectPath": "C:\\Users\\Thinkpad\\source\\repos\\UgovorZakupService\\UgovorZakupService.csproj",
+        "projectPath": "C:\\Users\\Thinkpad\\Tim-9---Error404---NewDevProject\\UgovorZakupService\\UgovorZakupService.csproj",
         "packagesPath": "C:\\Users\\Thinkpad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Thinkpad\\source\\repos\\UgovorZakupService\\obj\\",
+        "outputPath": "C:\\Users\\Thinkpad\\Tim-9---Error404---NewDevProject\\UgovorZakupService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Thinkpad\\AppData\\Roaming\\NuGet\\NuGet.Config",
