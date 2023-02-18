@@ -2,7 +2,13 @@
 {
     public class KursnaListaConfirmation
     {
+        /// <summary>
+        /// Id lursne liste
+        /// </summary>
         public Guid KursnaListaID { get; set; }
-        public string valuta { get; set; }
+        /// <summary>
+        /// Valuta
+        /// </summary>
+        public string? valuta { get; set; }
     }
 }

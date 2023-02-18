@@ -12,11 +12,11 @@
         /// <summary>
         /// Ima kontakt osobe
         /// </summary>
-        public string Ime { get; set; }
+        public string? Ime { get; set; }
         /// <summary>
         /// Prezime kontakt osobe
         /// </summary>
-        public string Prezime { get; set; }
+        public string? Prezime { get; set; }
         
     }
 }

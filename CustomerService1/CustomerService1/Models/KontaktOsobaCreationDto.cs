@@ -8,18 +8,18 @@
         /// <summary>
         /// Ime kontakt osobe
         /// </summary>
-        public string Ime { get; set; }
+        public string? Ime { get; set; }
         /// <summary>
         /// Prezime kontakt osobe
         /// </summary>
-        public string Prezime { get; set; }
+        public string? Prezime { get; set; }
         /// <summary>
         /// Funkcija kontakt osobe
         /// </summary>
-        public string Funkcija { get; set; }
+        public string? Funkcija { get; set; }
         /// <summary>
         /// Telefon kontakt osobe
         /// </summary>
-        public string Telefon { get; set; }
+        public string? Telefon { get; set; }
     }
 }

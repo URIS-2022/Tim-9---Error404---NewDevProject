@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CustomerService1.Models
 {
+    /// <summary>
+    /// DTO za kreiranje kupca
+    /// </summary>
     public class KupacCreationDto : IValidatableObject
     {
         /// <summary>
@@ -12,7 +15,7 @@ namespace CustomerService1.Models
         /// <summary>
         /// Ostvarena povrsina
         /// </summary>
-        public string OstvarenaPovrsina { get; set; }
+        public string? OstvarenaPovrsina { get; set; }
         /// <summary>
         /// Da li kupac ima zabranu
         /// </summary>
@@ -24,7 +27,7 @@ namespace CustomerService1.Models
         /// <summary>
         /// Duzina zabrane kupca
         /// </summary>
-        public string DuzinaZabrane { get; set; }
+        public string? DuzinaZabrane { get; set; }
         /// <summary>
         /// Datum prestanka zabrane
         /// </summary>
@@ -40,11 +43,11 @@ namespace CustomerService1.Models
         /// <summary>
         /// Broj telefona 1 kupca
         /// </summary>
-        public string BrTel1 { get; set; }
+        public string? BrTel1 { get; set; }
         /// <summary>
         /// Broj telefona 2 kupca
         /// </summary>
-        public string BrTel2 { get; set; }
+        public string? BrTel2 { get; set; }
         /// <summary>
         /// Adresa kupca
         /// </summary>
@@ -56,11 +59,11 @@ namespace CustomerService1.Models
         /// <summary>
         /// Email kupca
         /// </summary>
-        public string Email { get; set; }
+        public string? Email { get; set; }
         /// <summary>
         /// Broj racuna kupca
         /// </summary>
-        public string BrojRacuna { get; set; }
+        public string? BrojRacuna { get; set; }
 
         /// <summary>
         /// Metoda za validaciju, proverava se da li us validno upisani datumi pocetka i kraja zabrane

@@ -2,11 +2,29 @@
 {
     public class KupacDto
     {
+        /// <summary>
+        /// Id kupca
+        /// </summary>
         public Guid KupacID { get; set; }
+        /// <summary>
+        /// Fizicko ili pravno lice
+        /// </summary>
         public bool FizPravno { get; set; }
-        public string OstvarenaPovrsina { get; set; }
-        public string BrTel1 { get; set; }
-        public string Email { get; set; }
-        public string BrojRacuna { get; set; }
+        /// <summary>
+        /// Ostvarena povrsina
+        /// </summary>
+        public string? OstvarenaPovrsina { get; set; }
+        /// <summary>
+        /// Broj telefona kupca
+        /// </summary>
+        public string? BrTel1 { get; set; }
+        /// <summary>
+        /// Email kupca
+        /// </summary>
+        public string? Email { get; set; }
+        /// <summary>
+        /// Broj racuna 
+        /// </summary>
+        public string? BrojRacuna { get; set; }
     }
 }

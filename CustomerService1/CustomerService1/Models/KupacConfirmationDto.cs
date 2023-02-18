@@ -16,19 +16,19 @@
         /// <summary>
         /// Ostvarena povrsina kupca
         /// </summary>
-        public string OstvarenaPovrsina { get; set; }
+        public string? OstvarenaPovrsina { get; set; }
         /// <summary>
         /// Broj telefona kupca
         /// </summary>
-        public string BrTel1 { get; set; }
+        public string? BrTel1 { get; set; }
         /// <summary>
         /// Email kupca
         /// </summary>
-        public string Email { get; set; }
+        public string? Email { get; set; }
         /// <summary>
         /// Broj racuna kupca
         /// </summary>
-        public string BrojRacuna { get; set; }
+        public string? BrojRacuna { get; set; }
 
         
     }

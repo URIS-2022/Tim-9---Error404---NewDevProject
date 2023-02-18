@@ -8,6 +8,6 @@
         /// <summary>
         /// Opis prioriteta
         /// </summary>
-        public string OpisPrioriteta { get; set; }
+        public string? OpisPrioriteta { get; set; }
     }
 }

@@ -5,6 +5,11 @@ namespace CustomerService1.ServiceCalls
     public class UplataService : IUplataService
     {
         public UplataService() { }
+        /// <summary>
+        /// Metoda vraca uplatu
+        /// </summary>
+        /// <param name="uplataId">Id uplate</param>
+        /// <returns>Uplata</returns>
         public Task<UplataDto> getUplata(Guid uplataId)
         {
             UplataDto uplata = new UplataDto();
