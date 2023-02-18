@@ -115,3 +115,4 @@ C:\Users\milan\Tim-9---Error404---NewDevProject\KorisnikService\KorisnikService\
 C:\Users\milan\Tim-9---Error404---NewDevProject\KorisnikService\KorisnikService\obj\Debug\net7.0\KorisnikService.csproj.CopyComplete
 C:\Users\milan\Tim-9---Error404---NewDevProject\KorisnikService\KorisnikService\obj\Debug\net7.0\KorisnikService.genruntimeconfig.cache
 C:\Users\milan\Tim-9---Error404---NewDevProject\KorisnikService\KorisnikService\obj\Debug\net7.0\ref\KorisnikService.dll
+C:\Users\milan\Tim-9---Error404---NewDevProject\KorisnikService\KorisnikService\bin\Debug\net7.0\KorisnikService.xml

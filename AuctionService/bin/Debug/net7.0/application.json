@@ -16,7 +16,7 @@
     "javnoNadmetanjeDB": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=javnoNadmetanjeDB;Integrated Security=True;Connect Timeout=30;"
   },
   "Services": {
-    "LoggerService": "http://localhost:55201/",
+    "LoggerService": "https://localhost:55201/",
     "Adresa": "http://localhost:7017/"
   }
 }

@@ -567,101 +567,35 @@
             </summary>
             
         </member>
-        <member name="P:AuctionService.DtoModels.KupacDto.kupacID">
+        <member name="P:AuctionService.DtoModels.KupacDto.KupacID">
             <summary>
             Id kupca
             </summary>
-            
         </member>
-        <member name="P:AuctionService.DtoModels.KupacDto.fizickoPravnoLice">
+        <member name="P:AuctionService.DtoModels.KupacDto.FizPravno">
             <summary>
-            Da li je kupac fizicno ili pravno lice
+            Fizicko ili pravno lice
             </summary>
-            
         </member>
-        <member name="P:AuctionService.DtoModels.KupacDto.osvarenaPovrsina">
+        <member name="P:AuctionService.DtoModels.KupacDto.OstvarenaPovrsina">
             <summary>
-            Ostvarena povrsina
+            Ostvarena povrsina kupca
             </summary>
-            
         </member>
-        <member name="P:AuctionService.DtoModels.KupacDto.zabrana">
+        <member name="P:AuctionService.DtoModels.KupacDto.BrTel1">
             <summary>
-            Da li kupac ima zabranu
+            Broj telefona kupca
             </summary>
-            
         </member>
-        <member name="P:AuctionService.DtoModels.KupacDto.pocetakZabrane">
-            <summary>
-            Period zabrane
-            </summary>
-            
-        </member>
-        <member name="P:AuctionService.DtoModels.KupacDto.duzinaZabrane">
-            <summary>
-            Duzina trajanja zabrne
-            </summary>
-            
-        </member>
-        <member name="P:AuctionService.DtoModels.KupacDto.prestanakZabrane">
-            <summary>
-            Prestanak zabrane
-            </summary>
-            
-        </member>
-        <member name="P:AuctionService.DtoModels.KupacDto.ovlascenoLiceId">
-            <summary>
-            Id ovlascenog lica
-            </summary>
-            
-        </member>
-        <member name="P:AuctionService.DtoModels.KupacDto.prioritetId">
-            <summary>
-            Id prioriteta kupca
-            </summary>
-            
-        </member>
-        <member name="P:AuctionService.DtoModels.KupacDto.lice">
-            <summary>
-            Lice
-            </summary>
-            
-        </member>
-        <member name="P:AuctionService.DtoModels.KupacDto.brTel1">
-            <summary>
-            Broj telefona
-            </summary>
-            
-        </member>
-        <member name="P:AuctionService.DtoModels.KupacDto.brTel2">
-            <summary>
-            Broj telefona
-            </summary>
-            
-        </member>
-        <member name="P:AuctionService.DtoModels.KupacDto.adresaId">
-            <summary>
-            Adresa kupca
-            </summary>
-            
-        </member>
-        <member name="P:AuctionService.DtoModels.KupacDto.uplataId">
-            <summary>
-            Id uplate kupca
-            </summary>
-            
-        </member>
-        <member name="P:AuctionService.DtoModels.KupacDto.email">
+        <member name="P:AuctionService.DtoModels.KupacDto.Email">
             <summary>
             Email kupca
             </summary>
-            
         </member>
-        <member name="P:AuctionService.DtoModels.KupacDto.brRacuna">
+        <member name="P:AuctionService.DtoModels.KupacDto.BrojRacuna">
             <summary>
             Broj racuna kupca
             </summary>
-            
         </member>
         <member name="P:AuctionService.DtoModels.LicitacijaConformationDto.licitacijaID">
             <summary>
@@ -827,39 +761,141 @@
             Greska
             </summary>
         </member>
-        <member name="P:AuctionService.DtoModels.OvlascenoLiceDto.ovlascenoLiceId">
-            <summary>
-            Id ovlascenog lica
-            </summary>
-            
-        </member>
-        <member name="P:AuctionService.DtoModels.OvlascenoLiceDto.ime">
+        <member name="P:AuctionService.DtoModels.OvlascenoLiceDto.OvlascenoLiceID">
             <summary>
             Ime ovlascenog lica
             </summary>
             
         </member>
-        <member name="P:AuctionService.DtoModels.OvlascenoLiceDto.prezime">
+        <member name="P:AuctionService.DtoModels.OvlascenoLiceDto.Ime">
             <summary>
-            Prezime ovlascenog lica
+            Ime
             </summary>
             
         </member>
-        <member name="P:AuctionService.DtoModels.OvlascenoLiceDto.licaZaKojaVrsiLicitaciju">
+        <member name="P:AuctionService.DtoModels.OvlascenoLiceDto.Prezime">
+             <summary>
+             Prezime ovlascenog lica
+             </summary>
+            
+        </member>
+        <member name="P:AuctionService.DtoModels.OvlascenoLiceDto.BrojDokumenta">
             <summary>
-            Lista lica za koje se vrsi licitacija
+            Broj dokumenta
             </summary>
             
         </member>
-        <member name="P:AuctionService.DtoModels.OvlascenoLiceDto.brojTabli">
+        <member name="P:AuctionService.DtoModels.OvlascenoLiceDto.BrojTable">
             <summary>
-            Lista broja tabli
+            Broj table ovlascenog lica
             </summary>
             
         </member>
-        <member name="P:AuctionService.DtoModels.ParcelaDto.parcelaId">
+        <member name="P:AuctionService.DtoModels.OvlascenoLiceDto.AdresaID">
+            <summary>
+            Adresa ovlascenog lica
+            </summary>
+            
+        </member>
+        <member name="P:AuctionService.DtoModels.ParcelaDto.parcelaID">
             <summary>
             Id parcele
+            </summary>
+            
+        </member>
+        <member name="P:AuctionService.DtoModels.ParcelaDto.korisnikParceleID">
+            <summary>
+            Id korisnika parcele
+            </summary>
+            
+        </member>
+        <member name="P:AuctionService.DtoModels.ParcelaDto.povrsina">
+            <summary>
+            Povrsina parcele
+            </summary>
+            
+        </member>
+        <member name="P:AuctionService.DtoModels.ParcelaDto.brojParcele">
+            <summary>
+            Broj parcele
+            </summary>
+            
+        </member>
+        <member name="P:AuctionService.DtoModels.ParcelaDto.katastarskaOpstinaID">
+            <summary>
+            Id katastarske opstine
+            </summary>
+            
+        </member>
+        <member name="P:AuctionService.DtoModels.ParcelaDto.brojListaNepokretnosti">
+            <summary>
+            Broj lista nepokretnosti
+            </summary>
+            
+        </member>
+        <member name="P:AuctionService.DtoModels.ParcelaDto.kulturaID">
+            <summary>
+            Id kulture
+            </summary>
+            
+        </member>
+        <member name="P:AuctionService.DtoModels.ParcelaDto.klasaID">
+            <summary>
+            Id klase
+            </summary>
+            
+        </member>
+        <member name="P:AuctionService.DtoModels.ParcelaDto.obradivostID">
+            <summary>
+            Id obradivosti
+            </summary>
+            
+        </member>
+        <member name="P:AuctionService.DtoModels.ParcelaDto.zasticenaZonaID">
+            <summary>
+            Id zasticene zone
+            </summary>
+            
+        </member>
+        <member name="P:AuctionService.DtoModels.ParcelaDto.oblikSvojineID">
+            <summary>
+            Id oblika svojine
+            </summary>
+            
+        </member>
+        <member name="P:AuctionService.DtoModels.ParcelaDto.odvodnjavanjeID">
+            <summary>
+            Id odvodnjavanja
+            </summary>
+            
+        </member>
+        <member name="P:AuctionService.DtoModels.ParcelaDto.obradivostStvarnoStanje">
+            <summary>
+            Stvarno stanje obradivosti
+            </summary>
+            
+        </member>
+        <member name="P:AuctionService.DtoModels.ParcelaDto.kulturaStvarnoStanje">
+            <summary>
+            Stvarno stanje kulture
+            </summary>
+            
+        </member>
+        <member name="P:AuctionService.DtoModels.ParcelaDto.klasaStvarnoStanje">
+            <summary>
+            Stvarno stanje klase
+            </summary>
+            
+        </member>
+        <member name="P:AuctionService.DtoModels.ParcelaDto.zasticenaZonaStvarnoStanje">
+            <summary>
+            Stvarno stanje zasticene zone
+            </summary>
+            
+        </member>
+        <member name="P:AuctionService.DtoModels.ParcelaDto.odvodnjavanjeStvarnoStanje">
+            <summary>
+            Stvarno stanje odvodnjavanja
             </summary>
             
         </member>

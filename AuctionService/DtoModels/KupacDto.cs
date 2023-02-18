@@ -8,99 +8,27 @@ namespace AuctionService.DtoModels
         /// <summary>
         /// Id kupca
         /// </summary>
-        /// 
-        
-		public Guid kupacID { get; set; }
-
+        public Guid KupacID { get; set; }
         /// <summary>
-        /// Da li je kupac fizicno ili pravno lice
+        /// Fizicko ili pravno lice
         /// </summary>
-        /// 
-        public bool fizickoPravnoLice { get; set; }
-
+        public bool FizPravno { get; set; }
         /// <summary>
-        /// Ostvarena povrsina
+        /// Ostvarena povrsina kupca
         /// </summary>
-        /// 
-        public string osvarenaPovrsina { get; set; }
-
+        public string OstvarenaPovrsina { get; set; }
         /// <summary>
-        /// Da li kupac ima zabranu
+        /// Broj telefona kupca
         /// </summary>
-        /// 
-		public bool zabrana { get; set; }
-
-        /// <summary>
-        /// Period zabrane
-        /// </summary>
-        /// 
-		public DateTime pocetakZabrane { get; set; }
-
-        /// <summary>
-        /// Duzina trajanja zabrne
-        /// </summary>
-        /// 
-		public int duzinaZabrane { get; set; }
-
-        /// <summary>
-        /// Prestanak zabrane
-        /// </summary>
-        /// 
-		public DateTime prestanakZabrane { get; set; }
-
-        /// <summary>
-        /// Id ovlascenog lica
-        /// </summary>
-        /// 
-		public Guid? ovlascenoLiceId { get; set; } //moze biti i null ukoliko nema nikoga da ga zastupa
-
-        /// <summary>
-        /// Id prioriteta kupca
-        /// </summary>
-        /// 
-		public Guid	prioritetId { get; set; }
-
-        /// <summary>
-        /// Lice
-        /// </summary>
-        /// 
-		public string lice { get; set; }
-
-        /// <summary>
-        /// Broj telefona
-        /// </summary>
-        /// 
-		public string brTel1 { get; set; }
-
-        /// <summary>
-        /// Broj telefona
-        /// </summary>
-        /// 
-        public string brTel2 { get; set; }
-
-        /// <summary>
-        /// Adresa kupca
-        /// </summary>
-        /// 
-		public Guid adresaId { get; set; }
-
-        /// <summary>
-        /// Id uplate kupca
-        /// </summary>
-        /// 
-		public string uplataId { get; set; }
-
+        public string BrTel1 { get; set; }
         /// <summary>
         /// Email kupca
         /// </summary>
-        /// 
-		public string email { get; set; }
-
+        public string Email { get; set; }
         /// <summary>
         /// Broj racuna kupca
         /// </summary>
-        /// 
-		public string brRacuna { get; set; }
+        public string BrojRacuna { get; set; }
     }
 }
 

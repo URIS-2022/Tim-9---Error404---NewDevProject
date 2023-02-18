@@ -16,6 +16,7 @@ namespace AuctionService.Profiles
             CreateMap<StatusJavnogNadmetanjaUpdateDto, Entities.StatusNadmetanja>();
             CreateMap<StatusNadmetanjaDto, StatusNadmetanjaConformationDto>();
             CreateMap<StatusNadmetanjaDto, Entities.StatusNadmetanja>();
+            CreateMap<Entities.StatusNadmetanja, Entities.StatusNadmetanja>();
 
         }
 	}

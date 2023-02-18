@@ -984,11 +984,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\milan\\source\\repos\\LoggerService\\LoggerService\\LoggerService.csproj",
+      "projectUniqueName": "C:\\Users\\milan\\Tim-9---Error404---NewDevProject\\LoggerService\\LoggerService.csproj",
       "projectName": "LoggerService",
-      "projectPath": "C:\\Users\\milan\\source\\repos\\LoggerService\\LoggerService\\LoggerService.csproj",
+      "projectPath": "C:\\Users\\milan\\Tim-9---Error404---NewDevProject\\LoggerService\\LoggerService.csproj",
       "packagesPath": "C:\\Users\\milan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\milan\\source\\repos\\LoggerService\\LoggerService\\obj\\",
+      "outputPath": "C:\\Users\\milan\\Tim-9---Error404---NewDevProject\\LoggerService\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\milan\\AppData\\Roaming\\NuGet\\NuGet.Config",

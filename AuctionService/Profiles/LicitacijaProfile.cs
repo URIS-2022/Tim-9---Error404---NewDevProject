@@ -16,6 +16,7 @@ namespace AuctionService.Profiles
             CreateMap<LicitacijaConformationDto, LicitacijaConformationDto>();
             CreateMap<LicitacijaCreationDto, Entities.Licitacija>();
             CreateMap<LicitacijaUpdateDto, Entities.Licitacija>();
+            CreateMap<Entities.Licitacija, Entities.Licitacija>();
         }
 	}
 }

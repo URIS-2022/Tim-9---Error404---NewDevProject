@@ -5,32 +5,40 @@ namespace AuctionService.DtoModels
 {
 	public class OvlascenoLiceDto
 	{
-        /// <summary>
-        /// Id ovlascenog lica
-        /// </summary>
-        /// 
-        
-		public Guid ovlascenoLiceId { get; set; }
+
         /// <summary>
         /// Ime ovlascenog lica
         /// </summary>
         /// 
-        public string ime { get; set; }
+        public Guid OvlascenoLiceID { get; set; }
+
+        /// <summary>
+        /// Ime
+        /// </summary>
+        /// 
+        public string Ime { get; set; }
+
         /// <summary>
         /// Prezime ovlascenog lica
         /// </summary>
-        /// 
-		public string prezime { get; set; }
+        ///
+        public string Prezime { get; set; }
+
         /// <summary>
-        /// Lista lica za koje se vrsi licitacija
+        /// Broj dokumenta
         /// </summary>
         /// 
-		public List<Guid> licaZaKojaVrsiLicitaciju { get; set; }
+        public string BrojDokumenta { get; set; }
         /// <summary>
-        /// Lista broja tabli
+        /// Broj table ovlascenog lica
         /// </summary>
         /// 
-		public List<int> brojTabli { get; set; }
-	}
+        public string BrojTable { get; set; }
+        /// <summary>
+        /// Adresa ovlascenog lica
+        /// </summary>
+        /// 
+        public Guid AdresaID { get; set; }
+    }
 }
 

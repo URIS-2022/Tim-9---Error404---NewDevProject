@@ -69,6 +69,7 @@ namespace AuctionService.Controllers
 			{
                 jn.adreasa = adresaService.getAdresa(jn.adresaID).Result;
 				jn.ovlascenoLice = ovlascenoLiceService.getOvlascenoLice(jn.ovlascenoLiceID).Result;
+				jn.najboljiPonudjac = kupacService.getKupci(jn.najboljiPonudjacID).Result;
 				foreach(Guid parcela in jn.parceleID)
 				{
 					jn.parcele.Add(parcelaService.getParcela(parcela).Result);
@@ -112,6 +113,7 @@ namespace AuctionService.Controllers
 			JavnoNadmetanjeDto jnDto = mapper.Map<JavnoNadmetanjeDto>(jn);
 			jnDto.adreasa = adresaService.getAdresa(jnDto.adresaID).Result;
 			jnDto.ovlascenoLice = ovlascenoLiceService.getOvlascenoLice(jnDto.ovlascenoLiceID).Result;
+			jnDto.najboljiPonudjac = kupacService.getKupci(jnDto.najboljiPonudjacID).Result;
 			foreach(Guid p in jnDto.parceleID)
 			{
 				jnDto.parcele.Add(parcelaService.getParcela(p).Result);

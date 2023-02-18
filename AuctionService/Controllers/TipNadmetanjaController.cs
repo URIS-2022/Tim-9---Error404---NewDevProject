@@ -199,6 +199,7 @@ namespace AuctionService.Controllers
 				//tipNadmetanjaService.SaveChanges();
 				message.information = "Tip nadmetanja je uspesno izvrsen";
 				loggerService.CreateMessage(message);
+				tipNadmetanjaRepository.SaveChanges();
                 return Created("uri",mapper.Map<TipJavnogNadmetanjaConformationDto>(idtip));
 
             }

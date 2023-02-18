@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Nyv0JZ+xamrBSzCoCCDj+DV3rZKIQU2NL0UkirNsHkOZg9P91ZfISugFKrvD8JnkiRxyX1G0oIP6pVMIOgvHtw==",
+  "dgSpecHash": "6Cj5DnNr1/9uJmscQu+DtpvK0lF4wFvufpYskE5dJ4IWmCYTlgJSwuDC7sCRd7Z1v4JzD+mjzuJMDZRmzr/bXA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\milan\\source\\repos\\LoggerService\\LoggerService\\LoggerService.csproj",
+  "projectFilePath": "C:\\Users\\milan\\Tim-9---Error404---NewDevProject\\LoggerService\\LoggerService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\milan\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.3\\microsoft.aspnetcore.openapi.7.0.3.nupkg.sha512",
     "C:\\Users\\milan\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

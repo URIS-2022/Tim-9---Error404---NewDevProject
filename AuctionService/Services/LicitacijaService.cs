@@ -22,7 +22,7 @@ namespace AuctionService.Services
         public void deleteLicitacija(Guid id)
         {
             Entities.Licitacija licitacija = getLicitacijaById(id);
-            context.licitacije.Add(licitacija);
+            context.licitacije.Remove(licitacija);
             
         }
 

@@ -16,6 +16,7 @@ namespace AuctionService.Profiles
             CreateMap<JavnoNadmetanjeConformationDto, JavnoNadmetanjeConformationDto>();
             CreateMap<JavnoNadmetanjeCreationDto, Entities.JavnoNadmetanje>();
             CreateMap<JavnoNadmetanjeUpdateDto, Entities.JavnoNadmetanje>();
+            CreateMap<Entities.JavnoNadmetanje, Entities.JavnoNadmetanje>();
         }
 	}
 }
