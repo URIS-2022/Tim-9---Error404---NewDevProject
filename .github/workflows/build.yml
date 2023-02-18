@@ -43,6 +43,16 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"URIS-2022_Tim-9---Error404---NewDevProject" /o:"uris-2022" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          dotnet publish AdresaService/AdresaService.sln -c Debug -o out
+          dotnet publish AuctionService.sln -c Debug -o out
+          dotnet publish CustomerService1/CustomerService1.sln -c Debug -o out
+          dotnet publish Dokumenti_Service.sln -c Debug -o out
+          dotnet publish KomisijaService/KomisijaService.sln -c Debug -o out
+          dotnet publish KorisnikService/KorisnikService.sln -c Debug -o out
+          dotnet publish LoggerService/LoggerService.sln -c Debug -o out
+          dotnet publish PaymentService1/PaymentService1.sln -c Debug -o out
+          dotnet publish ServiceParcela/ServiceParcela.sln -c Debug -o out
+          dotnet publish UgovorZakupService/UgovorZakupService.sln -c Debug -o out
           dotnet publish gateway/gateway.sln -c Debug -o out
           dotnet build
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
