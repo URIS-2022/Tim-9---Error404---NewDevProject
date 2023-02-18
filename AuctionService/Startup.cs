@@ -101,7 +101,7 @@ namespace AuctionService
             services.AddScoped<IUserRepository, UserService>();
             services.AddScoped<IAuthHelper, AuthHelper>();
             services.AddScoped<ILogerService, LoggerService>();
-            //services.AddScoped<IKupacService, KupacService>();
+            
 
             //konfiguracije za automaper - pogledaj ceo domen gde se izvrsava servis i trazi konfiguracije za automapper.
             //te konfiguracije su profili, za svako mapiranje ce se definisati jedan profil i reci iz tog objekta mapitaj u taj objekat na takav nacin

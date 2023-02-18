@@ -29,9 +29,6 @@
     <None Remove="Profiles\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Repositories\" />
-    <Folder Include="Service\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Profiles\" />
   </ItemGroup>
   <ItemGroup>

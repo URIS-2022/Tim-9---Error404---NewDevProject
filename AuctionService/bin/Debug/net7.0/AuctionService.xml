@@ -189,39 +189,27 @@
             <returns> Kreirani tip nadmetanja </returns>
             <response code="201">Kreiranje tipa nadmetanja je uspesno izvrseno</response>
         </member>
-        <member name="P:AuctionService.DtoModels.AdresaDto.adresaId">
+        <member name="P:AuctionService.DtoModels.AdresaDto.AdresaId">
             <summary>
             Id adrese
             </summary>
             
         </member>
-        <member name="P:AuctionService.DtoModels.AdresaDto.ulica">
+        <member name="P:AuctionService.DtoModels.AdresaDto.Ulica">
             <summary>
             Ulica
             </summary>
             
         </member>
-        <member name="P:AuctionService.DtoModels.AdresaDto.broj">
+        <member name="P:AuctionService.DtoModels.AdresaDto.Mesto">
             <summary>
             Broj ulice
             </summary>
             
         </member>
-        <member name="P:AuctionService.DtoModels.AdresaDto.mesto">
+        <member name="P:AuctionService.DtoModels.AdresaDto.PostanskiBroj">
             <summary>
             Mesto
-            </summary>
-            
-        </member>
-        <member name="P:AuctionService.DtoModels.AdresaDto.postanskiBroj">
-            <summary>
-            Postanski broj
-            </summary>
-            
-        </member>
-        <member name="P:AuctionService.DtoModels.AdresaDto.Drzava">
-            <summary>
-            Drzava
             </summary>
             
         </member>

@@ -1,35 +1,33 @@
 ﻿using System;
 using AuctionService.DtoModels;
+using Newtonsoft.Json;
 
 namespace AuctionService.ServiceCalls
 {
 	public class KupacService : IKupacService
 	{
-		public KupacService()
+        private readonly IConfiguration Configuration;
+		public KupacService(IConfiguration configuration)
 		{
+            this.Configuration = configuration;
 		}
 
-        public Task<KupacDto> getKupci(Guid kupacId)
+        public async Task<KupacDto> getKupci(Guid kupacId)
         {
-            KupacDto kupac = new KupacDto();
-            kupac.kupacID = Guid.Parse("a215e4cb-a427-40cf-88b2-8488d140a939");
-            kupac.fizickoPravnoLice = true;
-            kupac.osvarenaPovrsina = "255";
-            kupac.zabrana = true;
-            kupac.pocetakZabrane = DateTime.Parse("10-10-2022");
-            kupac.duzinaZabrane = 3;
-            kupac.prestanakZabrane = DateTime.Parse("10-10-2022");
-            kupac.ovlascenoLiceId = Guid.Parse("a215e4cb-a427-40cf-88b2-8488d140a939");
-            kupac.prioritetId = Guid.Parse("a215e4cb-a427-40cf-88b2-8488d140a939");
-            kupac.brRacuna = "99999";
-            kupac.brTel1 = "000";
-            kupac.brTel2 = "4444";
-            kupac.email = "andric@gmail.com";
-            kupac.lice = "lice";
-            kupac.adresaId = Guid.Parse("a215e4cb-a427-40cf-88b2-8488d140a939");
+            using (HttpClient client = new HttpClient())
+            {
 
-            return Task.FromResult<KupacDto>(kupac);
-        }
+                Uri url = new Uri($"{Configuration["Services:Kupac"]}api/kupac/{kupacId}");
+
+                HttpContent content = new StringContent(JsonConvert.SerializeObject(kupacId));
+                content.Headers.ContentType.MediaType = "application/json";
+
+                HttpResponseMessage response = client.GetAsync(url).Result;
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var k = JsonConvert.DeserializeObject<KupacDto>(responseContent);
+
+                return k;
+            }
     }
 }
 

@@ -17,6 +17,6 @@
   },
   "Services": {
     "LoggerService": "http://localhost:55201/",
-    "Kupac_SK": "http://localhost:44200/"
+    "Adresa": "http://localhost:7017/"
   }
 }

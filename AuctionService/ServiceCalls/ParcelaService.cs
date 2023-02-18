@@ -1,20 +1,33 @@
 ﻿using System;
 using AuctionService.DtoModels;
+using Newtonsoft.Json;
 
 namespace AuctionService.ServiceCalls
 {
 	public class ParcelaService : IParcelaService
 	{
-		public ParcelaService()
+        private readonly IConfiguration Configuration;
+		public ParcelaService(IConfiguration Configuration)
 		{
+            this.Configuration = Configuration;
 		}
 
-        public Task<ParcelaDto> getParcela(Guid parcelaId)
+        public async Task<ParcelaDto> getParcela(Guid parcelaId)
         {
-            ParcelaDto parcela = new ParcelaDto();
-            parcela.parcelaId = Guid.Parse("a215e4cb-a427-40cf-88b2-8488d140a939");
+            using (HttpClient client = new HttpClient())
+            {
 
-            return Task.FromResult<ParcelaDto>(parcela);
+                Uri url = new Uri($"{Configuration["Services:Parcela"]}api/parcele/{parcelaId}");
+
+                HttpContent content = new StringContent(JsonConvert.SerializeObject(parcelaId));
+                content.Headers.ContentType.MediaType = "application/json";
+
+                HttpResponseMessage response = client.GetAsync(url).Result;
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var k = JsonConvert.DeserializeObject<ParcelaDto>(responseContent);
+
+                return k;
+            }
         }
     }
 }

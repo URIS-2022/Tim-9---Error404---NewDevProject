@@ -19,7 +19,7 @@ using Microsoft.Extensions.Configuration;
 using System.Reflection;
 using System.IO;
 using KorisnikService.Entities;
-
+using KorisnikService.Helpers;
 
 namespace KorisnikService
 {
@@ -89,7 +89,8 @@ namespace KorisnikService
                 });
             services.AddScoped<ITipKorisnikaRepository, TipKorisnikaService>();
             services.AddScoped<IKorisnikRepository, KorisnikService.Service.KorisnikService>();
-
+            services.AddScoped<IAuthHelper, AuthHelper>();
+            services.AddScoped<IUserRepository, UserService>();
 
             services.AddSwaggerGen(setupAction =>
             {

@@ -1,26 +1,35 @@
 ﻿using System;
 using AuctionService.DtoModels;
-
+using Newtonsoft.Json;
 
 namespace AuctionService.ServiceCalls
 {
 	public class AdresaService : IAdresaService
 	{
-		public AdresaService()
-		{
-		}
+        private readonly IConfiguration Configuration;
 
-        public Task<AdresaDto> getAdresa(Guid adresaId)
+        public AdresaService(IConfiguration configuration)
         {
-            AdresaDto adresa = new AdresaDto();
-            adresa.adresaId = Guid.Parse("a215e4cb-a427-40cf-88b2-8488d140a939");
-            adresa.broj = "3";
-            adresa.Drzava = "Srbija";
-            adresa.mesto = "Priboj";
-            adresa.postanskiBroj = "31330";
-            adresa.ulica = "Radnicka 18";
+            this.Configuration = configuration;
+        }
 
-            return Task.FromResult<AdresaDto>(adresa);
+        public async Task<AdresaDto> getAdresa(Guid adresaId)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+
+                Uri url = new Uri($"{Configuration["Services:Adresa"]}api/adresa/{adresaId}");
+                Console.WriteLine(url);
+
+                HttpContent content = new StringContent(JsonConvert.SerializeObject(adresaId));
+                content.Headers.ContentType.MediaType = "application/json";
+
+                HttpResponseMessage response = client.GetAsync(url).Result;
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var a = JsonConvert.DeserializeObject<AdresaDto>(responseContent);
+
+                return a;
+            }
         }
     }
 }

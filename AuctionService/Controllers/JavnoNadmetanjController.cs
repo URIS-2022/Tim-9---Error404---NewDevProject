@@ -22,7 +22,7 @@ namespace AuctionService.Controllers
 		private readonly IOvlascenoLiceService ovlascenoLiceService;
 		private readonly IKupacService kupacService;
 		private readonly IParcelaService parcelaService;
-		private readonly ILoggerService loggerService;
+		private readonly ILogerService loggerService;
 		private readonly Message message = new Message();
 
 		public JavnoNadmetanjController(IJavnoNadmetanjeRepository javnoNadmetanjeRepository, IMapper mapper, IAdresaService adresaService, IOvlascenoLiceService ovlascenoLiceService, IKupacService kupacService, IParcelaService parcelaService, ILogerService logerService)
@@ -49,13 +49,13 @@ namespace AuctionService.Controllers
 		public ActionResult<List<JavnoNadmetanjeDto>> getAllJavnaNadmetanja()
 		{
 			message.serviceName = name;
-			message.method ="GET"
+			message.method = "GET";
 			List<Entities.JavnoNadmetanje> javnaNadmetanja = javnoNadmetanjeRepository.getJavnaNadmetanja();
 			if (javnaNadmetanja == null || javnaNadmetanja.Count == 0)
 			{
                
                 message.information = "Nema javnih nadmetanja";
-                message.error = "No content"
+				message.error = "No content";
                 loggerService.CreateMessage(message);
                 return NoContent();
             }
@@ -64,7 +64,7 @@ namespace AuctionService.Controllers
 			List<JavnoNadmetanjeDto> javnoNadmetanjeDto = mapper.Map<List<JavnoNadmetanjeDto>>(javnaNadmetanja);
 			message.information = "Lista javnih nadmetanja";
             loggerService.CreateMessage(message);
-
+			
             foreach (JavnoNadmetanjeDto jn in javnoNadmetanjeDto)
 			{
                 jn.adreasa = adresaService.getAdresa(jn.adresaID).Result;
@@ -80,7 +80,7 @@ namespace AuctionService.Controllers
 				}
 				
 			}
-			loggerService.createMessage(message);
+			loggerService.CreateMessage(message);
 			return Ok(mapper.Map<List<JavnoNadmetanjeDto>>(javnoNadmetanjeDto));
 		}
 
@@ -147,8 +147,8 @@ namespace AuctionService.Controllers
 
 				if (jn == null)
 				{
-					
-					message.error = "Not found"
+
+					message.error = "Not found";
                     loggerService.CreateMessage(message);
                     return NotFound();
                 }
@@ -234,8 +234,9 @@ namespace AuctionService.Controllers
 			}
 			catch (Exception ex)
 			{
-				return StatusCode(StatusCodes.Status500InternalServerError, "Post error");
-				message.error = "Post error";
+                message.error = "Post error";
+                return StatusCode(StatusCodes.Status500InternalServerError, "Post error");
+				
 			}
 		}
 	}

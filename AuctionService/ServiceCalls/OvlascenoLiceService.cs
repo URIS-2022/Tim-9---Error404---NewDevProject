@@ -1,23 +1,33 @@
 ﻿using System;
 using AuctionService.DtoModels;
+using Newtonsoft.Json;
 
 namespace AuctionService.ServiceCalls
 {
 	public class OvlascenoLiceService : IOvlascenoLiceService
 	{
-		public OvlascenoLiceService()
+        private readonly IConfiguration Configuration;
+		public OvlascenoLiceService(IConfiguration Configuration)
 		{
+            this.Configuration = Configuration;
 		}
 
-        public Task<OvlascenoLiceDto> getOvlascenoLice(Guid ovlascenoL)
+        public async Task<OvlascenoLiceDto> getOvlascenoLice(Guid ovlascenoLiceId)
         {
-            OvlascenoLiceDto ovlascenoLice = new OvlascenoLiceDto();
-            ovlascenoLice.ovlascenoLiceId = Guid.Parse("a215e4cb-a427-40cf-88b2-8488d140a939");
-            ovlascenoLice.ime = "Valentina";
-            ovlascenoLice.prezime = "Andric";
-            ovlascenoLice.brojTabli = new List<int> { 1, 2, 3 };
+            using (HttpClient client = new HttpClient())
+            {
 
-            return Task.FromResult<OvlascenoLiceDto>(ovlascenoLice);
+                Uri url = new Uri($"{Configuration["Services:Ovlasceno_lice"]}api/ovlascenaLica/{ovlascenoLiceId}");
+
+                HttpContent content = new StringContent(JsonConvert.SerializeObject(ovlascenoLiceId));
+                content.Headers.ContentType.MediaType = "application/json";
+
+                HttpResponseMessage response = client.GetAsync(url).Result;
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var k = JsonConvert.DeserializeObject<OvlascenoLiceDto>(responseContent);
+
+                return k;
+            }
         }
     }
 }

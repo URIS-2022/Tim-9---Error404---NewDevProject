@@ -10,32 +10,27 @@ namespace AuctionService.DtoModels
         /// </summary>
         /// 
            
-			public Guid adresaId { get; set; }
+			public Guid AdresaId { get; set; }
         /// <summary>
         /// Ulica
         /// </summary>
         /// 
-        public string ulica { get; set; }
+        public string Ulica { get; set; }
         /// <summary>
         /// Broj ulice
         /// </summary>
         /// 
-        public string broj { get; set; }
+        public string Mesto { get; set; }
         /// <summary>
         /// Mesto
         /// </summary>
         /// 
-        public string mesto { get; set; }
-        /// <summary>
-        /// Postanski broj
-        /// </summary>
-        /// 
-        public string postanskiBroj { get; set; }
+        public string PostanskiBroj { get; set; }
         /// <summary>
         /// Drzava
         /// </summary>
         /// 
-        public string Drzava { get; set; }
+  
 
 		
 	}
