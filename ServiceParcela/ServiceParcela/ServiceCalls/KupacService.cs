@@ -2,12 +2,24 @@
 
 namespace ServiceParcela.ServiceCalls
 {
+    /// <summary>
+    /// KupacService
+    /// </summary>
+    ///
     public class KupacService : IKupacService
     {
+        /// <summary>
+        /// KupacService
+        /// </summary>
+        ///
         public KupacService()
         {
         }
 
+        /// <summary>
+        /// getKupci
+        /// </summary>
+        ///
         public Task<KupacDto> getKupci(Guid kupacId)
         {
             KupacDto kupac = new KupacDto();

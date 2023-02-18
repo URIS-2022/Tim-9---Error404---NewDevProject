@@ -3,24 +3,52 @@ using ServiceParcela.Entities;
 
 namespace ServiceParcela.Repositories
 {
+    /// <summary>
+    /// IDeoParceleRepository
+    /// </summary>
+    ///
     public interface IDeoParceleRepository
     {
-        //funkcija get all deo parcele
+
+        /// <summary>
+        /// funkcija get all deo parcele
+        /// </summary>
+        ///
         List<Entities.DeoParcele> getAllDeoParcele();
 
-        //get deo parcele by id
+
+        /// <summary>
+        /// get deo parcele by id
+        /// </summary>
+        ///
         Entities.DeoParcele getDeoParceleByID(Guid id);
 
-        //create deo parcele
+
+        /// <summary>
+        /// create deo parcele
+        /// </summary>
+        ///
         DeoParceleDto postDeoParcele(Entities.DeoParcele deoParcele);
 
-        //update deo parcele
+
+        /// <summary>
+        /// update deo parcele
+        /// </summary>
+        ///
         DeoParceleDto putDeoParcele(Entities.DeoParcele deoParcele);
 
-        //delete deo parcele
+
+        /// <summary>
+        /// delete deo parcele
+        /// </summary>
+        ///
         void deleteDeoParcele(Guid id);
 
-        //save deo parcele
+
+        /// <summary>
+        /// save deo parcele
+        /// </summary>
+        ///
         bool saveChanges();
         
     }

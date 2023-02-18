@@ -1,21 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\milan\\Tim-9---Error404---NewDevProject\\ServiceParcela\\ServiceParcela\\ServiceParcela.csproj": {}
+    "C:\\Users\\Emilija\\Desktop\\Tim-9---Error404---NewDevProject\\ServiceParcela\\ServiceParcela\\ServiceParcela.csproj": {}
   },
   "projects": {
-    "C:\\Users\\milan\\Tim-9---Error404---NewDevProject\\ServiceParcela\\ServiceParcela\\ServiceParcela.csproj": {
+    "C:\\Users\\Emilija\\Desktop\\Tim-9---Error404---NewDevProject\\ServiceParcela\\ServiceParcela\\ServiceParcela.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\milan\\Tim-9---Error404---NewDevProject\\ServiceParcela\\ServiceParcela\\ServiceParcela.csproj",
+        "projectUniqueName": "C:\\Users\\Emilija\\Desktop\\Tim-9---Error404---NewDevProject\\ServiceParcela\\ServiceParcela\\ServiceParcela.csproj",
         "projectName": "ServiceParcela",
-        "projectPath": "C:\\Users\\milan\\Tim-9---Error404---NewDevProject\\ServiceParcela\\ServiceParcela\\ServiceParcela.csproj",
-        "packagesPath": "C:\\Users\\milan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\milan\\Tim-9---Error404---NewDevProject\\ServiceParcela\\ServiceParcela\\obj\\",
+        "projectPath": "C:\\Users\\Emilija\\Desktop\\Tim-9---Error404---NewDevProject\\ServiceParcela\\ServiceParcela\\ServiceParcela.csproj",
+        "packagesPath": "C:\\Users\\Emilija\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Emilija\\Desktop\\Tim-9---Error404---NewDevProject\\ServiceParcela\\ServiceParcela\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\milan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Emilija\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -162,7 +168,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

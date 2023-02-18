@@ -19,6 +19,6 @@ namespace ServiceParcela.Entities
         /// Naziv katastarske opstine
         /// </summary>
         /// 
-        public string nazivKatastarskeOpstine { get; set; }
+        public string? nazivKatastarskeOpstine { get; set; }
     }
 }

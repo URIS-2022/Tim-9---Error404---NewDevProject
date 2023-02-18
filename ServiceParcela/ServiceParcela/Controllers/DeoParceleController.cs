@@ -168,6 +168,7 @@ namespace ServiceParcela.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 return (StatusCode(StatusCodes.Status500InternalServerError, "Put error"));
             }
 

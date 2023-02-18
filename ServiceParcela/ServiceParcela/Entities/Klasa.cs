@@ -19,6 +19,6 @@ namespace ServiceParcela.Entities
         /// Naziv klase
         /// </summary>
         /// 
-        public string nazivKlase { get; set; }
+        public string? nazivKlase { get; set; }
     }
 }

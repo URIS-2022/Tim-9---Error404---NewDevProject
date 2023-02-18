@@ -19,6 +19,6 @@ namespace ServiceParcela.Entities
         /// Naziv kulture
         /// </summary>
         /// 
-        public string nazivKulture { get; set; }
+        public string? nazivKulture { get; set; }
     }
 }

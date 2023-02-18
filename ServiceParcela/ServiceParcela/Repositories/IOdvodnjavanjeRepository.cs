@@ -3,24 +3,52 @@ using ServiceParcela.Entities;
 
 namespace ServiceParcela.Repositories
 {
+    /// <summary>
+    /// IOdvodnjavanjeRepository
+    /// </summary>
+    ///
     public interface IOdvodnjavanjeRepository
     {
-        //funkcija get all odvodnjavanje
+
+        /// <summary>
+        /// funkcija get all odvodnjavanje
+        /// </summary>
+        ///
         List<Entities.Odvodnjavanje> getAllOdvodnjavanje();
 
-        //get odvodnjavanje by id
+
+        /// <summary>
+        /// get odvodnjavanje by id
+        /// </summary>
+        ///
         Entities.Odvodnjavanje getOdvodnjavanjeByID(Guid id);
 
-        //create odvodnjavanje
+
+        /// <summary>
+        /// create odvodnjavanje
+        /// </summary>
+        ///
         OdvodnjavanjeDto postOdvodnjavanje(Entities.Odvodnjavanje odvodnjavanje);
 
-        //update odvodnjavanje
+
+        /// <summary>
+        /// update odvodnjavanje
+        /// </summary>
+        ///
         OdvodnjavanjeDto putOdvodnjavanje(Entities.Odvodnjavanje odvodnjavanje);
 
-        //delete odvodnjavanje
+
+        /// <summary>
+        /// delete odvodnjavanje
+        /// </summary>
+        ///
         void deleteOdvodnjavanje(Guid id);
 
-        //save odvodnjavanje
+
+        /// <summary>
+        /// save odvodnjavanje
+        /// </summary>
+        ///
         bool saveChanges();
         
     }

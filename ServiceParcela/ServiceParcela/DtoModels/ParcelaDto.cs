@@ -25,7 +25,7 @@
         /// Broj parcele
         /// </summary>
         /// 
-        public string brojParcele { get; set; }
+        public string? brojParcele { get; set; }
         /// <summary>
         /// Id katastarske opstine
         /// </summary>
@@ -35,7 +35,7 @@
         /// Broj lista nepokretnosti
         /// </summary>
         /// 
-        public string brojListaNepokretnosti { get; set; }
+        public string? brojListaNepokretnosti { get; set; }
         /// <summary>
         /// Id kulture
         /// </summary>
@@ -70,26 +70,26 @@
         /// Stvarno stanje obradivosti
         /// </summary>
         /// 
-        public string obradivostStvarnoStanje { get; set; }
+        public string? obradivostStvarnoStanje { get; set; }
         /// <summary>
         /// Stvarno stanje kulture
         /// </summary>
         /// 
-        public string kulturaStvarnoStanje { get; set; }
+        public string? kulturaStvarnoStanje { get; set; }
         /// <summary>
         /// Stvarno stanje klase
         /// </summary>
         /// 
-        public string klasaStvarnoStanje { get; set; }
+        public string? klasaStvarnoStanje { get; set; }
         /// <summary>
         /// Stvarno stanje zasticene zone
         /// </summary>
         /// 
-        public string zasticenaZonaStvarnoStanje { get; set; }
+        public string? zasticenaZonaStvarnoStanje { get; set; }
         /// <summary>
         /// Stvarno stanje odvodnjavanja
         /// </summary>
         /// 
-        public string odvodnjavanjeStvarnoStanje { get; set; }
+        public string? odvodnjavanjeStvarnoStanje { get; set; }
     }
 }

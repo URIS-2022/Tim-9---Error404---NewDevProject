@@ -4,10 +4,22 @@ using System.Security.Cryptography;
 
 namespace ServiceParcela.Services
 {
+    /// <summary>
+    /// UserService
+    /// </summary>
+    ///
     public class UserService : IUserRepository
     {
+        /// <summary>
+        /// User
+        /// </summary>
+        ///
         public static List<User> Users { get; set; } = new List<User>();
         private readonly static int iterations = 1000;
+        /// <summary>
+        /// FillData
+        /// </summary>
+        ///
         public UserService()
         {
             FillData();
@@ -32,6 +44,10 @@ namespace ServiceParcela.Services
             });
         }
 
+        /// <summary>
+        /// checkIfUserExists
+        /// </summary>
+        ///
         public bool checkIfUserExists(string username, string password)
         {
             //Ukoliko je username jedinstveno ovo je uredu

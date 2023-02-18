@@ -3,24 +3,52 @@ using ServiceParcela.Entities;
 
 namespace ServiceParcela.Repositories
 {
+    /// <summary>
+    /// IObradivostRepository
+    /// </summary>
+    ///
     public interface IObradivostRepository
     {
-        //funkcija get all obradivost
+
+        /// <summary>
+        /// funkcija get all obradivost
+        /// </summary>
+        ///
         List<Entities.Obradivost> getAllObradivost();
 
-        //get obradivost by id
+
+        /// <summary>
+        /// get obradivost by id
+        /// </summary>
+        ///
         Entities.Obradivost getObradivostByID(Guid id);
 
-        //create obradivost
+
+        /// <summary>
+        /// create obradivost
+        /// </summary>
+        ///
         ObradivostDto postObradivost(Entities.Obradivost obradivost);
 
-        //update obradivost
+
+        /// <summary>
+        /// update obradivost
+        /// </summary>
+        ///
         ObradivostDto putObradivost(Entities.Obradivost obradivost);
 
-        //delete obradivost
+
+        /// <summary>
+        /// delete obradivost
+        /// </summary>
+        ///
         void deleteObradivost(Guid id);
 
-        //save obradivost
+
+        /// <summary>
+        /// save obradivost
+        /// </summary>
+        ///
         bool saveChanges();
     }
 }

@@ -15,6 +15,6 @@
         /// Naziv odvodnjavanja
         /// </summary>
         /// 
-        public string nazivOdvodnjavanja { get; set; }
+        public string? nazivOdvodnjavanja { get; set; }
     }
 }

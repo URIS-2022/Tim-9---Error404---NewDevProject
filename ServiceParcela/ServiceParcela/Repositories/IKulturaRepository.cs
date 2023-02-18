@@ -3,24 +3,52 @@ using ServiceParcela.Entities;
 
 namespace ServiceParcela.Repositories
 {
+    /// <summary>
+    /// IKulturaRepository
+    /// </summary>
+    ///
     public interface IKulturaRepository
     {
-        //funkcija get all kultura
+
+        /// <summary>
+        /// funkcija get all kultura
+        /// </summary>
+        ///
         List<Entities.Kultura> getAllKultura();
 
-        //get kultura by id
+
+        /// <summary>
+        /// get kultura by id
+        /// </summary>
+        ///
         Entities.Kultura getKulturaByID(Guid id);
 
-        //create kultura
+
+        /// <summary>
+        /// create kultura
+        /// </summary>
+        ///
         KulturaDto postKultura(Entities.Kultura kultura);
 
-        //update kultura
+
+        /// <summary>
+        /// update kultura
+        /// </summary>
+        ///
         KulturaDto putKultura(Entities.Kultura kultura);
 
-        //delete kultura
+
+        /// <summary>
+        /// delete kultura
+        /// </summary>
+        ///
         void deleteKultura(Guid id);
 
-        //save kultura
+
+        /// <summary>
+        /// save kultura
+        /// </summary>
+        ///
         bool saveChanges();
     }
 }

@@ -19,6 +19,6 @@ namespace ServiceParcela.Entities
         /// Naziv obradivosti
         /// </summary>
         /// 
-        public string nazivObradivosti { get; set; }
+        public string? nazivObradivosti { get; set; }
     }
 }

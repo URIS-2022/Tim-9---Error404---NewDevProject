@@ -15,6 +15,6 @@
         /// Naziv drzave
         /// </summary>
         /// 
-        public string naziv { get; set; }
+        public string? naziv { get; set; }
     }
 }

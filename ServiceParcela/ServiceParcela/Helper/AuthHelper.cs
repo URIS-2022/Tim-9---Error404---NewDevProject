@@ -8,17 +8,28 @@ using Microsoft.Extensions.Configuration;
 
 namespace ServiceParcela.Helper
 {
+    /// <summary>
+    /// AuthHelper
+    /// </summary>
+    /// 
     public class AuthHelper : IAuthHelper
     {
         private readonly IConfiguration configuration;
         private readonly IUserRepository userRepository;
 
+        /// <summary>
+        /// AuthHelper
+        /// </summary>
+        /// 
         public AuthHelper(IConfiguration configuration, IUserRepository userRepository)
         {
             this.configuration = configuration;
             this.userRepository = userRepository;
         }
-
+        /// <summary>
+        /// authenticatePrincipal
+        /// </summary>
+        /// 
         public bool authenticatePrincipal(Principal principal)
         {
             if (userRepository.checkIfUserExists(principal.Username, principal.Password))
@@ -28,7 +39,10 @@ namespace ServiceParcela.Helper
 
             return false;
         }
-
+        /// <summary>
+        /// generateJWT
+        /// </summary>
+        /// 
         public string generateJWT(Principal principal)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]));

@@ -2,23 +2,71 @@
 
 namespace ServiceParcela.Entities
 {
+    /// <summary>
+    /// ParcelaContext
+    /// </summary>
+    /// 
     public class ParcelaContex : DbContext
     {
+        /// <summary>
+        /// Context
+        /// </summary>
+        /// 
         public ParcelaContex(DbContextOptions options) : base(options)
         {
 
         }
 
+        /// <summary>
+        /// Parcela
+        /// </summary>
+        /// 
         public DbSet<Parcela> parcele { get; set; }
+        /// <summary>
+        /// Deo parcele
+        /// </summary>
+        /// 
         public DbSet<DeoParcele> deloviParcele { get; set; }
+        /// <summary>
+        /// Katastarska opstina
+        /// </summary>
+        /// 
         public DbSet<KatastarskaOpstina> katastarskeOpstine { get; set; }
+        /// <summary>
+        /// Klasa
+        /// </summary>
+        /// 
         public DbSet<Klasa> klase { get; set; }
+        /// <summary>
+        /// Kultura
+        /// </summary>
+        /// 
         public DbSet<Kultura> kulture { get; set; }
+        /// <summary>
+        /// Oblik svojine
+        /// </summary>
+        /// 
         public DbSet<OblikSvojine> obliciSvojine { get; set; }
+        /// <summary>
+        /// Obradivost
+        /// </summary>
+        /// 
         public DbSet<Obradivost> obradivosti { get; set; }
+        /// <summary>
+        /// Odvodnjavanje
+        /// </summary>
+        /// 
         public DbSet<Odvodnjavanje> odvodnjavanja { get; set; }
+        /// <summary>
+        /// Zasticena zona
+        /// </summary>
+        /// 
         public DbSet<ZasticenaZona> zasticeneZone { get; set; }
-       
+
+        /// <summary>
+        /// Podaci
+        /// </summary>
+        /// 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<DeoParcele>()

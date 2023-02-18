@@ -15,16 +15,16 @@
         /// Naziv ulice
         /// </summary>
         /// 
-        public string ulica { get; set; }
+        public string? ulica { get; set; }
         /// <summary>
         /// Naziv mesta
         /// </summary>
         /// 
-        public string mesto { get; set; }
+        public string? mesto { get; set; }
         /// <summary>
         /// Postanski broj
         /// </summary>
         /// 
-        public string postanskiBroj { get; set; }
+        public string? postanskiBroj { get; set; }
     }
 }

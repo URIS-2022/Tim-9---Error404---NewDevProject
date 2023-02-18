@@ -2,24 +2,52 @@
 
 namespace ServiceParcela.Repositories
 {
+    /// <summary>
+    /// IParcelaRepository
+    /// </summary>
+    ///
     public interface IParcelaRepository
     {
-        //funkcija get all parcela
+
+        /// <summary>
+        /// funkcija get all parcela
+        /// </summary>
+        ///
         List<Entities.Parcela> getAllParcela();
 
-        //get parcela by id
+
+        /// <summary>
+        /// get parcela by id
+        /// </summary>
+        ///
         Entities.Parcela getParcelaByID(Guid id);
 
-        //create parcela
+
+        /// <summary>
+        /// create parcela
+        /// </summary>
+        ///
         ParcelaDto postParcela(Entities.Parcela parcela);
 
-        //update parcela
+
+        /// <summary>
+        /// update parcela
+        /// </summary>
+        ///
         ParcelaDto putParcela(Entities.Parcela parcela);
 
-        //delete parcela
+
+        /// <summary>
+        /// delete parcela
+        /// </summary>
+        ///
         void deleteParcela(Guid id);
 
-        //save parcela
+
+        /// <summary>
+        /// save parcela
+        /// </summary>
+        ///
         bool saveChanges();
         
     }

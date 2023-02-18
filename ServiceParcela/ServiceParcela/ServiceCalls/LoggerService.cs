@@ -3,6 +3,10 @@ using Newtonsoft.Json;
 
 namespace ServiceParcela.ServiceCalls
 {
+    /// <summary>
+    /// LoggerService
+    /// </summary>
+    ///
     public class LoggerService : ILogerService
     {
         private readonly IConfiguration configuration;
@@ -30,8 +34,6 @@ namespace ServiceParcela.ServiceCalls
 
                 HttpContent content = new StringContent(JsonConvert.SerializeObject(message));
                 content.Headers.ContentType.MediaType = "application/json";
-
-            //    HttpResponseMessage response = client.PostAsync(url, content).Result;
 
             }
         }

@@ -33,7 +33,7 @@ namespace ServiceParcela.Entities
         /// Broj parcele
         /// </summary>
         /// 
-        public string brojParcele { get; set; }
+        public string? brojParcele { get; set; }
 
         /// <summary>
         /// Id katastarske opstine
@@ -45,7 +45,7 @@ namespace ServiceParcela.Entities
         /// Broj lista nepokretnosti
         /// </summary>
         /// 
-        public string brojListaNepokretnosti { get; set; }
+        public string? brojListaNepokretnosti { get; set; }
 
         /// <summary>
         /// Id kulture
@@ -92,37 +92,37 @@ namespace ServiceParcela.Entities
         /// Stvarno stanje obradivosti
         /// </summary>
         /// 
-        public string obradivostStvarnoStanje { get; set; }
+        public string? obradivostStvarnoStanje { get; set; }
         /// <summary>
         /// Stvarno stanje kulture
         /// </summary>
         /// 
-        public string kulturaStvarnoStanje { get; set; }
+        public string? kulturaStvarnoStanje { get; set; }
         /// <summary>
         /// Stvarno stanje klase
         /// </summary>
         /// 
-        public string klasaStvarnoStanje { get; set; }
+        public string? klasaStvarnoStanje { get; set; }
         /// <summary>
         /// Stvarno stanje zasticene zone
         /// </summary>
         /// 
-        public string zasticenaZonaStvarnoStanje { get; set; }
+        public string? zasticenaZonaStvarnoStanje { get; set; }
         /// <summary>
         /// Stvarno stanje odvodnjavanja
         /// </summary>
         /// 
-        public string odvodnjavanjeStvarnoStanje { get; set; }
+        public string? odvodnjavanjeStvarnoStanje { get; set; }
         /// <summary>
         /// Lista delova parcele
         /// </summary>
         /// 
-        public List<DeoParcele> ListaDelova;
+        public List<DeoParcele>? ListaDelova;
         /// <summary>
         /// KupacDto
         /// </summary>
         /// 
         [NotMapped]
-        public KupacDto kupac { get; set; }
+        public KupacDto? kupac { get; set; }
     }
 }

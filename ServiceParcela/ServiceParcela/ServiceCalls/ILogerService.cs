@@ -2,6 +2,10 @@
 
 namespace ServiceParcela.ServiceCalls
 {
+    /// <summary>
+    /// ILogerService
+    /// </summary>
+    ///
     public interface ILogerService
     {
         /// <summary>

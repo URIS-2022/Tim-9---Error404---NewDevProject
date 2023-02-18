@@ -3,24 +3,52 @@ using ServiceParcela.Entities;
 
 namespace ServiceParcela.Repositories
 {
+    /// <summary>
+    /// IKlasaRepository
+    /// </summary>
+    ///
     public interface IKlasaRepository
     {
-        //funkcija get all klasa
+
+        /// <summary>
+        /// funkcija get all klasa
+        /// </summary>
+        ///
         List<Entities.Klasa> getAllKlasa();
 
-        //get klasa by id
+
+        /// <summary>
+        /// get klasa by id
+        /// </summary>
+        ///
         Entities.Klasa getKlasaByID(Guid id);
 
-        //create klasa
+
+        /// <summary>
+        /// create klasa
+        /// </summary>
+        ///
         KlasaDto postKlasa(Entities.Klasa klasa);
 
-        //update klasa
+
+        /// <summary>
+        /// update klasa
+        /// </summary>
+        ///
         KlasaDto putKlasa(Entities.Klasa klasa);
 
-        //delete klasa
+
+        /// <summary>
+        /// delete klasa
+        /// </summary>
+        ///
         void deleteKlasa(Guid id);
 
-        //save klasa
+
+        /// <summary>
+        /// save klasa
+        /// </summary>
+        ///
         bool saveChanges();
     }
 }

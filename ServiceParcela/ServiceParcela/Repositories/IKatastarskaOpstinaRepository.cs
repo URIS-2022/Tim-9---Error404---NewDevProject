@@ -3,24 +3,52 @@ using ServiceParcela.Entities;
 
 namespace ServiceParcela.Repositories
 {
+    /// <summary>
+    /// IKatastarskaOpstinaRepository
+    /// </summary>
+    ///
     public interface IKatastarskaOpstinaRepository
     {
-        //funkcija get all katastarska opstina
+
+        /// <summary>
+        /// funkcija get all katastarska opstina
+        /// </summary>
+        ///
         List<Entities.KatastarskaOpstina> getAllKatastarskaOpstina();
 
-        //get katastarska opstina by id
+
+        /// <summary>
+        /// get katastarska opstina by id
+        /// </summary>
+        ///
         Entities.KatastarskaOpstina getKatastarskaOpstinaByID(Guid id);
 
-        //create katastarska opstina
+
+        /// <summary>
+        /// create katastarska opstina
+        /// </summary>
+        ///
         KatastarskaOpstinaDto postKatastarskaOpstina(Entities.KatastarskaOpstina katastarskaOpstina);
 
-        //update katastarska opstina
+
+        /// <summary>
+        /// update katastarska opstina
+        /// </summary>
+        ///
         KatastarskaOpstinaDto putKatastarskaOpstina(Entities.KatastarskaOpstina katastarskaOpstina);
 
-        //delete katastarska opstina
+
+        /// <summary>
+        /// delete katastarska opstina
+        /// </summary>
+        ///
         void deleteKatastarskaOpstina(Guid id);
 
-        //save katastarska opstina
+
+        /// <summary>
+        /// save katastarska opstina
+        /// </summary>
+        ///
         bool saveChanges();
     }
 }

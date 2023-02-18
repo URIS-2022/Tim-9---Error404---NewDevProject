@@ -15,6 +15,6 @@
         /// Naziv zasticene zone
         /// </summary>
         /// 
-        public string nazivZasticeneZone { get; set; }
+        public string? nazivZasticeneZone { get; set; }
     }
 }

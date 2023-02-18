@@ -15,6 +15,6 @@
         /// Naziv oblika svojine
         /// </summary>
         /// 
-        public string nazivOblikaSvojine { get; set; }
+        public string? nazivOblikaSvojine { get; set; }
     }
 }

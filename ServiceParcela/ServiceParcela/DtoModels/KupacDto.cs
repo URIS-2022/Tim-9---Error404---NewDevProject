@@ -22,7 +22,7 @@
         /// Ostvarena povrsina
         /// </summary>
         /// 
-        public string osvarenaPovrsina { get; set; }
+        public string? osvarenaPovrsina { get; set; }
 
         /// <summary>
         /// Postojanje zabrane kupca
@@ -64,19 +64,19 @@
         /// Naziv lica
         /// </summary>
         /// 
-        public string lice { get; set; }
+        public string? lice { get; set; }
 
         /// <summary>
         /// Prvi broj telefona kupca
         /// </summary>
         /// 
-		public string brTel1 { get; set; }
+		public string? brTel1 { get; set; }
 
         /// <summary>
         /// Drugi broj telefona kupca
         /// </summary>
         /// 
-        public string brTel2 { get; set; }
+        public string? brTel2 { get; set; }
 
         /// <summary>
         /// Id adrese
@@ -88,18 +88,18 @@
         /// Id uplate
         /// </summary>
         /// 
-		public string uplataId { get; set; }
+		public string? uplataId { get; set; }
 
         /// <summary>
         /// Email kupca
         /// </summary>
         /// 
-		public string email { get; set; }
+		public string? email { get; set; }
 
         /// <summary>
         /// Broj racuna kupca
         /// </summary>
         /// 
-		public string brRacuna { get; set; }
+		public string? brRacuna { get; set; }
     }
 }

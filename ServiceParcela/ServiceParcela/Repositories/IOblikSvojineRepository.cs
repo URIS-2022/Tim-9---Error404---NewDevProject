@@ -2,24 +2,52 @@
 
 namespace ServiceParcela.Repositories
 {
+    /// <summary>
+    /// IOblikSvojineRepository
+    /// </summary>
+    ///
     public interface IOblikSvojineRepository
     {
-        //funkcija get all oblik svojine
+
+        /// <summary>
+        /// funkcija get all oblik svojine
+        /// </summary>
+        ///
         List<Entities.OblikSvojine> getAllOblikSvojine();
 
-        //get oblik svojine by id
+
+        /// <summary>
+        /// get oblik svojine by id
+        /// </summary>
+        ///
         Entities.OblikSvojine getOblikSvojineByID(Guid id);
 
-        //create oblik svojine
+
+        /// <summary>
+        /// create oblik svojine
+        /// </summary>
+        ///
         OblikSvojineDto postOblikSvojine(Entities.OblikSvojine oblikSvojine);
 
-        //update oblik svojine
+
+        /// <summary>
+        /// update oblik svojine
+        /// </summary>
+        ///
         OblikSvojineDto putOblikSvojine(Entities.OblikSvojine oblikSvojine);
 
-        //delete oblik svojine
+
+        /// <summary>
+        /// delete oblik svojine
+        /// </summary>
+        ///
         void deleteOblikSvojine(Guid id);
 
-        //save oblik svojine
+
+        /// <summary>
+        /// save oblik svojine
+        /// </summary>
+        ///
         bool saveChanges();
     }
 }

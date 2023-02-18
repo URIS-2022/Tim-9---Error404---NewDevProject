@@ -14,14 +14,29 @@ using ServiceParcela.Helper;
 
 namespace ServiceParcela
 {
+    /// <summary>
+    /// Startup
+    /// </summary>
+    ///
     public class Startup
     {
+        /// <summary>
+        /// Configuration
+        /// </summary>
+        ///
         public IConfiguration Configuration { get; }
+        /// <summary>
+        /// Startup
+        /// </summary>
+        ///
         public Startup(IConfiguration configuration)
         {
             this.Configuration = configuration;
         }
-
+        /// <summary>
+        /// ConfigureServices
+        /// </summary>
+        ///
         public void ConfigureServices(IServiceCollection services)
         {
 
@@ -158,8 +173,12 @@ namespace ServiceParcela
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             //Dodajemo DbContext koji zelimo da koristimo
-            IServiceCollection serviceCollection = services.AddDbContextPool<ParcelaContex>(options => options.UseSqlServer(Configuration.GetConnectionString("parcelaDB")));
+            services.AddDbContextPool<ParcelaContex>(options => options.UseSqlServer(Configuration.GetConnectionString("parcelaDB")));
         }
+        /// <summary>
+        /// Configure
+        /// </summary>
+        ///
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

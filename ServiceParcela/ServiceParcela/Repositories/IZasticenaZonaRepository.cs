@@ -3,24 +3,52 @@ using ServiceParcela.Entities;
 
 namespace ServiceParcela.Repositories
 {
+    /// <summary>
+    /// IZasticenaZonaRepository
+    /// </summary>
+    ///
     public interface IZasticenaZonaRepository
     {
-        //funkcija get all zasticena zona
+
+        /// <summary>
+        /// funkcija get all zasticena zona
+        /// </summary>
+        ///
         List<Entities.ZasticenaZona> getAllZasticenaZona();
 
-        //get zasticena zona by id
+
+        /// <summary>
+        /// get zasticena zona by id
+        /// </summary>
+        ///
         Entities.ZasticenaZona getZasticenaZonaByID(Guid id);
 
-        //create zasticena zona
+
+        /// <summary>
+        /// create zasticena zona
+        /// </summary>
+        ///
         ZasticenaZonaDto postZasticenaZona(Entities.ZasticenaZona zasticenaZona);
 
-        //update zasticena zona
+
+        /// <summary>
+        /// update zasticena zona
+        /// </summary>
+        ///
         ZasticenaZonaDto putZasticenaZona(Entities.ZasticenaZona zasticenaZona);
 
-        //delete zasticena zona
+
+        /// <summary>
+        /// delete zasticena zona
+        /// </summary>
+        ///
         void deleteZasticenaZona(Guid id);
 
-        //save zasticena zona
+
+        /// <summary>
+        /// save zasticena zona
+        /// </summary>
+        ///
         bool saveChanges();
     }
 }

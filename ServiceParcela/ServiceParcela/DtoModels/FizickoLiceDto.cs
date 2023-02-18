@@ -15,37 +15,37 @@
         /// Naziv fizickog lica
         /// </summary>
         /// 
-        public string naziv { get; set; }
+        public string? naziv { get; set; }
         /// <summary>
         /// Maticni broj fizickog lica
         /// </summary>
         /// 
-        public string maticniBroj { get; set; }
+        public string? maticniBroj { get; set; }
         /// <summary>
         /// Adresa fizickog lica
         /// </summary>
         /// 
-        public AdresaDto adresa { get; set; }
+        public AdresaDto? adresa { get; set; }
         /// <summary>
         /// Prvi broj telfona fl
         /// </summary>
         /// 
-        public string brojTelefona1 { get; set; }
+        public string? brojTelefona1 { get; set; }
         /// <summary>
         /// Drugi broj telefona fl
         /// </summary>
         /// 
-        public string brojTelefona2 { get; set; }
+        public string? brojTelefona2 { get; set; }
         /// <summary>
         /// Faks fizickog lica
         /// </summary>
         /// 
-        public string faks { get; set; }
+        public string? faks { get; set; }
         /// <summary>
         /// Email fizickog lica
         /// </summary>
         /// 
-        public string email { get; set; }
+        public string? email { get; set; }
 
     }
 }

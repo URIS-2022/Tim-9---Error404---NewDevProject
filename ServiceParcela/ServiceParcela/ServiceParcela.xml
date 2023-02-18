@@ -749,6 +749,12 @@
             </summary>
             
         </member>
+        <member name="T:ServiceParcela.DtoModels.Message">
+            <summary>
+            Message
+            </summary>
+            
+        </member>
         <member name="P:ServiceParcela.DtoModels.Message.serviceName">
             <summary>
             Naziv servisa
@@ -1324,6 +1330,78 @@
             </summary>
             
         </member>
+        <member name="T:ServiceParcela.Entities.ParcelaContex">
+            <summary>
+            ParcelaContext
+            </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Entities.ParcelaContex.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions)">
+            <summary>
+            Context
+            </summary>
+            
+        </member>
+        <member name="P:ServiceParcela.Entities.ParcelaContex.parcele">
+            <summary>
+            Parcela
+            </summary>
+            
+        </member>
+        <member name="P:ServiceParcela.Entities.ParcelaContex.deloviParcele">
+            <summary>
+            Deo parcele
+            </summary>
+            
+        </member>
+        <member name="P:ServiceParcela.Entities.ParcelaContex.katastarskeOpstine">
+            <summary>
+            Katastarska opstina
+            </summary>
+            
+        </member>
+        <member name="P:ServiceParcela.Entities.ParcelaContex.klase">
+            <summary>
+            Klasa
+            </summary>
+            
+        </member>
+        <member name="P:ServiceParcela.Entities.ParcelaContex.kulture">
+            <summary>
+            Kultura
+            </summary>
+            
+        </member>
+        <member name="P:ServiceParcela.Entities.ParcelaContex.obliciSvojine">
+            <summary>
+            Oblik svojine
+            </summary>
+            
+        </member>
+        <member name="P:ServiceParcela.Entities.ParcelaContex.obradivosti">
+            <summary>
+            Obradivost
+            </summary>
+            
+        </member>
+        <member name="P:ServiceParcela.Entities.ParcelaContex.odvodnjavanja">
+            <summary>
+            Odvodnjavanje
+            </summary>
+            
+        </member>
+        <member name="P:ServiceParcela.Entities.ParcelaContex.zasticeneZone">
+            <summary>
+            Zasticena zona
+            </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Entities.ParcelaContex.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Podaci
+            </summary>
+            
+        </member>
         <member name="T:ServiceParcela.Entities.ZasticenaZona">
             <summary>
             Zasticena zona
@@ -1340,6 +1418,48 @@
             <summary>
             Naziv zasticene zone
             </summary>
+            
+        </member>
+        <member name="T:ServiceParcela.Helper.AuthHelper">
+            <summary>
+            AuthHelper
+            </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Helper.AuthHelper.#ctor(Microsoft.Extensions.Configuration.IConfiguration,ServiceParcela.Repositories.IUserRepository)">
+            <summary>
+            AuthHelper
+            </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Helper.AuthHelper.authenticatePrincipal(ServiceParcela.DtoModels.Principal)">
+            <summary>
+            authenticatePrincipal
+            </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Helper.AuthHelper.generateJWT(ServiceParcela.DtoModels.Principal)">
+            <summary>
+            generateJWT
+            </summary>
+            
+        </member>
+        <member name="T:ServiceParcela.Helper.IAuthHelper">
+             <summary>
+             AuthHelper
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Helper.IAuthHelper.authenticatePrincipal(ServiceParcela.DtoModels.Principal)">
+             <summary>
+             authenticatePrincipal
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Helper.IAuthHelper.generateJWT(ServiceParcela.DtoModels.Principal)">
+             <summary>
+             generateJWT
+             </summary>
             
         </member>
         <member name="T:ServiceParcela.Migrations.ParcelaContextMigration">
@@ -1462,11 +1582,467 @@
             </summary>
             
         </member>
+        <member name="T:ServiceParcela.Program">
+             <summary>
+             Program
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Program.#ctor">
+             <summary>
+             Program
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Program.Main(System.String[])">
+             <summary>
+             Main
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Program.CreateHostBuilder(System.String[])">
+             <summary>
+             CreateHostBuilder
+             </summary>
+            
+        </member>
+        <member name="T:ServiceParcela.Repositories.IDeoParceleRepository">
+             <summary>
+             IDeoParceleRepository
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IDeoParceleRepository.getAllDeoParcele">
+             <summary>
+             funkcija get all deo parcele
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IDeoParceleRepository.getDeoParceleByID(System.Guid)">
+             <summary>
+             get deo parcele by id
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IDeoParceleRepository.postDeoParcele(ServiceParcela.Entities.DeoParcele)">
+             <summary>
+             create deo parcele
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IDeoParceleRepository.putDeoParcele(ServiceParcela.Entities.DeoParcele)">
+             <summary>
+             update deo parcele
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IDeoParceleRepository.deleteDeoParcele(System.Guid)">
+             <summary>
+             delete deo parcele
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IDeoParceleRepository.saveChanges">
+             <summary>
+             save deo parcele
+             </summary>
+            
+        </member>
+        <member name="T:ServiceParcela.Repositories.IKatastarskaOpstinaRepository">
+             <summary>
+             IKatastarskaOpstinaRepository
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IKatastarskaOpstinaRepository.getAllKatastarskaOpstina">
+             <summary>
+             funkcija get all katastarska opstina
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IKatastarskaOpstinaRepository.getKatastarskaOpstinaByID(System.Guid)">
+             <summary>
+             get katastarska opstina by id
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IKatastarskaOpstinaRepository.postKatastarskaOpstina(ServiceParcela.Entities.KatastarskaOpstina)">
+             <summary>
+             create katastarska opstina
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IKatastarskaOpstinaRepository.putKatastarskaOpstina(ServiceParcela.Entities.KatastarskaOpstina)">
+             <summary>
+             update katastarska opstina
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IKatastarskaOpstinaRepository.deleteKatastarskaOpstina(System.Guid)">
+             <summary>
+             delete katastarska opstina
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IKatastarskaOpstinaRepository.saveChanges">
+             <summary>
+             save katastarska opstina
+             </summary>
+            
+        </member>
+        <member name="T:ServiceParcela.Repositories.IKlasaRepository">
+             <summary>
+             IKlasaRepository
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IKlasaRepository.getAllKlasa">
+             <summary>
+             funkcija get all klasa
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IKlasaRepository.getKlasaByID(System.Guid)">
+             <summary>
+             get klasa by id
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IKlasaRepository.postKlasa(ServiceParcela.Entities.Klasa)">
+             <summary>
+             create klasa
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IKlasaRepository.putKlasa(ServiceParcela.Entities.Klasa)">
+             <summary>
+             update klasa
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IKlasaRepository.deleteKlasa(System.Guid)">
+             <summary>
+             delete klasa
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IKlasaRepository.saveChanges">
+             <summary>
+             save klasa
+             </summary>
+            
+        </member>
+        <member name="T:ServiceParcela.Repositories.IKulturaRepository">
+             <summary>
+             IKulturaRepository
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IKulturaRepository.getAllKultura">
+             <summary>
+             funkcija get all kultura
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IKulturaRepository.getKulturaByID(System.Guid)">
+             <summary>
+             get kultura by id
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IKulturaRepository.postKultura(ServiceParcela.Entities.Kultura)">
+             <summary>
+             create kultura
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IKulturaRepository.putKultura(ServiceParcela.Entities.Kultura)">
+             <summary>
+             update kultura
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IKulturaRepository.deleteKultura(System.Guid)">
+             <summary>
+             delete kultura
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IKulturaRepository.saveChanges">
+             <summary>
+             save kultura
+             </summary>
+            
+        </member>
+        <member name="T:ServiceParcela.Repositories.IOblikSvojineRepository">
+             <summary>
+             IOblikSvojineRepository
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IOblikSvojineRepository.getAllOblikSvojine">
+             <summary>
+             funkcija get all oblik svojine
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IOblikSvojineRepository.getOblikSvojineByID(System.Guid)">
+             <summary>
+             get oblik svojine by id
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IOblikSvojineRepository.postOblikSvojine(ServiceParcela.Entities.OblikSvojine)">
+             <summary>
+             create oblik svojine
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IOblikSvojineRepository.putOblikSvojine(ServiceParcela.Entities.OblikSvojine)">
+             <summary>
+             update oblik svojine
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IOblikSvojineRepository.deleteOblikSvojine(System.Guid)">
+             <summary>
+             delete oblik svojine
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IOblikSvojineRepository.saveChanges">
+             <summary>
+             save oblik svojine
+             </summary>
+            
+        </member>
+        <member name="T:ServiceParcela.Repositories.IObradivostRepository">
+             <summary>
+             IObradivostRepository
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IObradivostRepository.getAllObradivost">
+             <summary>
+             funkcija get all obradivost
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IObradivostRepository.getObradivostByID(System.Guid)">
+             <summary>
+             get obradivost by id
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IObradivostRepository.postObradivost(ServiceParcela.Entities.Obradivost)">
+             <summary>
+             create obradivost
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IObradivostRepository.putObradivost(ServiceParcela.Entities.Obradivost)">
+             <summary>
+             update obradivost
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IObradivostRepository.deleteObradivost(System.Guid)">
+             <summary>
+             delete obradivost
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IObradivostRepository.saveChanges">
+             <summary>
+             save obradivost
+             </summary>
+            
+        </member>
+        <member name="T:ServiceParcela.Repositories.IOdvodnjavanjeRepository">
+             <summary>
+             IOdvodnjavanjeRepository
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IOdvodnjavanjeRepository.getAllOdvodnjavanje">
+             <summary>
+             funkcija get all odvodnjavanje
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IOdvodnjavanjeRepository.getOdvodnjavanjeByID(System.Guid)">
+             <summary>
+             get odvodnjavanje by id
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IOdvodnjavanjeRepository.postOdvodnjavanje(ServiceParcela.Entities.Odvodnjavanje)">
+             <summary>
+             create odvodnjavanje
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IOdvodnjavanjeRepository.putOdvodnjavanje(ServiceParcela.Entities.Odvodnjavanje)">
+             <summary>
+             update odvodnjavanje
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IOdvodnjavanjeRepository.deleteOdvodnjavanje(System.Guid)">
+             <summary>
+             delete odvodnjavanje
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IOdvodnjavanjeRepository.saveChanges">
+             <summary>
+             save odvodnjavanje
+             </summary>
+            
+        </member>
+        <member name="T:ServiceParcela.Repositories.IParcelaRepository">
+             <summary>
+             IParcelaRepository
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IParcelaRepository.getAllParcela">
+             <summary>
+             funkcija get all parcela
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IParcelaRepository.getParcelaByID(System.Guid)">
+             <summary>
+             get parcela by id
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IParcelaRepository.postParcela(ServiceParcela.Entities.Parcela)">
+             <summary>
+             create parcela
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IParcelaRepository.putParcela(ServiceParcela.Entities.Parcela)">
+             <summary>
+             update parcela
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IParcelaRepository.deleteParcela(System.Guid)">
+             <summary>
+             delete parcela
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IParcelaRepository.saveChanges">
+             <summary>
+             save parcela
+             </summary>
+            
+        </member>
+        <member name="T:ServiceParcela.Repositories.IUserRepository">
+             <summary>
+             IUserRepository
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IUserRepository.checkIfUserExists(System.String,System.String)">
+             <summary>
+             checkIfUserExists
+             </summary>
+            
+        </member>
+        <member name="T:ServiceParcela.Repositories.IZasticenaZonaRepository">
+             <summary>
+             IZasticenaZonaRepository
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IZasticenaZonaRepository.getAllZasticenaZona">
+             <summary>
+             funkcija get all zasticena zona
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IZasticenaZonaRepository.getZasticenaZonaByID(System.Guid)">
+             <summary>
+             get zasticena zona by id
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IZasticenaZonaRepository.postZasticenaZona(ServiceParcela.Entities.ZasticenaZona)">
+             <summary>
+             create zasticena zona
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IZasticenaZonaRepository.putZasticenaZona(ServiceParcela.Entities.ZasticenaZona)">
+             <summary>
+             update zasticena zona
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IZasticenaZonaRepository.deleteZasticenaZona(System.Guid)">
+             <summary>
+             delete zasticena zona
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Repositories.IZasticenaZonaRepository.saveChanges">
+             <summary>
+             save zasticena zona
+             </summary>
+            
+        </member>
+        <member name="T:ServiceParcela.ServiceCalls.IKupacService">
+             <summary>
+             IKupacService
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.ServiceCalls.IKupacService.getKupci(System.Guid)">
+             <summary>
+             authenticatePrincipal
+             </summary>
+            
+        </member>
+        <member name="T:ServiceParcela.ServiceCalls.ILogerService">
+             <summary>
+             ILogerService
+             </summary>
+            
+        </member>
         <member name="M:ServiceParcela.ServiceCalls.ILogerService.CreateMessage(ServiceParcela.DtoModels.Message)">
             <summary>
             Metoda za kreiranje poruke logeru
             </summary>
             <param name="message"></param>
+        </member>
+        <member name="T:ServiceParcela.ServiceCalls.KupacService">
+             <summary>
+             KupacService
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.ServiceCalls.KupacService.#ctor">
+             <summary>
+             KupacService
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.ServiceCalls.KupacService.getKupci(System.Guid)">
+             <summary>
+             getKupci
+             </summary>
+            
+        </member>
+        <member name="T:ServiceParcela.ServiceCalls.LoggerService">
+             <summary>
+             LoggerService
+             </summary>
+            
         </member>
         <member name="M:ServiceParcela.ServiceCalls.LoggerService.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
@@ -1479,6 +2055,462 @@
             Kreiranje poruke - metoda
             </summary>
             <param name="message"></param>
+        </member>
+        <member name="T:ServiceParcela.Services.DeoParceleService">
+             <summary>
+             DeoParceleService
+             </summary>
+            
+        </member>
+        <member name="P:ServiceParcela.Services.DeoParceleService.deoParceles">
+             <summary>
+             DeoParceleService
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.DeoParceleService.#ctor(AutoMapper.IMapper,ServiceParcela.Entities.ParcelaContex)">
+             <summary>
+             DeoParceleService
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.DeoParceleService.deleteDeoParcele(System.Guid)">
+             <summary>
+             deleteDeoParcele
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.DeoParceleService.getAllDeoParcele">
+             <summary>
+             getAllDeoParcele
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.DeoParceleService.getDeoParceleByID(System.Guid)">
+             <summary>
+             getDeoParceleByID
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.DeoParceleService.postDeoParcele(ServiceParcela.Entities.DeoParcele)">
+             <summary>
+             postDeoParcele
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.DeoParceleService.saveChanges">
+             <summary>
+             saveChanges
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.DeoParceleService.putDeoParcele(ServiceParcela.Entities.DeoParcele)">
+             <summary>
+             putDeoParcele
+             </summary>
+            
+        </member>
+        <member name="T:ServiceParcela.Services.KatastarskaOpstinaService">
+             <summary>
+             KatastarskaOpstinaService
+             </summary>
+            
+        </member>
+        <member name="P:ServiceParcela.Services.KatastarskaOpstinaService.katastarskaOpstinas">
+             <summary>
+             KatastarskaOpstinaService
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.KatastarskaOpstinaService.#ctor(AutoMapper.IMapper,ServiceParcela.Entities.ParcelaContex)">
+             <summary>
+             KatastarskaOpstinaService
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.KatastarskaOpstinaService.deleteKatastarskaOpstina(System.Guid)">
+             <summary>
+             deleteKatastarskaOpstina
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.KatastarskaOpstinaService.getAllKatastarskaOpstina">
+             <summary>
+             getAllKatastarskaOpstina
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.KatastarskaOpstinaService.getKatastarskaOpstinaByID(System.Guid)">
+             <summary>
+             getKatastarskaOpstinaByID
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.KatastarskaOpstinaService.postKatastarskaOpstina(ServiceParcela.Entities.KatastarskaOpstina)">
+             <summary>
+             postKatastarskaOpstina
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.KatastarskaOpstinaService.saveChanges">
+             <summary>
+             saveChanges
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.KatastarskaOpstinaService.putKatastarskaOpstina(ServiceParcela.Entities.KatastarskaOpstina)">
+             <summary>
+             putKatastarskaOpstina
+             </summary>
+            
+        </member>
+        <member name="T:ServiceParcela.Services.KlasaService">
+             <summary>
+             KlasaService
+             </summary>
+            
+        </member>
+        <member name="P:ServiceParcela.Services.KlasaService.klasas">
+             <summary>
+             KlasaService
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.KlasaService.#ctor(AutoMapper.IMapper,ServiceParcela.Entities.ParcelaContex)">
+             <summary>
+             KlasaService
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.KlasaService.deleteKlasa(System.Guid)">
+             <summary>
+             deleteKlasa
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.KlasaService.getAllKlasa">
+             <summary>
+             getAllKlasa
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.KlasaService.getKlasaByID(System.Guid)">
+             <summary>
+             getKlasaByID
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.KlasaService.postKlasa(ServiceParcela.Entities.Klasa)">
+             <summary>
+             postKlasa
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.KlasaService.saveChanges">
+             <summary>
+             saveChanges
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.KlasaService.putKlasa(ServiceParcela.Entities.Klasa)">
+             <summary>
+             putKlasa
+             </summary>
+            
+        </member>
+        <member name="T:ServiceParcela.Services.KulturaService">
+             <summary>
+             KulturaService
+             </summary>
+            
+        </member>
+        <member name="P:ServiceParcela.Services.KulturaService.kulturas">
+             <summary>
+             KulturaService
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.KulturaService.#ctor(AutoMapper.IMapper,ServiceParcela.Entities.ParcelaContex)">
+             <summary>
+             KulturaService
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.KulturaService.deleteKultura(System.Guid)">
+            <summary>
+            deleteKultura
+            </summary>
+                 
+        </member>
+        <member name="M:ServiceParcela.Services.KulturaService.getAllKultura">
+             <summary>
+             getAllKultura
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.KulturaService.getKulturaByID(System.Guid)">
+             <summary>
+             getKulturaByID
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.KulturaService.postKultura(ServiceParcela.Entities.Kultura)">
+             <summary>
+             postKultura
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.KulturaService.saveChanges">
+             <summary>
+             saveChanges
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.KulturaService.putKultura(ServiceParcela.Entities.Kultura)">
+             <summary>
+             putKultura
+             </summary>
+            
+        </member>
+        <member name="T:ServiceParcela.Services.OblikSvojineService">
+             <summary>
+             OblikSvojineService
+             </summary>
+            
+        </member>
+        <member name="P:ServiceParcela.Services.OblikSvojineService.oblikSvojines">
+             <summary>
+             OblikSvojineService
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.OblikSvojineService.#ctor(AutoMapper.IMapper,ServiceParcela.Entities.ParcelaContex)">
+             <summary>
+             OblikSvojineService
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.OblikSvojineService.deleteOblikSvojine(System.Guid)">
+             <summary>
+             deleteOblikSvojine
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.OblikSvojineService.getAllOblikSvojine">
+             <summary>
+             getAllOblikSvojine
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.OblikSvojineService.getOblikSvojineByID(System.Guid)">
+             <summary>
+             getOblikSvojineByID
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.OblikSvojineService.postOblikSvojine(ServiceParcela.Entities.OblikSvojine)">
+             <summary>
+             postOblikSvojine
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.OblikSvojineService.saveChanges">
+             <summary>
+             saveChanges
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.OblikSvojineService.putOblikSvojine(ServiceParcela.Entities.OblikSvojine)">
+             <summary>
+             putOblikSvojine
+             </summary>
+            
+        </member>
+        <member name="T:ServiceParcela.Services.ObradivostService">
+             <summary>
+             ObradivostService
+             </summary>
+            
+        </member>
+        <member name="P:ServiceParcela.Services.ObradivostService.obradivosts">
+             <summary>
+             ObradivostService
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.ObradivostService.#ctor(AutoMapper.IMapper,ServiceParcela.Entities.ParcelaContex)">
+             <summary>
+             ObradivostService
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.ObradivostService.deleteObradivost(System.Guid)">
+             <summary>
+             deleteObradivost
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.ObradivostService.getAllObradivost">
+             <summary>
+             getAllObradivost
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.ObradivostService.getObradivostByID(System.Guid)">
+             <summary>
+             getObradivostByID
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.ObradivostService.postObradivost(ServiceParcela.Entities.Obradivost)">
+             <summary>
+             postObradivost
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.ObradivostService.saveChanges">
+             <summary>
+             saveChanges
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.ObradivostService.putObradivost(ServiceParcela.Entities.Obradivost)">
+             <summary>
+             putObradivost
+             </summary>
+            
+        </member>
+        <member name="T:ServiceParcela.Services.OdvodnjavanjeService">
+             <summary>
+             OdvodnjavanjeService
+             </summary>
+            
+        </member>
+        <member name="P:ServiceParcela.Services.OdvodnjavanjeService.odvodnjavanjes">
+             <summary>
+             OdvodnjavanjeService
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.OdvodnjavanjeService.#ctor(AutoMapper.IMapper,ServiceParcela.Entities.ParcelaContex)">
+             <summary>
+             OdvodnjavanjeService
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.OdvodnjavanjeService.deleteOdvodnjavanje(System.Guid)">
+             <summary>
+             deleteOdvodnjavanje
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.OdvodnjavanjeService.getAllOdvodnjavanje">
+             <summary>
+             getAllOdvodnjavanje
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.OdvodnjavanjeService.getOdvodnjavanjeByID(System.Guid)">
+             <summary>
+             getOdvodnjavanjeByID
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.OdvodnjavanjeService.postOdvodnjavanje(ServiceParcela.Entities.Odvodnjavanje)">
+             <summary>
+             postOdvodnjavanje
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.OdvodnjavanjeService.saveChanges">
+             <summary>
+             saveChanges
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.OdvodnjavanjeService.putOdvodnjavanje(ServiceParcela.Entities.Odvodnjavanje)">
+             <summary>
+             putOdvodnjavanje
+             </summary>
+            
+        </member>
+        <member name="T:ServiceParcela.Services.ParcelaService">
+             <summary>
+             ParcelaService
+             </summary>
+            
+        </member>
+        <member name="P:ServiceParcela.Services.ParcelaService.parcelas">
+             <summary>
+             ParcelaService
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.ParcelaService.#ctor(AutoMapper.IMapper,ServiceParcela.Entities.ParcelaContex)">
+             <summary>
+             ParcelaService
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.ParcelaService.deleteParcela(System.Guid)">
+             <summary>
+             deleteParcela
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.ParcelaService.getAllParcela">
+             <summary>
+             getAllParcela
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.ParcelaService.getParcelaByID(System.Guid)">
+             <summary>
+             getParcelaByID
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.ParcelaService.postParcela(ServiceParcela.Entities.Parcela)">
+             <summary>
+             postParcela
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.ParcelaService.saveChanges">
+             <summary>
+             saveChanges
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.ParcelaService.putParcela(ServiceParcela.Entities.Parcela)">
+             <summary>
+             putParcela
+             </summary>
+            
+        </member>
+        <member name="T:ServiceParcela.Services.UserService">
+             <summary>
+             UserService
+             </summary>
+            
+        </member>
+        <member name="P:ServiceParcela.Services.UserService.Users">
+             <summary>
+             User
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.UserService.#ctor">
+             <summary>
+             FillData
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.UserService.checkIfUserExists(System.String,System.String)">
+             <summary>
+             checkIfUserExists
+             </summary>
+            
         </member>
         <member name="M:ServiceParcela.Services.UserService.HashPassword(System.String)">
             <summary>
@@ -1495,6 +2527,90 @@
             <param name="savedHash">Sacuvan hash</param>
             <param name="savedSalt">Sacuvan salt</param>
             <returns></returns>
+        </member>
+        <member name="T:ServiceParcela.Services.ZasticenaZonaService">
+             <summary>
+             ZasticenaZonaService
+             </summary>
+            
+        </member>
+        <member name="P:ServiceParcela.Services.ZasticenaZonaService.zasticenaZonas">
+             <summary>
+             ZasticenaZonaService
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.ZasticenaZonaService.#ctor(AutoMapper.IMapper,ServiceParcela.Entities.ParcelaContex)">
+             <summary>
+             ZasticenaZonaService
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.ZasticenaZonaService.deleteZasticenaZona(System.Guid)">
+             <summary>
+             deleteZasticenaZona
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.ZasticenaZonaService.getAllZasticenaZona">
+             <summary>
+             getAllZasticenaZona
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.ZasticenaZonaService.getZasticenaZonaByID(System.Guid)">
+             <summary>
+             getZasticenaZonaByID
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.ZasticenaZonaService.postZasticenaZona(ServiceParcela.Entities.ZasticenaZona)">
+             <summary>
+             postZasticenaZona
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.ZasticenaZonaService.saveChanges">
+             <summary>
+             saveChanges
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Services.ZasticenaZonaService.putZasticenaZona(ServiceParcela.Entities.ZasticenaZona)">
+             <summary>
+             putZasticenaZona
+             </summary>
+            
+        </member>
+        <member name="T:ServiceParcela.Startup">
+             <summary>
+             Startup
+             </summary>
+            
+        </member>
+        <member name="P:ServiceParcela.Startup.Configuration">
+             <summary>
+             Configuration
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+             <summary>
+             Startup
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+             <summary>
+             ConfigureServices
+             </summary>
+            
+        </member>
+        <member name="M:ServiceParcela.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+             <summary>
+             Configure
+             </summary>
+            
         </member>
     </members>
 </doc>
