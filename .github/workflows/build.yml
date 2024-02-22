@@ -40,7 +40,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        shell: powershell
+        shell: powershell 
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"URIS-2022_Tim-9---Error404---NewDevProject" /o:"uris-2022" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           dotnet publish AdresaService/AdresaService.sln -c Debug -o out
